@@ -336,7 +336,7 @@ int main(void)
 
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
 
-		while(update!=OFF); // espero que aya terminado de enviar los datos
+		Neopixel_Wait();
 		efect_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
 
 		read_touch_ADC();
@@ -352,7 +352,7 @@ int main(void)
 			 Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, ON );
 		}
 
-		update=ON;   //actualiza TIRA LEDS
+		Neopixel_Update();   //actualiza TIRA LEDS
 
 		delayInaccurateMs(delay_time); //retardo bloqueante 22ms, opcional
 	}// end WHILE(TRUE)

@@ -92,3 +92,10 @@ void asignColor_fade(uint8_t number_pixel, struct color c1, struct color c2, flo
 	}
 }
 
+void Neopixel_Update() {
+    update=ON;
+}
+
+void Neopixel_Wait() {
+    while(update!=OFF); // espero que aya terminado de enviar los datos
+}

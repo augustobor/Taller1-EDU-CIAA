@@ -15,3 +15,5 @@ void SysTick_Handler(void);
 void asignColor(uint8_t ,struct color ,float);
 void mirror(uint8_t);
 void asignColor_fade(uint8_t, struct color, struct color, float);
+void Neopixel_Wait();
+void Neopixel_Update();
