@@ -66,7 +66,7 @@ void Neopixel_Init(){
 
 // le asigna el color "c", al "number_pixel", escalado en "level"
 // numer_pixel entre "0" a "PIXEL_LENGTH-1"
-void asignColor(uint8_t numer_pixel,struct color c,float level) {
+void setColor_i(uint8_t numer_pixel,struct color c,float level) {
     datachain[numer_pixel*3]  = c.g*level;
     datachain[numer_pixel*3+1]= c.r*level;
     datachain[numer_pixel*3+2]= c.b*level;
@@ -90,15 +90,22 @@ struct color getColor(uint8_t number_pixel){
 // copia el color del pixel, a su relativo en la parte superior de la tira
 // number_pixel >0 && number_pixel < (PIXELS_LENGTH-1)/2
 void mirror(uint8_t number_pixel) {
-	datachain[((PIXELS_LENGTH)-number_pixel)*3] 	= datachain[number_pixel*3];
+	datachain[((PIXELS_LENGTH)-number_pixel)*3]   = datachain[number_pixel*3];
 	datachain[((PIXELS_LENGTH)-number_pixel)*3+1] = datachain[number_pixel*3+1];
 	datachain[((PIXELS_LENGTH)-number_pixel)*3+2] = datachain[number_pixel*3+2];
+}
+
+// copia espejada de los colores de la tira led, respecto a PIXELS_LENGTH/2
+void mirror(){
+	for(uint8_t i=0 ; i<(PIXELS_LENGTH-1)/2 ; i++){
+		mirror(i);
+	}
 }
 
 // asigna un color mesclando c1 y c2 en la pisicion indicada
 // proporcion va entre 0 y 1, indica que tanto de c1 sera tomado en cuenta para el color final
 // el color asignado es proporcion complementaria (porcentaje C1 + porcentaje C2 = 100% )
-void asignColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float proportion) {
+void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float proportion) {
 	if(proportion>1){ // limito para mas del 100%
 	  datachain[number_pixel*3]  = c1.g;
 	  datachain[number_pixel*3+1]= c1.r;
