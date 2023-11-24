@@ -40,6 +40,7 @@
 #include "app.h"
 #include "board.h"
 #include "arm_math.h"
+#include "Neopixel.h"
 
 /*==================[macros and definitions]=================================*/
 
@@ -56,29 +57,6 @@
    #define MAX_VALUE 160      // valor maximo que puede tener un color, sin sobrecargar la bateria
 //**********************************************************
 
-
-
-
-
-
-
-// ************ INIT del sistema ********
-   static void initHardware(void) {
-      Board_Init();
-      SystemCoreClockUpdate();
-      // SysTick_Config(SystemCoreClock / 1000);
-      SysTick_Config(255); //Generacion de interrupciones periodicas casa 1250ns
-   }
-
-// ************ INIT mascaras Neopixel ********
-   // Pre-calcula las mascaras de bits para la extraccion de todos los "bit" en tiempo constante
-   void init_mask_bit(){
-      for (int bit = 7; bit >=0 ; bit--) {
-         bit_mask[ 7-bit ] = 1 << bit; // ordena las mascaras de mayor a menor
-      }
-   }
-
-//***************************************
 
 
 // ************** Variables glovales de los Efectos Neopixel *******
@@ -313,7 +291,9 @@ int main(void)
 {
    uint32_t state=OFF;
 
-	initHardware();
+   Board_Init();
+   Neopixel_Init();
+
    // Configuro LED1 = pin P2_10 = GPIO0[14]
    Chip_SCU_PinMux( 2, 10, SCU_MODE_INACT, SCU_MODE_FUNC0 );
    // Configuro RXD1 = pin P0_0 = GPIO0[0]
@@ -327,8 +307,6 @@ int main(void)
    // Pongo en estado bajo el GPIO0[14]
    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
-   // pre-calcula las mascaras de bit, para tardar siempre el mismo tiempo en alcanzar cualquier bit
-   init_mask_bit();
 
    init_touch_ADC();
 
@@ -336,7 +314,7 @@ int main(void)
 
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
 
-		Neopixel_Wait();
+		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
 		efect_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
 
 		read_touch_ADC();

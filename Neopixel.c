@@ -1,5 +1,7 @@
 #include "Neopixel.h"
 
+#define ON       1
+#define OFF      0
 
 // ************** Parametros de la tira led *****************
 static uint32_t PIXEL_BITS_LENGTH = PIXELS_LENGTH*24; // cantidad de bits para administrar la tira led
@@ -7,20 +9,17 @@ static uint32_t PIXEL_BITS_LENGTH = PIXELS_LENGTH*24; // cantidad de bits para a
 
 
 // ************** Variables de la libreria Neopixel *********
-      // habilita la actualizacion cuando es !=0
-static volatile uint32_t bit_index=0;  // variable global bit recorrido
+
+static volatile uint32_t bit_index=0;// variable global bit recorrido
 static volatile uint32_t ret;        // variable auxiliar para contabilizar los retardos
 static volatile uint8_t bit_mask[8]; // Mascaras precalculadas para extraccion de los bits
 static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
-volatile uint32_t update=0;  
-
+static volatile uint32_t update=0;    // habilita la actualizacion cuando es !=0
 
 
 // *********** Parametros internos para generar la onda de datos de la tira led
    static volatile uint8_t WAITSHORT = 2;  // 3 // parametro para el retardo corto
    static volatile uint8_t WAITLONG = 7;   //4 // parametros para el retardo largo
-
-
 //***********************
 
 
@@ -32,7 +31,7 @@ void SysTick_Handler(void) {
         for( ret=WAITSHORT; ret>0; ret-- ); // delay "300ns"
 
         if( datachain[bit_index / 8] & bit_mask[bit_index % 8] ){ //si el bit analizado es 1
-        for( ret=WAITLONG; ret>0; ret-- ); // delay "500ns"
+        	for( ret=WAITLONG; ret>0; ret-- ); // delay "500ns"
         }
 
         LPC_GPIO_PORT->CLR[0] = (1 <<0);  // Pin(Low)
@@ -43,8 +42,26 @@ void SysTick_Handler(void) {
         }
     }
 }
+//***************************************
+
+// ************ INIT mascaras Neopixel ********
+   // Pre-calcula las mascaras de bits para la extraccion de todos los "bit" en tiempo constante
+   void init_mask_bit(){
+      for (int bit = 7; bit >=0 ; bit--) {
+         bit_mask[ 7-bit ] = 1 << bit; // ordena las mascaras de mayor a menor
+      }
+   }
 
 //***************************************
+
+// configura interrupcion del timer0 cada 1.25uS ,e inicializa las mascaras
+void Neopixel_Init(){
+	SystemCoreClockUpdate();
+	// SysTick_Config(SystemCoreClock / 1000);
+	SysTick_Config(255); //Generacion de interrupciones periodicas casa 1250ns
+		// pre-calcula las mascaras de bit, para tardar siempre el mismo tiempo en alcanzar cualquier bit
+	init_mask_bit();
+}
 
 
 // le asigna el color "c", al "number_pixel", escalado en "level"
@@ -55,6 +72,13 @@ void asignColor(uint8_t numer_pixel,struct color c,float level) {
     datachain[numer_pixel*3+2]= c.b*level;
 }
 
+// int @number_pixel valid 0,(PIXELS_LENGTH-1)
+// color @c ( uint8_t, uint8_t, uint8_t )
+void setColor(uint8_t number_pixel, struct color c){
+	datachain[number_pixel*3]=c.g;
+	datachain[number_pixel*3+1]=c.r;
+	datachain[number_pixel*3+2]=c.b;
+}
 struct color getColor(uint8_t number_pixel){
 	struct color c1;
 	c1.g=datachain[number_pixel*3];
