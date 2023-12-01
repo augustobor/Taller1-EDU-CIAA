@@ -62,6 +62,6 @@ void amplificar(float ganancia){
             FLAG_crash=ON;  // si tiene demaciada ganancia habilita el flag de sonido roto
             temp_sg=-128;
         }
-        sound_module[i]= temp_sg + sound_module;
+        sound_module[i]= temp_sg + 128; // al valor medio, le suma el delta amplificado
     }
 }
