@@ -32,27 +32,8 @@
       PIXELS_LENGTH (cantidad de pixeles)
       datachain (cantidad y orden de los datos correctos)
 */
-
-
-
-/*==================[inclusions]=============================================*/
-
 #include "app.h"
 #include "board.h"
-#include "arm_math.h"
-#include "../Modules/Neopixel.h"
-#include "../Modules/Neopixel_Efects.h"
-#include "../Modules/Touch_ADC.h"
-
-/*==================[macros and definitions]=================================*/
-
-#define OUTPUT   1
-#define INPUT    0
-
-#define ON       1
-#define OFF      0
-#define INACCURATE_TO_MS       20400
-
 
 // Delay apropiativo inexacto copia SAPI
 void delayInaccurateMs(uint32_t delay_ms){
