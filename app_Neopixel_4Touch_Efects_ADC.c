@@ -40,9 +40,9 @@
 #include "app.h"
 #include "board.h"
 #include "arm_math.h"
-#include "Neopixel.h"
-#include "Neopixel_Efects.h"
-#include "Touch_ADC.h"
+#include "../Modules/Neopixel.h"
+#include "../Modules/Neopixel_Efects.h"
+#include "../Modules/Touch_ADC.h"
 
 /*==================[macros and definitions]=================================*/
 
