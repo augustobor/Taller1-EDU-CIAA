@@ -64,9 +64,10 @@ void Neopixel_Init(){
 }
 
 
-// le asigna el color "c", al "number_pixel", escalado en "level"
+// le asigna el color "c", al "number_pixel", escalado en "level" entre 0 a 255
 // numer_pixel entre "0" a "PIXEL_LENGTH-1"
 void setColor_i(uint8_t numer_pixel,struct color c,float level) {
+	level=level/255;
     datachain[numer_pixel*3]  = c.g*level;
     datachain[numer_pixel*3+1]= c.r*level;
     datachain[numer_pixel*3+2]= c.b*level;

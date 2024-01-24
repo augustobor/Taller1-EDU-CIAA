@@ -1,13 +1,22 @@
-15:14:11 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+17:31:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
-SIZEOF app.elf...
-   text	   data	    bss	    dec	    hex	filename
-   7504	    436	    380	   8320	   2080	app/out/app.elf
+CC sapi_datatypes.c
+CC sapi_sleep.c
+CC sapi_cyclesCounter.c
+CC sapi_gpio.c
+CC sapi_spi.c
+CC sapi_adc.c
+CC sapi_i2c.c
+CC sapi_dac.c
+CC sapi_uart.c
+CC sapi_board.c
+libs/sapi/sapi_v0.5.2/board/src/sapi_board.c:40:10: fatal error: sapi_tick.h: No such file or directory
+ #include "sapi_tick.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [makefile:164: app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o] Error 1
 
-Selected program: app
-Selected board: edu_ciaa_nxp
-
-15:14:12 Build Finished. 0 errors, 0 warnings. (took 750ms)
+17:31:18 Build Failed. 2 errors, 0 warnings. (took 3s.212ms)
 

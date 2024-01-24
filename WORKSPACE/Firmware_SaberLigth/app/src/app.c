@@ -62,10 +62,16 @@ int main(void)
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
 		Efects_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
 		TouchADC_read();  // leo los tactiles
-		TouchADC_efects(c2,3); // llamo al efecto color c2, con radio de colision 3
+		if( IS_TOUCH() ){
+			c2.g=rand()%170;
+			c2.r=rand()%170;
+			c2.b=rand()%170;
+			TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
+		}
+
 		Neopixel_Update();   //actualiza TIRA LEDS
       Blink_Led();
-		delayInaccurateMs(25); //retardo bloqueante 22ms, opcional
+		delayInaccurateMs(18); //retardo bloqueante 22ms, opcional
 	}
 
 }
