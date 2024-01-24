@@ -1,0 +1,2 @@
+PROGRAM_PATH = test/test_neopixel
+PROGRAM_NAME = test_neopixel

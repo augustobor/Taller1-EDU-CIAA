@@ -1,0 +1,58 @@
+#include "app.h"
+#include "board.h"
+#include "Neopixel.h"
+#include "Neopixel_Efects.h"
+
+#define OUTPUT   1
+#define INPUT    0
+
+#define ON       1
+#define OFF      0
+#define INACCURATE_TO_MS       20400
+
+// Delay apropiativo inexacto copia SAPI
+void delayInaccurateMs(uint32_t delay_ms){
+   volatile uint32_t i;
+   volatile uint32_t delay;
+   delay = INACCURATE_TO_MS * delay_ms;
+   for( i=delay; i>0; i-- );
+}
+
+void Blink_Led(); // prototipo
+
+//********* main ************
+int main(void)
+{
+
+   Board_Init();
+
+   // Configuro LED1 = pin P2_10 = GPIO0[14]
+   Chip_SCU_PinMux( 2, 10, SCU_MODE_INACT, SCU_MODE_FUNC0 );
+   // Configuro RXD1 = pin P0_0 = GPIO0[0]
+   Chip_SCU_PinMux( 0, 0, SCU_MODE_INACT, SCU_MODE_FUNC0 );
+   // Configuro GPIO0[14] como salida
+   Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<14), OUTPUT );
+   // Configuro GPIO0[0] como salida
+   Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<0), OUTPUT );
+   // Pongo en estado bajo el GPIO0[14]
+   Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
+
+	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
+
+      Blink_Led();
+		delayInaccurateMs(22); //retardo bloqueante 22ms, opcional
+	}
+
+}
+
+uint8_t state=0;
+void Blink_Led(){
+      if(state==ON){ //prende LED1
+         state=OFF;
+         Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
+      }
+		else{          //apaga LED1
+			 state=ON;
+			 Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, ON );
+		}
+}
