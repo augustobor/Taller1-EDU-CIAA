@@ -11,5 +11,6 @@ typedef enum {OFF, STARTING, ON, STOPPING} eButton_State;
 
 void updateColor(uint8_t);
 void Encoder_Handler(void);
+void Encoder_Init();
 void Button_init();
 void Key_pressed();
