@@ -65,3 +65,7 @@ _programs/
 scripts/user/user_preferences.cfg
 program.mk
 board.mk
+
+# Eclipse config
+.cproject
+.project

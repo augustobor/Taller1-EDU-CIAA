@@ -12,6 +12,7 @@
 #include "Neopixel.h"
 #include "Neopixel_Efects.h"
 #include "Touch_ADC.h"
+#include "Encoder.h"
 
 /*==================[macros and definitions]=================================*/
 
@@ -58,6 +59,8 @@ int main(void)
    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
    TouchADC_Init();
+   Encoder_Init();
+   
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
 		Efects_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
