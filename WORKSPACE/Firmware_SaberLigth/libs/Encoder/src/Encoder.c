@@ -5,12 +5,6 @@
 /*==================[macros and definitions]=================================*/
 
 
-struct color {
-    uint8_t g;
-    uint8_t r;
-    uint8_t b;
-};
-
 static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
 static uint8_t index = 0;
 
@@ -31,6 +25,7 @@ static uint8_t index = 0;
 - 6: turquesa
 - 7: amarillo
 */
+
 volatile uint8_t colors[3][CANT_COLORS] = {
     {255,   148,    255,    0,      0,      255,    255},
     {0,     0,      20,     0,      255,    140,    215},
@@ -38,6 +33,8 @@ volatile uint8_t colors[3][CANT_COLORS] = {
 };
 
 static eButton_State Button_state;
+
+struct color currentColor;
 
 void Button_init() {
 	Button_state = OFF;
@@ -53,18 +50,18 @@ Se pasa el indice de la matriz para seleccionar el color
 */
 void updateColor(uint8_t index) {
 
-    color = {colors[0][index], colors[1][index], colors[2][index]};
+    currentColor = {colors[0][index], colors[1][index], colors[2][index]};
     for(uint16_t i=0; i <= PIXELS_LENGTH/2; i++) {
 
     	/* Asigno el color a los leds extremos. El seteo del color va desde
     	los leds mas extremos hasta el centro */
-        setColor(i, color, 1);
-        setColor(PIXEL_LENGTH - i, color, 1);
+        setColor(i, currentColor);
+        setColor(PIXELS_LENGTH - i, currentColor);
 
         for(uint16_t u=(i+1); u <= PIXELS_LENGTH/2; u++) {
 
-            setColor(u, {0, 0, 0}, 1);
-            setColor(PIXEL_LENGTH - u, {0, 0, 0}, 1);
+            setColor(u, {0, 0, 0});
+            setColor(PIXELS_LENGTH - u, {0, 0, 0});
 
         }
         delay(1); //10 milisegundos para que no sea instantaneo el efecto
@@ -75,14 +72,14 @@ void updateColor(uint8_t index) {
     sentido horario -> index++
     sentido antihorario -> index--
 */
-void Encoder_Handler(void) {
-    if (gpioRead(ENC_A) > gpioRead(ENC_B)) {
+void Encoder_Handler() {
+    if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
         index++;
     } else {
         index--;
     }
 
-    updateColor(datachain, index);
+    updateColor(index);
 }
 
 // MEF basada en la implementacion de Adrian
@@ -125,9 +122,9 @@ void Encoder_Init() {
 
     
     //Configuracion para la rotacion del encoder
-    gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler);
-    gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler);
+    gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+    gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
 
     //Configuracion para cuando el pulsador se presiona
-    gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Key_Pressed);
+    gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Key_Pressed());
 }
