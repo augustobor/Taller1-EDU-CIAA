@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="124"/>
-		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item value="124" key="DIALOG_X_ORIGIN"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item key="dialogHeight" value="-1"/>
-		<item key="dialogWidth" value="-1"/>
+		<item value="-1" key="dialogHeight"/>
+		<item value="-1" key="dialogWidth"/>
 		<list key="textEntries">
 		</list>
 		<list key="orderedElements">
@@ -16,26 +16,27 @@
 		<list key="textArray">
 		</list>
 	</section>
+	<section name="WorkbenchPreferenceDialog">
+		<item value="635" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="556" key="DIALOG_HEIGHT"/>
+		<item value="132" key="DIALOG_X_ORIGIN"/>
+		<item value="-19" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
 	</section>
 	<section name="FileSystemImportWizard">
-		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
-		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\git\CIAA\WORKSPACE\Firmware_SaberLigth"/>
 			<item value="D:\Descargas\_Taller_Proyecto1\code_CIAA\Taller1-EDU-CIAA\WORKSPACE\Firmware_SaberLigth\libs\Neopixel_Efects"/>
 		</list>
-	</section>
-	<section name="WorkbenchPreferenceDialog">
-		<item key="DIALOG_X_ORIGIN" value="132"/>
-		<item key="DIALOG_Y_ORIGIN" value="-19"/>
-		<item key="DIALOG_WIDTH" value="635"/>
-		<item key="DIALOG_HEIGHT" value="556"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
-	</section>
-	<section name="NewWizardAction">
 	</section>
 </section>

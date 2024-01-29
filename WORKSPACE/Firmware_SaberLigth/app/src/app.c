@@ -9,10 +9,11 @@
 #include "app.h"
 #include "board.h"
 #include <stdint.h>
+
+// #include "Encoder.h"
 #include "Neopixel.h"
 #include "Neopixel_Efects.h"
 #include "Touch_ADC.h"
-#include "Encoder.h"
 
 /*==================[macros and definitions]=================================*/
 
@@ -36,7 +37,7 @@ void Blink_Led(); // prototipo
 
 //********* variables main ************
 
-struct color cl = {0,MAX_VALUE/2, MAX_VALUE/2}; // color principal - violeta
+struct color cl = {MAX_VALUE, 0, MAX_VALUE/2}; // color principal - violeta
 struct color c2 = {255,5,5}; // color de contraste - verde intenso
 
 //********* main ************
@@ -59,7 +60,7 @@ int main(void)
    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
    TouchADC_Init();
-   Encoder_Init();
+  // Encoder_Init();
    
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds

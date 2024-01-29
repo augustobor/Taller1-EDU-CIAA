@@ -37,7 +37,6 @@
 
 #include "sapi_board.h"
 
-#include "sapi_tick.h"
 #include "sapi_gpio.h"
 #include "sapi_cyclesCounter.h"
 

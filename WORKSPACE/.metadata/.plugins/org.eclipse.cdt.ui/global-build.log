@@ -1,62 +1,49 @@
-17:29:14 **** Build of configuration Default for project Firmware_SaberLigth ****
+12:02:31 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC sapi_delay.c
+libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c: In function 'delay':
+libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:91:23: warning: implicit declaration of function 'tickRead' [-Wimplicit-function-declaration]
+    tick_t startTime = tickRead();
+                       ^~~~~~~~
+CC sapi_button.c
+CC sapi_imu_mpu60X0.c
+CC sapi_imu_mpu9250.c
+DEBLOB libarm_cortexM4lf_math.hexlib
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o: in function `delayInaccurateMs':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:63: multiple definition of `delayInaccurateMs'; app/out/app/src/app.o:C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:29: first defined here
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/app/src/app.o: in function `main':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:63: undefined reference to `Encoder_Init'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+12:02:58 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
 CC app.c
 app/src/app.c: In function 'main':
-app/src/app.c:66:9: warning: implicit declaration of function 'rand'; did you mean 'rewind'? [-Wimplicit-function-declaration]
+app/src/app.c:70:9: warning: implicit declaration of function 'rand'; did you mean 'rewind'? [-Wimplicit-function-declaration]
     c2.g=rand()%170;
          ^~~~
          rewind
-CC Neopixel.c
-CC Neopixel_Efects.c
-CC Touch_ADC.c
-CC armv7m_startup.c
-CC editline.c
-CC system.c
-CC board_sysinit.c
-CC board.c
-CC pinint_18xx_43xx.c
-CC otp_18xx_43xx.c
-CC gpio_18xx_43xx.c
-CC emc_18xx_43xx.c
-CC chip_18xx_43xx.c
-CC wwdt_18xx_43xx.c
-CC sdif_18xx_43xx.c
-CC spi_18xx_43xx.c
-CC i2s_18xx_43xx.c
-CC clock_18xx_43xx.c
-CC pmc_18xx_43xx.c
-CC ring_buffer.c
-CC stopwatch_18xx_43xx.c
-CC ssp_18xx_43xx.c
-CC uart_18xx_43xx.c
-CC enet_18xx_43xx.c
-CC i2c_18xx_43xx.c
-CC sdmmc_18xx_43xx.c
-CC timer_18xx_43xx.c
-CC ritimer_18xx_43xx.c
-CC sct_pwm_18xx_43xx.c
-CC adc_18xx_43xx.c
-CC sysinit_18xx_43xx.c
-CC iap_18xx_43xx.c
-CC i2cm_18xx_43xx.c
-CC evrt_18xx_43xx.c
-CC sct_18xx_43xx.c
-CC rtc_18xx_43xx.c
-CC gpdma_18xx_43xx.c
-CC atimer_18xx_43xx.c
-CC eeprom_18xx_43xx.c
-CC aes_18xx_43xx.c
-CC lcd_18xx_43xx.c
-CC dac_18xx_43xx.c
-CC sdio_18xx_43xx.c
-CC gpiogroup_18xx_43xx.c
-CC ccan_18xx_43xx.c
-CC vendor_interrupt.c
-CC sysinit.c
-CC crp.c
-DEBLOB libarm_cortexM4lf_math.hexlib
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o: in function `delayInaccurateMs':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:63: multiple definition of `delayInaccurateMs'; app/out/app/src/app.o:C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:29: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+12:03:41 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC sapi_delay.c
+libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c: In function 'delay':
+libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:91:23: warning: implicit declaration of function 'tickRead' [-Wimplicit-function-declaration]
+    tick_t startTime = tickRead();
+                       ^~~~~~~~
 LD params
 LD app/out/app.elf...
 COPY app.elf TO app.bin
@@ -65,36 +52,39 @@ LIST
 NAME
 SIZEOF app.elf...
    text	   data	    bss	    dec	    hex	filename
-   8020	    536	    408	   8964	   2304	app/out/app.elf
+   8116	    536	    408	   9060	   2364	app/out/app.elf
 
 Selected program: app
 Selected board: edu_ciaa_nxp
-17:29:35 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+12:09:22 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+app/src/app.c: In function 'main':
+app/src/app.c:70:9: warning: implicit declaration of function 'rand'; did you mean 'rewind'? [-Wimplicit-function-declaration]
+    c2.g=rand()%170;
+         ^~~~
+         rewind
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+   8116	    536	    408	   9060	   2364	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+12:09:55 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
 SIZEOF app.elf...
    text	   data	    bss	    dec	    hex	filename
-   8020	    536	    408	   8964	   2304	app/out/app.elf
+   8116	    536	    408	   9060	   2364	app/out/app.elf
 
 Selected program: app
 Selected board: edu_ciaa_nxp
-17:31:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
-make 
-Using optimization level g
-Using newlib nano. No printf with floats supported
-CC sapi_datatypes.c
-CC sapi_sleep.c
-CC sapi_cyclesCounter.c
-CC sapi_gpio.c
-CC sapi_spi.c
-CC sapi_adc.c
-CC sapi_i2c.c
-CC sapi_dac.c
-CC sapi_uart.c
-CC sapi_board.c
-libs/sapi/sapi_v0.5.2/board/src/sapi_board.c:40:10: fatal error: sapi_tick.h: No such file or directory
- #include "sapi_tick.h"
-          ^~~~~~~~~~~~~
-compilation terminated.
-make: *** [makefile:164: app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o] Error 1

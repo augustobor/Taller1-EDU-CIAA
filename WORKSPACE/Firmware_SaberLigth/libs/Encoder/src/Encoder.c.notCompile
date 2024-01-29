@@ -1,7 +1,7 @@
 /*==================[inclusions]=============================================*/
 
 #include "Encoder.h"
-
+#include "board.h"
 /*==================[macros and definitions]=================================*/
 
 
@@ -50,7 +50,7 @@ Se pasa el indice de la matriz para seleccionar el color
 */
 void updateColor(uint8_t index) {
 
-    currentColor = {colors[0][index], colors[1][index], colors[2][index]};
+    currentColor = (struct color) {colors[0][index] , colors[1][index], colors[2][index]};
     for(uint16_t i=0; i <= PIXELS_LENGTH/2; i++) {
 
     	/* Asigno el color a los leds extremos. El seteo del color va desde
