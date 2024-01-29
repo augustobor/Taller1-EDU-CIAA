@@ -1,12 +1,32 @@
 
-#include "sapi.h"         /* <= sAPI header */
+/*
+ * 24-01-2024 revision Nico v1 - porteo de workspace, firmware, modulos
+ * */
 
-#define raw_samples_length 100
-static volatile uint16_t raw_samples[] =	// onda senoidal 100 samples, valor medio 128, amplitud [0..255]
-{
-	128, 130, 132, 134, 136, 139, 141, 143, 145, 147, 150, 152, 154, 156, 158, 160, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187, 189, 191, 193, 195, 197, 199, 201, 202, 204, 206, 208, 209, 211, 213, 214, 216, 218, 219, 221, 222, 224, 225, 227, 228, 229, 231, 232, 233, 234, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 247, 248, 249, 249, 250, 251, 251, 252, 252, 253, 253, 253, 254, 254, 254, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 254, 254, 254, 253,
-};
 
+/*==================[inclusions]=============================================*/
+
+#include "app.h"
+#include "board.h"
+#include <stdint.h>
+#include "Sounds.h"
+
+// #include "Encoder.h"
+#include "Neopixel.h"
+#include "Neopixel_Efects.h"
+#include "Touch_ADC.h"
+
+/*==================[macros and definitions]=================================*/
+
+#define OUTPUT   1
+#define INPUT    0
+
+#define ON       1
+#define OFF      0
+#define INACCURATE_TO_MS       20400
+
+
+// Delay apropiativo inexacto copia SAPI
 void dddd(uint32_t delay_ms){
    volatile uint32_t i;
    volatile uint32_t delay;
@@ -14,24 +34,63 @@ void dddd(uint32_t delay_ms){
    for( i=delay; i>0; i-- );
 }
 
-int main(){
-   boardConfig();
+void Blink_Led(); // prototipo
 
-   dacConfig( DAC_ENABLE );
+//********* variables main ************
 
-   bool_t ledState1 = OFF;
-   uint8_t i=0;
+struct color cl = {MAX_VALUE, 0, MAX_VALUE/2}; // color principal - violeta
+struct color c2 = {255,5,5}; // color de contraste - verde intenso
 
-   while(TRUE){
-	   i= (++i) % raw_samples_length ;
-       dacWrite( DAC, raw_samples[i] );
+//********* main ************
+int main(void)
+{
+   Board_Init();
+   Neopixel_Init();
+   Sounds_Init();
 
-       ledState1 = !ledState1;
-       gpioWrite( LED1, ledState1 );
+   // Configuro LED1 = pin P2_10 = GPIO0[14]
+   Chip_SCU_PinMux( 2, 10, SCU_MODE_INACT, SCU_MODE_FUNC0 );
+   // Configuro COL1 = pin P0_0 = GPIO3[12]
+   Chip_SCU_PinMux( 7, 4, SCU_MODE_INACT, SCU_MODE_FUNC0 );
 
-       dddd(20); // delay de aproximadamente 20ms
+   // Configuro GPIO0[14] como salida
+   Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<14), OUTPUT );
+   // Configuro GPIO0[0] como salida
+   Chip_GPIO_SetDir( LPC_GPIO_PORT, 3, (1<<12), OUTPUT );
 
-   }
+   // Pongo en estado bajo LED1 el GPIO0[14]
+   Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
+
+   TouchADC_Init();
+  // Encoder_Init();
+
+	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
+		Sound_Service_DAC();
+		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
+		Efects_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
+		TouchADC_read();  // leo los tactiles
+		if( IS_TOUCH() ){
+			c2.g=rand()%170;
+			c2.r=rand()%170;
+			c2.b=rand()%170;
+			TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
+		}
+
+		Neopixel_Update();   //actualiza TIRA LEDS
+      Blink_Led();
+		dddd(18); //retardo bloqueante 22ms, opcional
+	}
+
 }
 
-
+uint8_t state=0;
+void Blink_Led(){
+      if(state==ON){ //prende LED1
+         state=OFF;
+         Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
+      }
+	else{          //apaga LED1
+		 state=ON;
+		 Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, ON );
+	}
+}
