@@ -16,6 +16,16 @@ static volatile uint8_t bit_mask[8]; // Mascaras precalculadas para extraccion d
 static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
 static volatile uint32_t update=0;    // habilita la actualizacion cuando es !=0
 
+struct color currentColor = {170, 0, 170};
+
+void setCurrentColor(struct color cl){
+	currentColor=cl;
+}
+
+struct color getCurrentColor(){
+	return currentColor;
+}
+
 
 // *********** Parametros internos para generar la onda de datos de la tira led
    static volatile uint8_t WAITSHORT = 2;  // 3 // parametro para el retardo corto

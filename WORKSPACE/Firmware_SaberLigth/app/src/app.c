@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "Sounds.h"
 
-// #include "Encoder.h"
+#include "Encoder.h"
 #include "Neopixel.h"
 #include "Neopixel_Efects.h"
 #include "Touch_ADC.h"
@@ -38,7 +38,7 @@ void Blink_Led(); // prototipo
 
 //********* variables main ************
 
-struct color cl = {MAX_VALUE, 0, MAX_VALUE/2}; // color principal - violeta
+
 struct color c2 = {255,5,5}; // color de contraste - verde intenso
 
 //********* main ************
@@ -62,19 +62,26 @@ int main(void)
    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
    TouchADC_Init();
-  // Encoder_Init();
+   Encoder_Init();
+   Button_init();
 
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
 		Sound_Service_DAC();
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
-		Efects_sinoidal_breath_c_mirror(cl); // actualizo el color de toda la tira
-		TouchADC_read();  // leo los tactiles
-		if( IS_TOUCH() ){
-			c2.g=rand()%170;
-			c2.r=rand()%170;
-			c2.b=rand()%170;
-			TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
+
+		if(Encoder_IS_Enable() ){ // si el sable esta prendido
+			Efects_sinoidal_breath_c_mirror(getCurrentColor()); // actualizo el color de toda la tira
+			TouchADC_read();  // leo los tactiles
+			if( IS_TOUCH() ){
+				c2.g=(uint8_t) rand()%170;
+				c2.r=(uint8_t) rand()%170;
+				c2.b=(uint8_t) rand()%170;
+				TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
+			}
+		}else{
+			Encoder_Efects_Step();// hace el efecto de colores y sonido - de prendido y apagado
 		}
+		Encoder_MEF_Key();
 
 		Neopixel_Update();   //actualiza TIRA LEDS
       Blink_Led();

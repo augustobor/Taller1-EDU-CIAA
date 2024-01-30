@@ -1,4 +1,170 @@
-17:57:55 **** Build of configuration Default for project Firmware_SaberLigth ****
+19:16:12 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+In file included from libs/Encoder//inc/Encoder.h:5,
+                 from app/src/app.c:14:
+libs/Neopixel//inc/Neopixel.h:32:1: warning: parameter names (without types) in function declaration
+ void setCurrentColor(color );
+ ^~~~
+libs/Neopixel//inc/Neopixel.h:33:2: error: expected identifier or '(' before 'struct'
+ (struct color) getCurrentColor();
+  ^~~~~~
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:40,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h:57:16: error: expected identifier before numeric constant
+ #define OFF    0
+                ^
+libs/Encoder//inc/Encoder.h:13:15: note: in expansion of macro 'OFF'
+ typedef enum {OFF, STARTING, ON, STOPPING} eButton_State;
+               ^~~
+app/src/app.c: In function 'main':
+app/src/app.c:71:35: warning: implicit declaration of function 'currentColor'; did you mean 'setCurrentColor'? [-Wimplicit-function-declaration]
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+                                   ^~~~~~~~~~~~
+                                   setCurrentColor
+app/src/app.c:71:35: error: incompatible type for argument 1 of 'Efects_sinoidal_breath_c_mirror'
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+                                   ^~~~~~~~~~~~~~
+In file included from app/src/app.c:16:
+libs/Neopixel_Efects//inc/Neopixel_Efects.h:13:51: note: expected 'struct color' but argument is of type 'int'
+ void Efects_sinoidal_breath_c_mirror(struct color c);
+                                      ~~~~~~~~~~~~~^
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+make: *** [makefile:164: app/out/app/src/app.o] Error 1
+19:17:02 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+In file included from libs/Encoder//inc/Encoder.h:5,
+                 from app/src/app.c:14:
+libs/Neopixel//inc/Neopixel.h:32:1: warning: parameter names (without types) in function declaration
+ void setCurrentColor(color );
+ ^~~~
+libs/Neopixel//inc/Neopixel.h:33:2: error: expected identifier or '(' before 'struct'
+ (struct color) getCurrentColor();
+  ^~~~~~
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:40,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h:57:16: error: expected identifier before numeric constant
+ #define OFF    0
+                ^
+libs/Encoder//inc/Encoder.h:13:15: note: in expansion of macro 'OFF'
+ typedef enum {OFF, STARTING, ON, STOPPING} eButton_State;
+               ^~~
+In file included from app/src/app.c:16:
+libs/Neopixel_Efects//inc/Neopixel_Efects.h:13:38: error: expected declaration specifiers or '...' before '(' token
+ void Efects_sinoidal_breath_c_mirror((struct color) c);
+                                      ^
+app/src/app.c: In function 'main':
+app/src/app.c:71:3: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror'; did you mean 'Efects_sinoidal_breath_mirror_porcentual'? [-Wimplicit-function-declaration]
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Efects_sinoidal_breath_mirror_porcentual
+app/src/app.c:71:35: warning: implicit declaration of function 'currentColor'; did you mean 'setCurrentColor'? [-Wimplicit-function-declaration]
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+                                   ^~~~~~~~~~~~
+                                   setCurrentColor
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+make: *** [makefile:164: app/out/app/src/app.o] Error 1
+19:18:32 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:40,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h:57:16: error: expected identifier before numeric constant
+ #define OFF    0
+                ^
+libs/Encoder//inc/Encoder.h:13:15: note: in expansion of macro 'OFF'
+ typedef enum {OFF, STARTING, ON, STOPPING} eButton_State;
+               ^~~
+app/src/app.c: In function 'main':
+app/src/app.c:71:35: warning: implicit declaration of function 'currentColor'; did you mean 'getCurrentColor'? [-Wimplicit-function-declaration]
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+                                   ^~~~~~~~~~~~
+                                   getCurrentColor
+app/src/app.c:71:35: error: incompatible type for argument 1 of 'Efects_sinoidal_breath_c_mirror'
+   Efects_sinoidal_breath_c_mirror(currentColor()); // actualizo el color de toda la tira
+                                   ^~~~~~~~~~~~~~
+In file included from app/src/app.c:16:
+libs/Neopixel_Efects//inc/Neopixel_Efects.h:13:52: note: expected 'struct color' but argument is of type 'int'
+ void Efects_sinoidal_breath_c_mirror (struct color c);
+                                       ~~~~~~~~~~~~~^
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+make: *** [makefile:164: app/out/app/src/app.o] Error 1
+19:19:21 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:40,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/base/inc/sapi_datatypes.h:57:16: error: expected identifier before numeric constant
+ #define OFF    0
+                ^
+libs/Encoder//inc/Encoder.h:13:15: note: in expansion of macro 'OFF'
+ typedef enum {OFF, STARTING, ON, STOPPING} eButton_State;
+               ^~~
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+make: *** [makefile:164: app/out/app/src/app.o] Error 1
+19:21:01 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
@@ -14,81 +180,1379 @@ app/inc/app.h:22: note: this is the location of the previous definition
  #define LED 0
  
 app/src/app.c: In function 'main':
-app/src/app.c:73:9: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
-    c2.g=rand()%170;
-         ^~~~
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:15:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Button_init':
+libs/Encoder//src/Encoder.c:45:17: error: 'OFF' undeclared (first use in this function)
+  Button_state = OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:45:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:53:17: error: 'ON' undeclared (first use in this function)
+    Button_state=ON;
+                 ^~
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:86:14: error: 'OFF' undeclared (first use in this function)
+         case OFF:
+              ^~~
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: warning: implicit declaration of function 'Key_Pressed' [-Wimplicit-function-declaration]
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Key_Pressed());
+                                             ^~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c: In function 'Encoder_IS_Enable':
+libs/Encoder//src/Encoder.c:132:26: error: 'on' undeclared (first use in this function)
+  return  ( Button_state==on );
+                          ^~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:135:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:21:49 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:15:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Button_init':
+libs/Encoder//src/Encoder.c:45:17: error: 'OFF' undeclared (first use in this function)
+  Button_state = OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:45:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:53:17: error: 'ON' undeclared (first use in this function)
+    Button_state=ON;
+                 ^~
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: warning: implicit declaration of function 'Key_Pressed' [-Wimplicit-function-declaration]
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Key_Pressed());
+                                             ^~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:23:19 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Button_init':
+libs/Encoder//src/Encoder.c:45:17: error: 'OFF' undeclared (first use in this function)
+  Button_state = OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:45:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:53:17: error: 'ON' undeclared (first use in this function)
+    Button_state=ON;
+                 ^~
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:24:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Button_init':
+libs/Encoder//src/Encoder.c:45:17: error: 'OFF' undeclared (first use in this function)
+  Button_state = OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:45:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:53:17: error: 'ON' undeclared (first use in this function)
+    Button_state=ON;
+                 ^~
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:24:37 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:53:17: error: 'ON' undeclared (first use in this function)
+    Button_state=ON;
+                 ^~
+libs/Encoder//src/Encoder.c:53:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:25:05 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:60:17: error: 'OFF' undeclared (first use in this function)
+    Button_state=OFF;
+                 ^~~
+libs/Encoder//src/Encoder.c:60:17: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:25:18 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:92:32: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:32:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:92:32: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT_PULLUP' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:47: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                               ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:68: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                    ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:67: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT_PULLUP | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                                   ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:126:45: error: invalid use of void expression
+     gpioConfig(BOTON_SW, GPIO_INPUT_PULLUP, Encoder_MEF_Key());
+                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:32:45 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//inc/Encoder.h:16:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
+ ^~~~~~
+ bool
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Handler':
+libs/Encoder//src/Encoder.c:74:9: warning: implicit declaration of function 'gpioRead' [-Wimplicit-function-declaration]
+     if (gpioRead(ENC_A_CLK) > gpioRead(ENC_B_DT)) {
+         ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//src/Encoder.c:92:32: error: 'ON' undeclared (first use in this function)
+                 Button_state = ON;
+                                ^~
+libs/Encoder//src/Encoder.c:92:32: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:94:32: error: 'OFF' undeclared (first use in this function)
+                 Button_state = OFF;
+                                ^~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:5: warning: implicit declaration of function 'gpioConfig' [-Wimplicit-function-declaration]
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:27: error: 'GPIO_INPUT' undeclared (first use in this function); did you mean 'GPIOGR_INT'?
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                           ^~~~~~~~~~
+                           GPIOGR_INT
+libs/Encoder//src/Encoder.c:122:40: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                        ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:122:61: error: invalid use of void expression
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                             ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:123:60: error: invalid use of void expression
+     gpioConfig(ENC_B_DT, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                                            ^~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: At top level:
+libs/Encoder//src/Encoder.c:131:1: error: unknown type name 'bool_t'; did you mean 'bool'?
+ bool_t Encoder_IS_Enable(){
+ ^~~~~~
+ bool
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:36:18 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:49:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Encoder_Efects_Step(){
+ ^~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:116:57: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:40: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                        ^~~~~~~~~~~~~~~~~~~
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:49,
+                 from libs/Encoder//inc/Encoder.h:7,
+                 from libs/Encoder//src/Encoder.c:3:
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:122:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:123:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(ENC_B_DT, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:126:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(BOTON_SW, GPIO_INPUT, Encoder_MEF_Key );
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:38:22 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:116:57: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:122:40: error: 'GPIO_IRQ_BOTH_EDGES' undeclared (first use in this function)
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+                                        ^~~~~~~~~~~~~~~~~~~
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:49,
+                 from libs/Encoder//inc/Encoder.h:7,
+                 from libs/Encoder//src/Encoder.c:3:
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:122:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(ENC_A_CLK, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:123:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(ENC_B_DT, GPIO_INPUT | GPIO_IRQ_BOTH_EDGES, Encoder_Handler());
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:50:21: error: too many arguments to function 'gpioInit'
+ #define gpioConfig  gpioInit
+                     ^~~~~~~~
+libs/Encoder//src/Encoder.c:126:5: note: in expansion of macro 'gpioConfig'
+     gpioConfig(BOTON_SW, GPIO_INPUT, Encoder_MEF_Key );
+     ^~~~~~~~~~
+libs/sapi/sapi_v0.5.2/soc/peripherals/inc/sapi_gpio.h:95:8: note: declared here
+ bool_t gpioInit( gpioMap_t pin, gpioInit_t config );
+        ^~~~~~~~
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:43:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:65:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//src/Encoder.c:116:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:116:57: error: 'INPUT' undeclared (first use in this function)
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_A_CLK), INPUT );
+                                                         ^~~~~
+libs/Encoder//src/Encoder.c:116:57: note: each undeclared identifier is reported only once for each function it appears in
+libs/Encoder//src/Encoder.c:117:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<ENC_B_DT), INPUT );
+                                           ^~
+libs/Encoder//src/Encoder.c:118:43: warning: left shift count >= width of type [-Wshift-count-overflow]
+     Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<BOTON_SW), INPUT );
+                                           ^~
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+19:45:57 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:63:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+CC Neopixel.c
+libs/Neopixel//src/Neopixel.c:19:30: error: 'MAX_VALUE' undeclared here (not in a function); did you mean 'DAC_VALUE'?
+ struct color currentColor = {MAX_VALUE, 0, MAX_VALUE/2};
+                              ^~~~~~~~~
+                              DAC_VALUE
+libs/Neopixel//src/Neopixel.c:20:22: error: unknown type name 'color'
+ void setCurrentColor(color cl){
+                      ^~~~~
+libs/Neopixel//src/Neopixel.c:24:2: error: expected identifier or '(' before 'struct'
+ (struct color) getCurrentColor(){
+  ^~~~~~
+make: *** [makefile:164: app/out/libs/Neopixel//src/Neopixel.o] Error 1
+19:46:15 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel.c
+libs/Neopixel//src/Neopixel.c:19:30: error: 'MAX_VALUE' undeclared here (not in a function); did you mean 'DAC_VALUE'?
+ struct color currentColor = {MAX_VALUE, 0, MAX_VALUE/2};
+                              ^~~~~~~~~
+                              DAC_VALUE
+libs/Neopixel//src/Neopixel.c:20:22: error: unknown type name 'color'
+ void setCurrentColor(color cl){
+                      ^~~~~
+make: *** [makefile:164: app/out/libs/Neopixel//src/Neopixel.o] Error 1
+19:46:29 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel.c
+libs/Neopixel//src/Neopixel.c:19:30: error: 'MAX_VALUE' undeclared here (not in a function); did you mean 'DAC_VALUE'?
+ struct color currentColor = {MAX_VALUE, 0, MAX_VALUE/2};
+                              ^~~~~~~~~
+                              DAC_VALUE
+make: *** [makefile:164: app/out/libs/Neopixel//src/Neopixel.o] Error 1
+19:47:12 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
 CC Neopixel.c
 CC Neopixel_Efects.c
-CC Sounds.c
+libs/Neopixel_Efects//src/Neopixel_Efects.c:37:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Efects_sinoidal_breath_mirror_porcentual(float porcentual_state){
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Neopixel_Efects//src/Neopixel_Efects.c:37:1: warning: conflicting types for 'Efects_sinoidal_breath_mirror_porcentual'
+In file included from libs/Neopixel_Efects//src/Neopixel_Efects.c:2:
+libs/Neopixel_Efects//inc/Neopixel_Efects.h:14:6: note: previous declaration of 'Efects_sinoidal_breath_mirror_porcentual' was here
+ void Efects_sinoidal_breath_mirror_porcentual(float porcentual_state);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Neopixel_Efects//src/Neopixel_Efects.c: In function 'Efects_sinoidal_breath_mirror_porcentual':
+libs/Neopixel_Efects//src/Neopixel_Efects.c:45:2: error: expected ',' or ';' before 'for'
+  for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
+  ^~~
+libs/Neopixel_Efects//src/Neopixel_Efects.c:45:40: error: expected ';' before ')' token
+  for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
+                                        ^
+                                        ;
+libs/Neopixel_Efects//src/Neopixel_Efects.c:45:40: error: expected statement before ')' token
+make: *** [makefile:164: app/out/libs/Neopixel_Efects//src/Neopixel_Efects.o] Error 1
+19:47:48 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel_Efects.c
+libs/Neopixel_Efects//src/Neopixel_Efects.c:37:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ Efects_sinoidal_breath_mirror_porcentual(float porcentual_state){
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Neopixel_Efects//src/Neopixel_Efects.c:37:1: warning: conflicting types for 'Efects_sinoidal_breath_mirror_porcentual'
+In file included from libs/Neopixel_Efects//src/Neopixel_Efects.c:2:
+libs/Neopixel_Efects//inc/Neopixel_Efects.h:14:6: note: previous declaration of 'Efects_sinoidal_breath_mirror_porcentual' was here
+ void Efects_sinoidal_breath_mirror_porcentual(float porcentual_state);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CC Touch_ADC.c
-CC armv7m_startup.c
-CC editline.c
-CC system.c
-CC board_sysinit.c
-CC board.c
-CC pinint_18xx_43xx.c
-CC otp_18xx_43xx.c
-CC gpio_18xx_43xx.c
-CC emc_18xx_43xx.c
-CC chip_18xx_43xx.c
-CC wwdt_18xx_43xx.c
-CC sdif_18xx_43xx.c
-CC spi_18xx_43xx.c
-CC i2s_18xx_43xx.c
-CC clock_18xx_43xx.c
-CC pmc_18xx_43xx.c
-CC ring_buffer.c
-CC stopwatch_18xx_43xx.c
-CC ssp_18xx_43xx.c
-CC uart_18xx_43xx.c
-CC enet_18xx_43xx.c
-CC i2c_18xx_43xx.c
-CC sdmmc_18xx_43xx.c
-CC timer_18xx_43xx.c
-CC ritimer_18xx_43xx.c
-CC sct_pwm_18xx_43xx.c
-CC adc_18xx_43xx.c
-CC sysinit_18xx_43xx.c
-CC iap_18xx_43xx.c
-CC i2cm_18xx_43xx.c
-CC evrt_18xx_43xx.c
-CC sct_18xx_43xx.c
-CC rtc_18xx_43xx.c
-CC gpdma_18xx_43xx.c
-CC atimer_18xx_43xx.c
-CC eeprom_18xx_43xx.c
-CC aes_18xx_43xx.c
-CC lcd_18xx_43xx.c
-CC dac_18xx_43xx.c
-CC sdio_18xx_43xx.c
-CC gpiogroup_18xx_43xx.c
-CC ccan_18xx_43xx.c
-CC vendor_interrupt.c
-CC sysinit.c
-CC crp.c
-CC sapi_datatypes.c
-CC sapi_sleep.c
-CC sapi_cyclesCounter.c
-CC sapi_gpio.c
-CC sapi_spi.c
-CC sapi_adc.c
-CC sapi_i2c.c
-CC sapi_dac.c
-CC sapi_uart.c
-CC sapi_board.c
-CC sapi_stdio.c
-CC sapi_convert.c
-CC sapi_print.c
-CC sapi_circularBuffer.c
-CC sapi_delay.c
-libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c: In function 'delay':
-libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:91:23: warning: implicit declaration of function 'tickRead' [-Wimplicit-function-declaration]
-    tick_t startTime = tickRead();
-                       ^~~~~~~~
-CC sapi_button.c
-CC sapi_imu_mpu60X0.c
-CC sapi_imu_mpu9250.c
-DEBLOB libarm_cortexM4lf_math.hexlib
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/app/src/app.o: in function `main':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:82: undefined reference to `Encoder_work'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:64: undefined reference to `Sound_Module_Porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:48:30 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel_Efects.c
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/app/src/app.o: in function `main':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:82: undefined reference to `Encoder_work'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:64: undefined reference to `Sound_Module_Porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:48:33 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/app/src/app.o: in function `main':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/app/src/app.c:82: undefined reference to `Encoder_work'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:64: undefined reference to `Sound_Module_Porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:49:20 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:63:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual' [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:64: undefined reference to `Sound_Module_Porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:50:05 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:63:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual'; did you mean 'Efects_sinoidal_breath_mirror_porcentual'? [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Efects_sinoidal_breath_mirror_porcentual
+libs/Encoder//src/Encoder.c:64:2: warning: implicit declaration of function 'Sound_Module_Porcentual' [-Wimplicit-function-declaration]
+  Sound_Module_Porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:64: undefined reference to `Sound_Module_Porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:51:12 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c: In function 'Encoder_Efects_Step':
+libs/Encoder//src/Encoder.c:63:2: warning: implicit declaration of function 'Efects_sinoidal_breath_c_mirror_porcentual'; did you mean 'Efects_sinoidal_breath_mirror_porcentual'? [-Wimplicit-function-declaration]
+  Efects_sinoidal_breath_c_mirror_porcentual(procentual_init);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Efects_sinoidal_breath_mirror_porcentual
+LD params
+LD app/out/app.elf...
+c:/ciaa/ciaa_software_1.1-win/tools/arm-none-eabi-gcc/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: app/out/libs/Encoder//src/Encoder.o: in function `Encoder_Efects_Step':
+C:\git\CIAA\WORKSPACE\Firmware_SaberLigth/libs/Encoder//src/Encoder.c:63: undefined reference to `Efects_sinoidal_breath_c_mirror_porcentual'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:193: app/out/app.elf] Error 1
+19:52:21 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+CC Neopixel_Efects.c
+CC Touch_ADC.c
 LD params
 LD app/out/app.elf...
 COPY app.elf TO app.bin
@@ -97,7 +1561,445 @@ LIST
 NAME
 SIZEOF app.elf...
    text	   data	    bss	    dec	    hex	filename
-  19220	    536	    408	  20164	   4ec4	app/out/app.elf
+  20596	    536	    416	  21548	   542c	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:31:31 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20744	    544	    420	  21708	   54cc	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:36:41 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:10: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=rand()%170;
+          ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20744	    544	    420	  21708	   54cc	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:37:09 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20744	    544	    420	  21708	   54cc	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:40:05 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20748	    544	    420	  21712	   54d0	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:40:34 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20748	    544	    420	  21712	   54d0	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:46:21 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:20: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=(uint8_t) rand()%170;
+                    ^~~~
+CC Encoder.c
+libs/Encoder//src/Encoder.c:34:3: warning: excess elements in array initializer
+   (struct color){0,0,255},
+   ^
+libs/Encoder//src/Encoder.c:34:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:35:3: warning: excess elements in array initializer
+   (struct color){0,255,0},
+   ^
+libs/Encoder//src/Encoder.c:35:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:36:3: warning: excess elements in array initializer
+   (struct color){0,150,150},
+   ^
+libs/Encoder//src/Encoder.c:36:3: note: (near initialization for 'cl')
+libs/Encoder//src/Encoder.c:37:3: warning: excess elements in array initializer
+   (struct color){150,150,0},
+   ^
+libs/Encoder//src/Encoder.c:37:3: note: (near initialization for 'cl')
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20748	    544	    420	  21712	   54d0	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:47:30 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:20: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=(uint8_t) rand()%170;
+                    ^~~~
+CC Encoder.c
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20760	    556	    420	  21736	   54e8	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:48:12 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20760	    556	    420	  21736	   54e8	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:03:44 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel_Efects.c
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:11:07 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC Neopixel_Efects.c
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:11:10 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:20:04 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:20: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=(uint8_t) rand()%170;
+                    ^~~~
+CC Encoder.c
+In file included from libs/Encoder//src/Encoder.c:3:
+libs/Encoder//src/Encoder.c: In function 'Encoder_MEF_Key':
+libs/Encoder//inc/Encoder.h:13:18: error: 'TFIL0' undeclared (first use in this function); did you mean 'T_FIL0'?
+ #define BOTON_SW TFIL0 // 33
+                  ^~~~~
+libs/Encoder//src/Encoder.c:80:17: note: in expansion of macro 'BOTON_SW'
+  B_SW= gpioRead(BOTON_SW); // leo los valores nuevos de la señales
+                 ^~~~~~~~
+libs/Encoder//inc/Encoder.h:13:18: note: each undeclared identifier is reported only once for each function it appears in
+ #define BOTON_SW TFIL0 // 33
+                  ^~~~~
+libs/Encoder//src/Encoder.c:80:17: note: in expansion of macro 'BOTON_SW'
+  B_SW= gpioRead(BOTON_SW); // leo los valores nuevos de la señales
+                 ^~~~~~~~
+libs/Encoder//src/Encoder.c: In function 'Encoder_Init':
+libs/Encoder//inc/Encoder.h:13:18: error: 'TFIL0' undeclared (first use in this function); did you mean 'T_FIL0'?
+ #define BOTON_SW TFIL0 // 33
+                  ^~~~~
+libs/Encoder//src/Encoder.c:107:16: note: in expansion of macro 'BOTON_SW'
+     gpioConfig(BOTON_SW, GPIO_INPUT);
+                ^~~~~~~~
+make: *** [makefile:164: app/out/libs/Encoder//src/Encoder.o] Error 1
+21:20:10 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:20: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=(uint8_t) rand()%170;
+                    ^~~~
+CC Encoder.c
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:20:26 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:26:01 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+CC app.c
+In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
+                 from libs/Sounds//inc/Sounds.h:5,
+                 from app/src/app.c:12:
+libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
+    #define LED                 LEDB
+ 
+In file included from app/src/app.c:9:
+app/inc/app.h:22: note: this is the location of the previous definition
+ #define LED 0
+ 
+app/src/app.c: In function 'main':
+app/src/app.c:76:20: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+     c2.g=(uint8_t) rand()%170;
+                    ^~~~
+LD params
+LD app/out/app.elf...
+COPY app.elf TO app.bin
+COPY app.elf TO app.hex
+LIST
+NAME
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:26:04 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:27:09 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:27:51 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+21:28:27 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20784	    556	    420	  21760	   5500	app/out/app.elf
 
 Selected program: app
 Selected board: edu_ciaa_nxp

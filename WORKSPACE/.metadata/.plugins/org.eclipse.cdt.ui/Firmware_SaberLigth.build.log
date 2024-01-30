@@ -1,106 +1,13 @@
-17:57:55 **** Build of configuration Default for project Firmware_SaberLigth ****
+21:28:27 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
-CC app.c
-In file included from libs/sapi/sapi_v0.5.2/base/inc/sapi.h:41,
-                 from libs/Sounds//inc/Sounds.h:5,
-                 from app/src/app.c:12:
-libs/sapi/sapi_v0.5.2/board/inc/sapi_peripheral_map.h:121: warning: "LED" redefined
-    #define LED                 LEDB
- 
-In file included from app/src/app.c:9:
-app/inc/app.h:22: note: this is the location of the previous definition
- #define LED 0
- 
-app/src/app.c: In function 'main':
-app/src/app.c:73:9: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
-    c2.g=rand()%170;
-         ^~~~
-CC Neopixel.c
-CC Neopixel_Efects.c
-CC Sounds.c
-CC Touch_ADC.c
-CC armv7m_startup.c
-CC editline.c
-CC system.c
-CC board_sysinit.c
-CC board.c
-CC pinint_18xx_43xx.c
-CC otp_18xx_43xx.c
-CC gpio_18xx_43xx.c
-CC emc_18xx_43xx.c
-CC chip_18xx_43xx.c
-CC wwdt_18xx_43xx.c
-CC sdif_18xx_43xx.c
-CC spi_18xx_43xx.c
-CC i2s_18xx_43xx.c
-CC clock_18xx_43xx.c
-CC pmc_18xx_43xx.c
-CC ring_buffer.c
-CC stopwatch_18xx_43xx.c
-CC ssp_18xx_43xx.c
-CC uart_18xx_43xx.c
-CC enet_18xx_43xx.c
-CC i2c_18xx_43xx.c
-CC sdmmc_18xx_43xx.c
-CC timer_18xx_43xx.c
-CC ritimer_18xx_43xx.c
-CC sct_pwm_18xx_43xx.c
-CC adc_18xx_43xx.c
-CC sysinit_18xx_43xx.c
-CC iap_18xx_43xx.c
-CC i2cm_18xx_43xx.c
-CC evrt_18xx_43xx.c
-CC sct_18xx_43xx.c
-CC rtc_18xx_43xx.c
-CC gpdma_18xx_43xx.c
-CC atimer_18xx_43xx.c
-CC eeprom_18xx_43xx.c
-CC aes_18xx_43xx.c
-CC lcd_18xx_43xx.c
-CC dac_18xx_43xx.c
-CC sdio_18xx_43xx.c
-CC gpiogroup_18xx_43xx.c
-CC ccan_18xx_43xx.c
-CC vendor_interrupt.c
-CC sysinit.c
-CC crp.c
-CC sapi_datatypes.c
-CC sapi_sleep.c
-CC sapi_cyclesCounter.c
-CC sapi_gpio.c
-CC sapi_spi.c
-CC sapi_adc.c
-CC sapi_i2c.c
-CC sapi_dac.c
-CC sapi_uart.c
-CC sapi_board.c
-CC sapi_stdio.c
-CC sapi_convert.c
-CC sapi_print.c
-CC sapi_circularBuffer.c
-CC sapi_delay.c
-libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c: In function 'delay':
-libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.c:91:23: warning: implicit declaration of function 'tickRead' [-Wimplicit-function-declaration]
-    tick_t startTime = tickRead();
-                       ^~~~~~~~
-CC sapi_button.c
-CC sapi_imu_mpu60X0.c
-CC sapi_imu_mpu9250.c
-DEBLOB libarm_cortexM4lf_math.hexlib
-LD params
-LD app/out/app.elf...
-COPY app.elf TO app.bin
-COPY app.elf TO app.hex
-LIST
-NAME
 SIZEOF app.elf...
    text	   data	    bss	    dec	    hex	filename
-  19220	    536	    408	  20164	   4ec4	app/out/app.elf
+  20784	    556	    420	  21760	   5500	app/out/app.elf
 
 Selected program: app
 Selected board: edu_ciaa_nxp
 
-17:58:07 Build Finished. 0 errors, 3 warnings. (took 11s.644ms)
+21:28:28 Build Finished. 0 errors, 0 warnings. (took 518ms)
 

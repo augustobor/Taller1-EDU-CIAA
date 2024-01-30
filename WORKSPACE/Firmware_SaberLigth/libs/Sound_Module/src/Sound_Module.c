@@ -18,7 +18,7 @@ void modular(float vt);
 void amplificar(float ganancia);
 uint8_t interpol(uint8_t y1 ,uint8_t y2, float dx );
 
-int main(){
+int Example_main(){
 
     sound_raw[0]=100;   // cargo valores de prueba
     sound_raw[1]=128;

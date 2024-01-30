@@ -29,7 +29,8 @@ void setColor_i(uint8_t number_pixel ,struct color c ,float intensity); // asign
 void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float proportion); //asigna una mescla lineal de los colores "c1" y "c2" al pixel "n", con una "proporcion" espesificada (entre 0 a 1)
 void mirror(uint8_t number_pixel); //copia el color del pixel "n" al pixel "PIXELS_LENGTH-n"
 void mirror_all(); // copia espejada de todos los pixeles de la tira led
-
+void setCurrentColor(struct color );
+struct color getCurrentColor();
 
 #endif /* #ifndef _NEOPIXEL_H_*/
 
