@@ -1,4 +1,4 @@
-19:52:24 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+20:18:50 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
 make 
 Using optimization level g
 Using newlib nano. No printf with floats supported
@@ -9,5 +9,5 @@ SIZEOF app.elf...
 Selected program: app
 Selected board: edu_ciaa_nxp
 
-19:52:25 Build Finished. 0 errors, 0 warnings. (took 522ms)
+20:18:50 Build Finished. 0 errors, 0 warnings. (took 539ms)
 

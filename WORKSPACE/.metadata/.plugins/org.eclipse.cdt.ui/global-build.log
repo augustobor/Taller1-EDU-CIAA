@@ -272,3 +272,23 @@ SIZEOF app.elf...
 
 Selected program: app
 Selected board: edu_ciaa_nxp
+20:15:44 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20812	    536	    424	  21772	   550c	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
+20:18:50 **** Incremental Build of configuration Default for project Firmware_SaberLigth ****
+make 
+Using optimization level g
+Using newlib nano. No printf with floats supported
+SIZEOF app.elf...
+   text	   data	    bss	    dec	    hex	filename
+  20812	    536	    424	  21772	   550c	app/out/app.elf
+
+Selected program: app
+Selected board: edu_ciaa_nxp
