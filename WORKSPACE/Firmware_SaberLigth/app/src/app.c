@@ -1,6 +1,7 @@
 
 /*
  * 24-01-2024 revision Nico v1 - porteo de workspace, firmware, modulos
+ *
  * */
 
 
@@ -73,9 +74,9 @@ int main(void)
 			Efects_sinoidal_breath_c_mirror(getCurrentColor()); // actualizo el color de toda la tira
 			TouchADC_read();  // leo los tactiles
 			if( IS_TOUCH() ){
-				c2.g=(uint8_t) rand()%170;
-				c2.r=(uint8_t) rand()%170;
-				c2.b=(uint8_t) rand()%170;
+				c2.g=( (uint8_t) rand() )%170;
+				c2.r=( (uint8_t) rand() )%170;
+				c2.b=( (uint8_t) rand() )%170;
 				TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
 			}
 		}else{

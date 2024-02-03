@@ -3,7 +3,7 @@
 
 #include "board.h"
 #include <stdint.h>
-#include "sapi.h"
+
 
 // ************** Parametros de la tira led *****************
 #define PIXELS_LENGTH 111  // cantidad de leds

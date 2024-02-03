@@ -24,7 +24,7 @@ typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
 	- 7: amarillo
 */
 #define CANT_COLORS 8
-static struct color colorSystem[CANT_COLORS] = {
+struct color colorSystem[CANT_COLORS] = {
 		(struct color){255,0,0},      // Rojo
 		(struct color){148,0,211},    // Violeta
 		(struct color){255,182,193},  // Rosa

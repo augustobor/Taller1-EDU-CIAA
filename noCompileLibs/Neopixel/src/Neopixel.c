@@ -49,7 +49,6 @@ struct color getCurrentColor(){
 			bit_index= (bit_index+1) % PIXEL_BITS_LENGTH; // analiza el sigueinte bit
 			if(bit_index==0){    //si completo toda la tira terminar
 			   update=OFF;
-			   dacConfig( DAC_ENABLE );
 			}
 		 }
       }
@@ -137,7 +136,6 @@ void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float
 
 void Neopixel_Update() {
     update=ON;
-    dacConfig( DAC_DISABLE );
 }
 
 void Neopixel_Wait() {
