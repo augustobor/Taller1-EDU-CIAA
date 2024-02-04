@@ -20,7 +20,7 @@ uint8_t desfazaje_by_pixel=9; // recorre 360º en cada 40pixel[longitud de onda] 
 uint16_t corrimiento_angular=0;
 
 // efecto de onda senoidal de color c, con 15%offset siempre prendido, espejado respecto del centro 
-void Efects_sinoidal_breath_c_mirror(struct color c){
+void Efects_sinoidal_breath_c_mirror(){
    angulo_temporal+=velocity; // angulo temporal de ese frame, se suma la velocidad deseada en grados por frame
    if(angulo_temporal>360){
     angulo_temporal-=360;
@@ -28,30 +28,30 @@ void Efects_sinoidal_breath_c_mirror(struct color c){
   corrimiento_angular=0; // por pixel
    for(int pix_i=0; pix_i< (PIXELS_LENGTH-1/2) ;pix_i++){ // recorro la mitad de los pixeles
       corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeño corrimiento para hacer el efecto desplazamiento-barrido de la onda
-      setColor_i(pix_i,c,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
+      setColor_i(pix_i,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
       mirror(pix_i); // espejado
 	}
 }
-struct color currentColor;
-struct color negro={0,0,0};
+
 void Efects_porcentual(float porcentual_state){
-	currentColor=getCurrentColor();
-	uint8_t pixels_on=PIXELS_LENGTH*porcentual_state/2;
+	uint8_t pixels_on= porcentual_state*PIXELS_LENGTH/2;
 
 	angulo_temporal+=velocity; // angulo temporal de ese frame, se suma la velocidad deseada en grados por frame
 	if(angulo_temporal>360){		angulo_temporal-=360;		}
 
 	corrimiento_angular=0; // por pixel
-	uint8_t pix_i=0;
+	uint8_t pix_i;
 	for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
 	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeño corrimiento para hacer el efecto desplazamiento-barrido de la onda
-	  setColor_i(pix_i, currentColor ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
+	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
 	  mirror(pix_i); // espejado
 	}
-	for( ;pix_i<(PIXELS_LENGTH-1/2);pix_i++){
-		setColor(pix_i,negro);
-		mirror(pix_i);
+	while( pix_i<((PIXELS_LENGTH+1)/2)){ // recorro el resto de los pixeles y los apago
+		pixel_off(pix_i);
+		pixel_off(PIXELS_LENGTH-pix_i);
+		pix_i++;
 	}
+
 }
 
 // efecto para colision

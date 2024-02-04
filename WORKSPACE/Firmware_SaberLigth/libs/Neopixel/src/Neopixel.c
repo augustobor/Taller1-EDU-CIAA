@@ -49,7 +49,9 @@ struct color getCurrentColor(){
 			bit_index= (bit_index+1) % PIXEL_BITS_LENGTH; // analiza el sigueinte bit
 			if(bit_index==0){    //si completo toda la tira terminar
 			   update=OFF;
+			   // habilita lo que  deshabilito
 			   dacConfig( DAC_ENABLE );
+			   Chip_TIMER_Enable(LPC_TIMER1);
 			}
 		 }
       }
@@ -72,16 +74,24 @@ void Neopixel_Init(){
 	SysTick_Config(255); //Generacion de interrupciones periodicas casa 1250ns
 		// pre-calcula las mascaras de bit, para tardar siempre el mismo tiempo en alcanzar cualquier bit
 	init_mask_bit();
+
 }
 
 
-// le asigna el color "c", al "number_pixel", escalado en "level" entre 0 a 255
+// le asigna una proporcion del color del sistema, al "number_pixel", escalado en "level" entre 0 a 255
 // numer_pixel entre "0" a "PIXEL_LENGTH-1"
-void setColor_i(uint8_t numer_pixel,struct color c,float level) {
+void setColor_i(uint8_t numer_pixel,float level) {
 	level=level/255;
-    datachain[numer_pixel*3]  = c.g*level;
-    datachain[numer_pixel*3+1]= c.r*level;
-    datachain[numer_pixel*3+2]= c.b*level;
+    datachain[numer_pixel*3]  = level*currentColor.g;
+    datachain[numer_pixel*3+1]= level*currentColor.r;
+    datachain[numer_pixel*3+2]= level*currentColor.b;
+}
+
+// apaga el pixel con numero @number_pixel
+void pixel_off(uint8_t number_pixel){
+    datachain[number_pixel*3]  = 0;
+    datachain[number_pixel*3+1]= 0;
+    datachain[number_pixel*3+2]= 0;
 }
 
 // int @number_pixel valid 0,(PIXELS_LENGTH-1)
@@ -137,7 +147,9 @@ void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float
 
 void Neopixel_Update() {
     update=ON;
+    // deshabilita todo lo que genera interrupciones
     dacConfig( DAC_DISABLE );
+    Chip_TIMER_Disable(LPC_TIMER1);
 }
 
 void Neopixel_Wait() {

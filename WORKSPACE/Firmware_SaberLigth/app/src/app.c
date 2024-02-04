@@ -71,7 +71,7 @@ int main(void)
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
 
 		if(Encoder_IS_Enable() ){ // si el sable esta prendido
-			Efects_sinoidal_breath_c_mirror(getCurrentColor()); // actualizo el color de toda la tira
+			Efects_sinoidal_breath_c_mirror(); // actualizo el color de toda la tira
 			TouchADC_read();  // leo los tactiles
 			if( IS_TOUCH() ){
 				c2.g=( (uint8_t) rand() )%170;

@@ -6,9 +6,9 @@
 
 
 
-static uint8_t select = 0; // numero de color seleccionado
+static uint8_t select_color = 0; // numero de color seleccionado
 static float procentual_init=0;
-static float procentual_step=0.005;
+static float procentual_step=0.008;
 static eButton_State Button_state;
 
 /*==================[funciones]=================================*/
@@ -61,11 +61,11 @@ void Encoder_MEF_Key() {
 	}
 	if(!CLK_ANT && B_CLK) { //si hay un flanco ascencendente del CLK, se verifica direccion con DT
 		if(B_DT){
-			select=(++select)%CANT_COLORS;
+			select_color=(++select_color)%CANT_COLORS;
 		}else{
-			select=(--select + CANT_COLORS) %CANT_COLORS;
+			select_color=(--select_color + CANT_COLORS) %CANT_COLORS;
 		}
-		setCurrentColor(colorSystem[select]);
+		setCurrentColor(colorSystem[select_color]);
 	}
 
 }
