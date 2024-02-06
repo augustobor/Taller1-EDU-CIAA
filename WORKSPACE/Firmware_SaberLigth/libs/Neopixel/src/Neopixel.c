@@ -49,9 +49,11 @@ struct color getCurrentColor(){
 			bit_index= (bit_index+1) % PIXEL_BITS_LENGTH; // analiza el sigueinte bit
 			if(bit_index==0){    //si completo toda la tira terminar
 			   update=OFF;
-			   // habilita lo que  deshabilito
-			   dacConfig( DAC_ENABLE );
-			   Chip_TIMER_Enable(LPC_TIMER1);
+			   if(!Encoder_IS_Disable()){
+					// habilita lo que  deshabilito
+				   dacConfig( DAC_ENABLE );
+				   Chip_TIMER_Enable(LPC_TIMER1);
+			   }
 			}
 		 }
       }

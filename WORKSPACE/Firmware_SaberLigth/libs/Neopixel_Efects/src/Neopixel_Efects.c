@@ -34,8 +34,8 @@ void Efects_sinoidal_breath_c_mirror(){
 }
 
 void Efects_porcentual(float porcentual_state){
-	uint8_t pixels_on= porcentual_state*PIXELS_LENGTH/2;
 
+	uint8_t pixels_on= porcentual_state*(PIXELS_LENGTH+1)/2;
 	angulo_temporal+=velocity; // angulo temporal de ese frame, se suma la velocidad deseada en grados por frame
 	if(angulo_temporal>360){		angulo_temporal-=360;		}
 
@@ -44,14 +44,20 @@ void Efects_porcentual(float porcentual_state){
 	for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
 	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeño corrimiento para hacer el efecto desplazamiento-barrido de la onda
 	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
-	  mirror(pix_i); // espejado
+
 	}
 	while( pix_i<((PIXELS_LENGTH+1)/2)){ // recorro el resto de los pixeles y los apago
 		pixel_off(pix_i);
 		pixel_off(PIXELS_LENGTH-pix_i);
 		pix_i++;
 	}
-
+	if( (porcentual_state<1)&&(porcentual_state>0)){ // si esta en una transicion, prendo el pixel del borde, color BLANCO
+		struct color BL = {255,255,255};
+		setColor(pixels_on,BL );
+		setColor(pixels_on-1,BL );
+		mirror(pixels_on); // espejado
+		mirror(pixels_on-1); // espejado
+	}
 }
 
 // efecto para colision

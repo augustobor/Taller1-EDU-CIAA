@@ -37,6 +37,7 @@
 
 #include "sapi_board.h"
 
+
 #include "sapi_gpio.h"
 #include "sapi_cyclesCounter.h"
 
@@ -63,7 +64,9 @@ void boardInit(void)
    cyclesCounterInit( SystemCoreClock );
 
    // Inicializar el conteo de Ticks con resolucion de 1ms (si no se usa freeRTOS)
-
+   #ifndef USE_FREERTOS
+      tickInit( 1 );
+   #endif
 
    // Configure GPIO pins for each board
    #if BOARD==ciaa_nxp

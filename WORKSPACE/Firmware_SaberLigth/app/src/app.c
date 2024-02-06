@@ -6,16 +6,17 @@
 
 
 /*==================[inclusions]=============================================*/
+#include "sapi.h"
 
 #include "app.h"
 #include "board.h"
 #include <stdint.h>
-#include "Sounds.h"
 
-#include "Encoder.h"
 #include "Neopixel.h"
 #include "Neopixel_Efects.h"
 #include "Touch_ADC.h"
+#include "Encoder.h"
+#include "Sounds.h"
 
 /*==================[macros and definitions]=================================*/
 
@@ -37,17 +38,10 @@ void dddd(uint32_t delay_ms){
 
 void Blink_Led(); // prototipo
 
-//********* variables main ************
-
-
-struct color c2 = {255,5,5}; // color de contraste - verde intenso
-
 //********* main ************
 int main(void)
 {
    Board_Init();
-   Neopixel_Init();
-   Sounds_Init();
 
    // Configuro LED1 = pin P2_10 = GPIO0[14]
    Chip_SCU_PinMux( 2, 10, SCU_MODE_INACT, SCU_MODE_FUNC0 );
@@ -62,26 +56,35 @@ int main(void)
    // Pongo en estado bajo LED1 el GPIO0[14]
    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
+   Neopixel_Init();
+   Sounds_Init();
    TouchADC_Init();
    Encoder_Init();
    Button_init();
+   //mpu60X0Init( MPU60X0_ADDRESS_0 );
+
 
 	while (1){  // cada vez que prende el led_integrado, actualiaza los leds
-		Sound_Service_DAC();
+
+		// setea la ganancia al inicio en 3.5X
+		// setea la ganancia al final del prendido en 1.5X
+		setGanance(3.5-getProcentualState()*2 ); // +get_gyro_abs_val() );
+		// modula la velocidad de reproduccion del sonido en 0.001X al inicio del sistema
+		// 1X cuando esta totalmente prendido
+		moduleSound(getProcentualState());
+
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
+		Efects_porcentual(getProcentualState()); // efecto onda Neopixel, prende una proporcion del largo del sable
 
 		if(Encoder_IS_Enable() ){ // si el sable esta prendido
-			Efects_sinoidal_breath_c_mirror(); // actualizo el color de toda la tira
 			TouchADC_read();  // leo los tactiles
-			if( IS_TOUCH() ){
-				c2.g=( (uint8_t) rand() )%170;
-				c2.r=( (uint8_t) rand() )%170;
-				c2.b=( (uint8_t) rand() )%170;
-				TouchADC_efects(c2,7); // llamo al efecto color c2, con radio de colision 3
+			if( IS_TOUCH() ){// si hay algun tactil presionado
+				moduleSound(1.55);
+				setGanance(1.81); // modifico el sonido
+				TouchADC_efects(7); // llamo al efecto colision touch, con radio de colision 7PX
 			}
-		}else{
-			Encoder_Efects_Step();// hace el efecto de colores y sonido - de prendido y apagado
 		}
+		Encoder_Efects_Step(); // actualiza el valor de prendido porcentual
 		Encoder_MEF_Key();
 
 		Neopixel_Update();   //actualiza TIRA LEDS
@@ -91,14 +94,9 @@ int main(void)
 
 }
 
-uint8_t state=0;
+
 void Blink_Led(){
-      if(state==ON){ //prende LED1
-         state=OFF;
-         Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
-      }
-	else{          //apaga LED1
-		 state=ON;
-		 Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, ON );
-	}
+	static bool_t state=0;
+    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, state);
+    state=!state;
 }

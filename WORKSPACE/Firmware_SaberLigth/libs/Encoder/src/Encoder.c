@@ -7,8 +7,8 @@
 
 
 static uint8_t select_color = 0; // numero de color seleccionado
-static float procentual_init=0;
-static float procentual_step=0.008;
+static float procentual_init=0; // estado de prendido (0 apagado ; 1 prendido ; ... )
+static float procentual_step=0.009; // velocidad de prendido
 static eButton_State Button_state;
 
 /*==================[funciones]=================================*/
@@ -34,10 +34,8 @@ void Encoder_Efects_Step(){
 				procentual_init=0;
 			}
 		}
-		Efects_porcentual(procentual_init); // efecto
-		//Sound_Module_Porcentual(procentual_init);
-	}
 
+	}
 
 }
 
@@ -45,27 +43,32 @@ void Encoder_Efects_Step(){
 // MEF verrifica el estado del encoder, con el puldador en flanco descendente prende y apaga
 // con el giro del enconder cambia el color del sistema
 void Encoder_MEF_Key() {
-	static bool_t CLK_ANT, DT_ANT, SW_ANT,SW_ANT_ANT;
-	static bool_t B_CLK , B_DT, B_SW;
+	static bool_t CLK_ANT, DT_ANT;
+	static bool_t B_CLK , B_DT;
 	CLK_ANT=B_CLK;	// guardo los valores anteriores de las señales de entrada
 	DT_ANT=B_DT;
-	SW_ANT_ANT=SW_ANT;
-	SW_ANT=B_SW;
-	B_SW= gpioRead(BOTON_SW); // leo los valores nuevos de la señales
+
+	// leo los valores nuevos de la señales
 	B_DT= gpioRead(ENC_B_DT);
 	B_CLK= gpioRead(ENC_A_CLK);
 
-	if(!SW_ANT_ANT && SW_ANT && B_SW) { // flanco ascendente de 3 lecturas
-		if(Button_state==APAGADO) Button_state = STARTING;
+	static uint16_t timedelay=0;
+	if( ! gpioRead(BOTON_SW) ){ // si se mantiene presionado el boton prendido, acumula
+		timedelay++;
+	}else{
+		timedelay=0;
+	}
+	if(timedelay==100) { // si acumula 100 veces con el boton presionado
+		if(Button_state==APAGADO) Button_state = STARTING; // cambio de estado
 		if(Button_state==PRENDIDO) Button_state = STOPPING;
 	}
 	if(!CLK_ANT && B_CLK) { //si hay un flanco ascencendente del CLK, se verifica direccion con DT
 		if(B_DT){
-			select_color=(++select_color)%CANT_COLORS;
+			select_color=(++select_color)%CANT_COLORES;
 		}else{
-			select_color=(--select_color + CANT_COLORS) %CANT_COLORS;
+			select_color=(--select_color + CANT_COLORES) %CANT_COLORES;
 		}
-		setCurrentColor(colorSystem[select_color]);
+		setCurrentColor(colorSableLazer[select_color]);
 	}
 
 }
@@ -88,3 +91,12 @@ bool_t Encoder_IS_Enable(){
 	return  ( Button_state==PRENDIDO );
 }
 
+bool_t Encoder_IS_Disable(){
+	return (Button_state==APAGADO);
+}
+bool_t Encoder_IS_Transicion(){
+	return (Button_state==STARTING) || (Button_state== STOPPING);
+}
+float getProcentualState(){
+	return procentual_init;
+}

@@ -39,7 +39,7 @@
 
 #include "sapi_imu_mpu60X0.h"   /* <= sAPI MPU60X0 header */
 #include "sapi_i2c.h"           /* <= sAPI I2C header */
-#include "sapi_delay.h"         /* <= sAPI Delay header */
+//#include "sapi_delay.h"         /* <= sAPI Delay header */
 
 /*==================[macros and definitions]=================================*/
 
@@ -84,6 +84,8 @@ static int8_t mpu60X0InitializeControlStructure( void )
 	control.tZ[2] = 1;
 }
 
+
+
 static int8_t mpu60X0WriteRegister( uint8_t subAddress, uint8_t data )
 {
 	uint8_t transmitDataBuffer[2];
@@ -91,7 +93,7 @@ static int8_t mpu60X0WriteRegister( uint8_t subAddress, uint8_t data )
 	transmitDataBuffer[1] = data;
 	i2cWrite(I2C0, control.address, transmitDataBuffer, 2, TRUE);
 
-	delay(10);
+	dddd(14);
 
 	/* read back the register */
 	mpu60X0ReadRegisters(subAddress,1);
@@ -145,7 +147,7 @@ static int8_t mpu60X0CalibrateGyro( void )
 		control._gxbD += ((mpu60X0GetGyroX_rads() + control._gxb)/control._numSamples);
 		control._gybD += ((mpu60X0GetGyroY_rads() + control._gyb)/control._numSamples);
 		control._gzbD += ((mpu60X0GetGyroZ_rads() + control._gzb)/control._numSamples);
-		delay(20);
+		dddd(20);
 	}
 	control._gxb = (float)control._gxbD;
 	control._gyb = (float)control._gybD;
@@ -303,7 +305,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	// reset the MPU60X0
 	mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_PWR_RESET);
 	// wait for MPU60X0 to come back up
-	delay(1);
+	dddd(1);
 	// select clock source to X-gyro
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -4;

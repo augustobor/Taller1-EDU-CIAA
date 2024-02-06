@@ -57,7 +57,8 @@ extern volatile tick_t tickRateMS;
 
 /*==================[external functions definition]==========================*/
 
-/*
+/* ---- Inaccurate Blocking Delay ---- */
+
 void delayInaccurateMs(tick_t delay_ms)
 {
    volatile tick_t i;
@@ -65,7 +66,6 @@ void delayInaccurateMs(tick_t delay_ms)
    delay = INACCURATE_TO_MS * delay_ms;
    for( i=delay; i>0; i-- );
 }
-*/
 
 void delayInaccurateUs( tick_t delay_us )
 {

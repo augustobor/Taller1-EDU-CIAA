@@ -180,13 +180,20 @@ void Chip_I2CM_Xfer(LPC_I2C_T *pI2C, I2CM_XFER_T *xfer)
 /* Transmit and Receive data in master mode */
 uint32_t Chip_I2CM_XferBlocking(LPC_I2C_T *pI2C, I2CM_XFER_T *xfer)
 {
+	uint16_t time_out=0;
 	uint32_t ret = 0;
 	/* start transfer */
 	Chip_I2CM_Xfer(pI2C, xfer);
 
 	while (ret == 0) {
 		/* wait for status change interrupt */
-		while ( Chip_I2CM_StateChanged(pI2C) == 0) {}
+		while ( ( Chip_I2CM_StateChanged(pI2C) == 0) && (time_out<22000) ) {
+			time_out++;
+		}
+		if(time_out==22000) {
+			return 1; // retorna ocupado
+		}
+
 		/* call state change handler */
 		ret = Chip_I2CM_XferHandler(pI2C, xfer);
 	}

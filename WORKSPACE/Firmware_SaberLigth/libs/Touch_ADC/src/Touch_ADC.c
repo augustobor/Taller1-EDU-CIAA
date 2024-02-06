@@ -82,13 +82,14 @@ void TouchADC_Init(){
 
 // *******************
 // verifica los flags de touch, y aumenta el brillo correspondiente a los leds cercanos
-void TouchADC_efects(struct color cl, uint8_t radius){
+void TouchADC_efects( uint8_t radius){
 	if(radius > (PIXELS_LENGTH/6)-1 ){
 		radius=(PIXELS_LENGTH/6)-1;
 	}
 	if(radius<1){
 		radius=1;
 	}
+	struct color cl= { (rand())%170 ,(rand())%170 ,(rand())%170 }; // asigna nuevo color random
 	if(flag_touch_4){
 		Efects_colision(PIXELS_LENGTH/16,cl,radius);
 		flag_touch_4=OFF;

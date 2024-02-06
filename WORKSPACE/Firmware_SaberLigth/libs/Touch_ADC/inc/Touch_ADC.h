@@ -17,7 +17,7 @@ static uint16_t triger_value_t4 = 80; // ?
 
 void TouchADC_Init();  // inicializa el ADC, y los flags
 void TouchADC_read();  // lee el ADC y decodifica las banderas de los touch presionados
-void TouchADC_efects(struct color cl, uint8_t radius); // cuando se detecta un touch presionado, se genera una auriola de color "c" y radio "r"
+void TouchADC_efects( uint8_t radius); // cuando se detecta un touch presionado, se genera una auriola de color "c" y radio "r"
 uint8_t IS_TOUCH();		// retorna 0 solo si no se presiona ningun tactil
 
 

@@ -76,7 +76,6 @@
 // External Peripheral Drivers
 
 
-
 #include "sapi_imu_mpu9250.h"            // Use sapi_i2c module
 #include "sapi_imu_mpu60X0.h"            // Use sapi_i2c module
 
