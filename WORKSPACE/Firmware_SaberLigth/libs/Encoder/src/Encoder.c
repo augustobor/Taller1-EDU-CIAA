@@ -6,9 +6,9 @@
 
 
 
-static uint8_t select_color = 0; // numero de color seleccionado
+static uint8_t select_color = 12; // numero de color seleccionado
 static float procentual_init=0; // estado de prendido (0 apagado ; 1 prendido ; ... )
-static float procentual_step=0.009; // velocidad de prendido
+static float procentual_step=0.02; // velocidad de prendido
 static eButton_State Button_state;
 
 /*==================[funciones]=================================*/

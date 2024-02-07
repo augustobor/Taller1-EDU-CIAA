@@ -22,7 +22,7 @@ void TouchADC_read(){
 
 	Chip_ADC_ReadValue(LPC_ADC0, ADC_CH3, &lectura_adc);
 
-	if(lectura_adc>165)lectura_adc-=175;// correccion de piso de ruido
+	//if(lectura_adc>165)lectura_adc-=175;// correccion de piso de ruido
 
 	if(lectura_adc>= triger_value_t1){ // si el valor supera el 50%
 		lectura_adc-=triger_value_t1; //guardo el valor de las siguientes muestras

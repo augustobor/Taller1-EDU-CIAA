@@ -71,7 +71,7 @@ int main(void)
 		setGanance(3.5-getProcentualState()*2 ); // +get_gyro_abs_val() );
 		// modula la velocidad de reproduccion del sonido en 0.001X al inicio del sistema
 		// 1X cuando esta totalmente prendido
-		moduleSound(getProcentualState());
+		moduleSound( (getProcentualState()+3)/10 );
 
 		Neopixel_Wait(); // espera que la tira led termine de actualizar la tira de leds
 		Efects_porcentual(getProcentualState()); // efecto onda Neopixel, prende una proporcion del largo del sable
@@ -79,9 +79,10 @@ int main(void)
 		if(Encoder_IS_Enable() ){ // si el sable esta prendido
 			TouchADC_read();  // leo los tactiles
 			if( IS_TOUCH() ){// si hay algun tactil presionado
-				moduleSound(1.55);
-				setGanance(1.81); // modifico el sonido
+				set_enable_colision_sound(1);
 				TouchADC_efects(7); // llamo al efecto colision touch, con radio de colision 7PX
+			}else{
+				set_enable_colision_sound(0);
 			}
 		}
 		Encoder_Efects_Step(); // actualiza el valor de prendido porcentual
@@ -89,7 +90,7 @@ int main(void)
 
 		Neopixel_Update();   //actualiza TIRA LEDS
       Blink_Led();
-		dddd(18); //retardo bloqueante 22ms, opcional
+		dddd(11); //retardo bloqueante 22ms, opcional
 	}
 
 }

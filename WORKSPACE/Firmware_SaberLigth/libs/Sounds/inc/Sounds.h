@@ -23,5 +23,6 @@ void moduleSound(float porcentual);
 uint16_t amplificarS(float);
 float interpol(uint16_t y1 ,uint16_t y2, float dx );
 void moduleSound(float velocidad_transduccion);
+void set_enable_colision_sound(bool_t enable);
 
 #endif /* #ifndef _NEOPIXEL_EFECTS_H_*/
