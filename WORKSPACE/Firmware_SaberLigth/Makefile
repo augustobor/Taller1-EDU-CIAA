@@ -17,7 +17,7 @@ BOARD = edu_ciaa_nxp
 # Program path and name ------------------------------------------------
 
 # Program path and name default values
-PROGRAM_PATH = ""
+PROGRAM_PATH = examples/c
 PROGRAM_NAME = app
 
 # Program path and name from an external program.mk file
@@ -34,7 +34,7 @@ endif
 
 # Compilation and libraries default values
 # Compile options
-VERBOSE=y
+VERBOSE=n
 OPT=g
 USE_NANO=y
 USE_LTO=n
@@ -43,7 +43,7 @@ USE_FPU=y
 ENFORCE_NOGPL=n
 # Libraries
 USE_LPCOPEN=y
-USE_SAPI=n
+USE_SAPI=y
 
 # Include config.mk file from program
 -include $(PROGRAM_PATH_AND_NAME)/config.mk
@@ -81,10 +81,11 @@ TARGET_AXF=$(basename $(TARGET)).axf
 
 INCLUDE_FLAGS=$(foreach m, $(MODULES), -I$(m)/inc) -I$(PROGRAM_PATH_AND_NAME)/inc $(INCLUDES)
 DEFINES_FLAGS=$(foreach m, $(DEFINES), -D$(m))
+DEBUG_FLAGS=-g
 OPT_FLAGS=-ggdb3 -O$(OPT) -ffunction-sections -fdata-sections
 LIBSDEPS=$(addprefix $(OUT)/, $(addsuffix .a, $(basename $(foreach l, $(LIBS), $(foreach m, $(MODULES), $(wildcard $(m)/lib/lib$(l).hexlib) ) ))))
 
-COMMON_FLAGS=$(ARCH_FLAGS) $(DEFINES_FLAGS) $(INCLUDE_FLAGS) $(OPT_FLAGS) -DBOARD=$(BOARD)
+COMMON_FLAGS=$(ARCH_FLAGS) $(DEFINES_FLAGS) $(INCLUDE_FLAGS) $(OPT_FLAGS) $(DEBUG_FLAGS) -DBOARD=$(BOARD)
 
 CFLAGS=$(COMMON_FLAGS) -std=c99
 CXXFLAGS=$(COMMON_FLAGS) -fno-rtti -fno-exceptions -std=c++11
@@ -150,6 +151,8 @@ all: $(OUT) .try_enforce_no_gpl $(TARGET) $(TARGET_BIN) $(TARGET_HEX) $(TARGET_L
 	@echo 
 	@echo Selected program: $(PROGRAM_PATH_AND_NAME)
 	@echo Selected board: $(BOARD)
+	@echo $(TARGET)
+	@chmod 777 $(TARGET)
 
 -include $(foreach m, $(MODULES), $(wildcard $(m)/module.mk))
 
@@ -300,8 +303,12 @@ erase:
 	--gdbcmd="break main" \
 	--gdbcmd="continue"
 
+#debug:
+#	@$(MAKE) -j 2 .debug .run_gdb
+
 debug:
-	@$(MAKE) -j 2 .debug .run_gdb
+	@gdb $(TARGET)
+
 
 # TEST: Run hardware tests
 .hardware_test: $(TARGET)

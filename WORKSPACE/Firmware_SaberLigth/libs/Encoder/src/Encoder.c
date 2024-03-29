@@ -1,6 +1,7 @@
 /*==================[inclusions]=============================================*/
 
 #include "Encoder.h"
+#include "monitoring.h"
 
 /*==================[variables]=================================*/
 
@@ -45,10 +46,10 @@ void Encoder_Efects_Step(){
 void Encoder_MEF_Key() {
 	static bool_t CLK_ANT, DT_ANT;
 	static bool_t B_CLK , B_DT;
-	CLK_ANT=B_CLK;	// guardo los valores anteriores de las señales de entrada
+	CLK_ANT=B_CLK;	// guardo los valores anteriores de las seï¿½ales de entrada
 	DT_ANT=B_DT;
 
-	// leo los valores nuevos de la señales
+	// leo los valores nuevos de la seï¿½ales
 	B_DT= gpioRead(ENC_B_DT);
 	B_CLK= gpioRead(ENC_A_CLK);
 
@@ -59,6 +60,8 @@ void Encoder_MEF_Key() {
 		timedelay=0;
 	}
 	if(timedelay==100) { // si acumula 100 veces con el boton presionado
+		#ifdef DEBUG_MODE
+		#endif
 		if(Button_state==APAGADO) Button_state = STARTING; // cambio de estado
 		if(Button_state==PRENDIDO) Button_state = STOPPING;
 	}

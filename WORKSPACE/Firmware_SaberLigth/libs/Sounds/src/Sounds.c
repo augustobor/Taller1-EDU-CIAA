@@ -46,7 +46,7 @@ float state_readC=0; // indice de lectura del sonido colision
  }
 
 
- // esta funcion modufica la velocidad de escritura del DAC, para generar una variacion de frecuencia
+ // esta funcion modifica la velocidad de escritura del DAC, para generar una variacion de frecuencia
 // float @porcentual valores entre 0..1
  void moduleSound(float velocidad_transduccion){
 	 vt=velocidad_transduccion;
@@ -71,11 +71,11 @@ float state_readC=0; // indice de lectura del sonido colision
 		uint16_t index_read= TRUNC(state_read); // trunco el valor entero del indice
 
 		// interpola los 2 valores mas cercanos a la lectura, respecto a la velocidad de lectura flotante,
-		// luego amplifica ese valor, teniendo en cuenta que el valor medio de la señal guardada es de +128 ; el valor medio de la señal amplificada es +500
+		// luego amplifica ese valor, teniendo en cuenta que el valor medio de la seï¿½al guardada es de +128 ; el valor medio de la seï¿½al amplificada es +500
 		sound_point += amplificarS( interpol( raw_samples[index_read] ,  raw_samples[index_read+1], (state_read-index_read) ) );
 
 
-		if(sound_point>1024)sound_point=1024; // trunco la señal
+		if(sound_point>1024)sound_point=1024; // trunco la seï¿½al
 		if(sound_point<0)sound_point=0;
 
 		//envio el valor al DAC
@@ -89,7 +89,7 @@ float state_readC=0; // indice de lectura del sonido colision
  }
 
  // si los tactiles estan activados
- // retorna valores de señal, onda cuadrada, sin valor medio
+ // retorna valores de seï¿½al, onda cuadrada, sin valor medio
  // con amplitud @amp=350
  // con frecuencia normalizada = velocity_push/(2*100) = 0.5 ciclos/escritura
  float generador_onda_cuadrada(){
@@ -108,14 +108,14 @@ float state_readC=0; // indice de lectura del sonido colision
 		return 0;
  }
 
- // retorna los valores de señal sin valor medio
+ // retorna los valores de seï¿½al sin valor medio
  // con velocidad de lectura @vtC
  // con ganancia 3.5
  // si los touch estan activados, envia 1 de cada 2 valores
  // si los touch estan activados, modifica la gancia del efecto principal @ganancia=1
 float sonido_auxiliar(){
 	static bool_t trimer=0;
-	trimer=!trimer; // para generar un efecto mas grotesco, el efecto colision, solo se aplica 1 de cada 2 puntos, generando una onda cuadrada que deforma la señal
+	trimer=!trimer; // para generar un efecto mas grotesco, el efecto colision, solo se aplica 1 de cada 2 puntos, generando una onda cuadrada que deforma la seï¿½al
 	if( (enable_colision) && ( trimer) ){
 		state_readC+=vtC; // incremento al siguiente paso de lectura
 		uint16_t index_readC= TRUNC(state_readC);// trunco el valor entero del indice
@@ -124,7 +124,7 @@ float sonido_auxiliar(){
 			state_readC-=raw_samples_length;
 		}
 		ganancia=1;
-		return 3.5* ( interpol( raw_samples[index_readC] ,  raw_samples[index_readC+1], (state_readC-index_readC) ) - 128 ) ; // le sumo la señal de colision, sin el valor medio
+		return 3.5* ( interpol( raw_samples[index_readC] ,  raw_samples[index_readC+1], (state_readC-index_readC) ) - 128 ) ; // le sumo la seï¿½al de colision, sin el valor medio
 	}
 	return 0;
 }
