@@ -2,7 +2,6 @@
 #ifndef _SOUNDS_H_
 #define _SOUNDS_H_
 
-#include "Neopixel_Efects.h"
 #include "sapi.h"
 #include "board.h"
 #define TRUNC(n) ((uint16_t)(n))
