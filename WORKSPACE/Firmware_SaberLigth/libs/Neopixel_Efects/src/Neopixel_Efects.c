@@ -16,7 +16,7 @@ uint8_t brain_cicle_intensity(uint16_t angule){
 
 uint16_t angulo_temporal=0;
 uint16_t velocity=3;
-uint8_t desfazaje_by_pixel=9; // recorre 360º en cada 40pixel[longitud de onda] ; 360/40
+uint8_t desfazaje_by_pixel=9; // recorre 360ï¿½ en cada 40pixel[longitud de onda] ; 360/40
 uint16_t corrimiento_angular=0;
 
 // efecto de onda senoidal de color c, con 15%offset siempre prendido, espejado respecto del centro 
@@ -27,7 +27,7 @@ void Efects_sinoidal_breath_c_mirror(){
    }
   corrimiento_angular=0; // por pixel
    for(int pix_i=0; pix_i< (PIXELS_LENGTH-1/2) ;pix_i++){ // recorro la mitad de los pixeles
-      corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeño corrimiento para hacer el efecto desplazamiento-barrido de la onda
+      corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeï¿½o corrimiento para hacer el efecto desplazamiento-barrido de la onda
       setColor_i(pix_i,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
       mirror(pix_i); // espejado
 	}
@@ -42,7 +42,7 @@ void Efects_porcentual(float porcentual_state){
 	corrimiento_angular=0; // por pixel
 	uint8_t pix_i;
 	for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
-	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeño corrimiento para hacer el efecto desplazamiento-barrido de la onda
+	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un pequeï¿½o corrimiento para hacer el efecto desplazamiento-barrido de la onda
 	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
       mirror(pix_i); // espejado
 	}
