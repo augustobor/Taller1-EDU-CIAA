@@ -6,7 +6,7 @@
 
 
 
-static uint8_t select_color = 12; // numero de color seleccionado
+static uint8_t select_color = 12; // numero de color seleccionado por defecto
 static float procentual_init=0; // estado de prendido (0 apagado ; 1 prendido ; ... )
 static float procentual_step=0.02; // velocidad de prendido
 static eButton_State Button_state;
@@ -19,7 +19,7 @@ void Button_init() {
 
 void Encoder_Efects_Step(){
 
-	if ( (Button_state==STARTING) || (Button_state== STOPPING) ){
+	if ( (Button_state==STARTING) || (Button_state== STOPPING) ){ // ESTO PUEDE SER UN SWITCH
 		if(Button_state== STARTING){ // incremento el porcentaje de inicio
 			procentual_init=procentual_init+procentual_step;
 			if(procentual_init>=1){
@@ -45,10 +45,10 @@ void Encoder_Efects_Step(){
 void Encoder_MEF_Key() {
 	static bool_t CLK_ANT, DT_ANT;
 	static bool_t B_CLK , B_DT;
-	CLK_ANT=B_CLK;	// guardo los valores anteriores de las señales de entrada
+	CLK_ANT=B_CLK;	// guardo los valores anteriores de las seï¿½ales de entrada
 	DT_ANT=B_DT;
 
-	// leo los valores nuevos de la señales
+	// leo los valores nuevos de la seï¿½ales
 	B_DT= gpioRead(ENC_B_DT);
 	B_CLK= gpioRead(ENC_A_CLK);
 

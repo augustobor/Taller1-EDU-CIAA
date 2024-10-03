@@ -55,7 +55,7 @@ void TouchADC_Init(){
     };
 
 	lectura_adc=0;
-	flag_touch_1 = 0; //  reset de vanderas
+	flag_touch_1 = 0; //  reset de banderas
 	flag_touch_2 = 0;
 	flag_touch_3 = 0;
 	flag_touch_4 = 0;

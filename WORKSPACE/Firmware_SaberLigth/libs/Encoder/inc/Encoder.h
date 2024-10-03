@@ -12,11 +12,11 @@
 #define BOTON_SW T_FIL0 // 33
 
 typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
-/* Vector de colores para el sable láser
+/* Vector de colores para el sable lï¿½ser
    - 0: Rojo intenso
    - 1: Naranja fuerte
    - 2: Amarillo brillante
-   - 3: Amarillo pálido
+   - 3: Amarillo pï¿½lido
    - 4: Verde lima
    - 5: Verde brillante
    - 6: Turquesa
@@ -35,7 +35,7 @@ static struct color colorSableLazer[CANT_COLORES] = {
         (struct color){255, 0, 0},        // Rojo intenso
         (struct color){255, 165, 0},      // Naranja fuerte
         (struct color){255, 255, 0},      // Amarillo brillante
-        (struct color){255, 255, 153},    // Amarillo pálido
+        (struct color){255, 255, 153},    // Amarillo pï¿½lido
         (struct color){204, 255, 102},    // Verde lima
         (struct color){0, 255, 0},        // Verde brillante
         (struct color){0, 206, 209},      // Turquesa
@@ -53,7 +53,6 @@ static struct color colorSableLazer[CANT_COLORES] = {
 
 
 
-void updateColor(uint8_t);
 void Encoder_Init();
 void Button_init();
 void Encoder_MEF_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
