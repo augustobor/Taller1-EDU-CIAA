@@ -160,20 +160,16 @@ float sonido_auxiliar(){
  }
 
  uint16_t amplificarS(float raw){
- 	raw=(raw-128)*ganancia; // saco el valor medio
- 	if(raw>512){
+ 	float mid_raw =(raw-128)*ganancia; // saco el valor medio
+ 	if(mid_raw>512){
  		ganancia=1;
- 		struct color cl= { (rand())%170 ,(rand())%170 ,(rand())%170 }; // asigna nuevo color random
- 		Efects_colision(25,cl, 22); // Efecto_BUGG();
  		return 1024; // limito el valor maximo
  	}
- 	if(raw<-512){ // limito el valor minimo
+ 	if(mid_raw<-512){ // limito el valor minimo
  		ganancia=1;
- 		struct color cl= { (rand())%170 ,(rand())%170 ,(rand())%170 }; // asigna nuevo color random
- 		Efects_colision(25,cl, 22); // Efecto_BUGG();
  		return 0;
  	}
- 	return (raw + 512); // retorna el valor amplificado
+ 	return (mid_raw + 512); // retorna el valor amplificado
   }
 
  void set_enable_colision_sound(bool_t enable){

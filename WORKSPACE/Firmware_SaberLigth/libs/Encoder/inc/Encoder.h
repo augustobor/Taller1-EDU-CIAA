@@ -2,9 +2,7 @@
 #define _ENCODER_H_
 
 #include "Neopixel.h"
-#include "board.h"
 #include <stdint.h>
-#include "sapi.h"
 
 #define PIXELS_LENGTH 111
 #define ENC_A_CLK T_FIL3 // 35
