@@ -1,0 +1,44 @@
+name: Test Code Features
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define los jobs que se ejecutarán
+jobs:
+  build:
+    # Ejecuta el trabajo en un contenedor de Ubuntu
+    runs-on: arm64v8/gcc-12
+
+    # Configura los pasos que ejecutará el trabajo
+    steps:
+      # Configura el repositorio en el contenedor de ejecución
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Configura un compilador para tu proyecto
+      - name: Set up gcc arm compiler
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Configuracion de las dependencias base y modulos del proyecto (modifica según tu proyecto)
+      - name: Setup dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Ejecuta las pruebas individuales de cada modulo
+      - name: Run tests
+        run: |
+          gcc -o (path del modulo 1)
+          gcc -o (path del modulo 2)
+
+      # Realizar el build de la app main.c
+      - name: Build project
+        run: |
+          make Taller1-EDU-CIAA/WORKSPACE/Firmware_SaberLigth/Makefile
