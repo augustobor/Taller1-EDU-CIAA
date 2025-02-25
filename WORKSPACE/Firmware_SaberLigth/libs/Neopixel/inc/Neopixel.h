@@ -1,9 +1,8 @@
 #ifndef _NEOPIXEL_H_
 #define _NEOPIXEL_H_
 
-#include "board.h"
-#include <stdint.h>
-#include "sapi.h"
+#include <stdint.h> // Include for uint8_t type
+//#include "sapi.h" // Ensure the correct path to sapi.h
 
 // ************** Parametros de la tira led *****************
 #define PIXELS_LENGTH 111  // cantidad de leds
@@ -33,5 +32,5 @@ void pixel_off(uint8_t number_pixel);// apaga el pixel con numero @number_pixel
 void setCurrentColor(struct color );
 struct color getCurrentColor();
 
-#endif /* #ifndef _NEOPIXEL_H_*/
+#endif /* #ifndef _NEOPIXEL_H_ */
 
