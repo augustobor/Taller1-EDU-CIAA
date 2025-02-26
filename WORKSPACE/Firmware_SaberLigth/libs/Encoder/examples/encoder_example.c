@@ -36,7 +36,7 @@ void testEncoderEffectsStepStarting(void) {
 
 void testEncoderEffectsStepStopping(void) {
     // Test 3: Apply encoder effects step with Button_state STOPPING
-    Button_init();
+    Button_init(); 
     setButtonState(STOPPING);
     Encoder_Efects_Step();
     printf("Encoder effects step applied with STOPPING\n");
