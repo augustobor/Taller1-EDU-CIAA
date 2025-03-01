@@ -17,14 +17,6 @@ Para trabajar con este proyecto, necesitas tener instalado lo siguiente:
 - **Makefile**: Archivo para compilar y generar el binario del proyecto.
 - **README.md**: Este archivo con la descripción del proyecto.
 
-## Requisitos
-
-Para trabajar con este proyecto, necesitas tener instalado lo siguiente:
-
-- **Compilador GCC ARM**: Para compilar el código para la plataforma EDU-CIAA.
-- **EDU-CIAA Firmware**: Librerías necesarias para la programación del microcontrolador.
-- **Programador/Depurador**: JTAG o similar compatible con EDU-CIAA.
-
 ## Instrucciones de Uso
 
 1. Clona este repositorio en tu máquina local:
@@ -44,6 +36,19 @@ Para trabajar con este proyecto, necesitas tener instalado lo siguiente:
 
 4. Conecta la plataforma EDU-CIAA a tu computadora y carga el binario generado.
 
+## Pasos de instalacion
+
+1. Ir a: https://github.com/epernia/software y descargar la ultima release para utilizar el entorno EDU-CIAA
+2. Descomprimir la carpeta en una ruta conocida, sin espacios y con los permisos adecuados. Se
+recomiendan
+    a. Windows. C:\CIAA\
+3. Descargar el repositorio Firmware v3 release v1.3.0 y Descomprimir la carpeta en una ruta conocida, sin espacios y con los permisos adecuados. Se
+recomiendan
+    a. Windows. C:\CIAA\
+4. Copiar los archivo app/ y libs cusotoms a las libs/ del firmware v3
+5. Compilar el firmware v3
+6. Configuracion Zadig: En el menu seleccione el dispositivo "Dual RS232HS (Interface 0)" y presionar el botón "Replace
+Driver":
 ## Estructura del Proyecto
 
 ```
