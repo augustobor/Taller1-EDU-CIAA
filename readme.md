@@ -1,3 +1,5 @@
+![alt text](./images/linux_penguin.png)
+![alt text](./images/pc.png)
 # Taller 1 - EDU-CIAA
 
 Este repositorio contiene los archivos y el código correspondiente al Taller 1 de la plataforma EDU-CIAA. Este taller tuvo como objetivo realizar el codigo para construir un sable de luz con tias led y sonido controlados por dicha aplicacion.
@@ -38,17 +40,24 @@ Para trabajar con este proyecto, necesitas tener instalado lo siguiente:
 
 ## Pasos de instalacion
 
-1. Ir a: https://github.com/epernia/software y descargar la ultima release para utilizar el entorno EDU-CIAA
+1. **Ir a:** https://github.com/epernia/software y descargar la ultima release para utilizar el entorno **EDU-CIAA**
 2. Descomprimir la carpeta en una ruta conocida, sin espacios y con los permisos adecuados. Se
 recomiendan
-    a. Windows. C:\CIAA\
-3. Descargar el repositorio Firmware v3 release v1.3.0 y Descomprimir la carpeta en una ruta conocida, sin espacios y con los permisos adecuados. Se
+    a. Windows. `C:\CIAA\`
+3. Descargar el repositorio Firmware `v3` release `v1.3.0` y Descomprimir la carpeta en una ruta conocida, sin espacios y con los permisos adecuados. Se
 recomiendan
-    a. Windows. C:\CIAA\
-4. Copiar los archivo app/ y libs cusotoms a las libs/ del firmware v3
+    a. Windows. `C:\CIAA\`
+4. Copiar los archivo `app/` y libs cusotoms a las `libs/` del firmware v3
 5. Compilar el firmware v3
-6. Configuracion Zadig: En el menu seleccione el dispositivo "Dual RS232HS (Interface 0)" y presionar el botón "Replace
-Driver":
+
+
+
+> **Nota Importante:**
+> 👀 Verificar en los archivos de configuracionque no se este llamando a `sapi.h` y que `sapi.h` no se este llamando en otros programas.
+>
+
+6. **Configuracion Zadig**: En el menu seleccione el dispositivo "Dual RS232HS (Interface 0)" y presionar el botón "Replace Driver":
+
 ## Estructura del Proyecto
 
 ```
