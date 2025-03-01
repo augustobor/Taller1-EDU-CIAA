@@ -80,9 +80,10 @@ TARGET_ELF=$(basename $(TARGET)).elf
 TARGET_AXF=$(basename $(TARGET)).axf
 
 INCLUDE_FLAGS=$(foreach m, $(MODULES), -I$(m)/inc) -I$(PROGRAM_PATH_AND_NAME)/inc $(INCLUDES)
+
 DEFINES_FLAGS=$(foreach m, $(DEFINES), -D$(m))
 OPT_FLAGS=-ggdb3 -O$(OPT) -ffunction-sections -fdata-sections
-LIBSDEPS=$(addprefix $(OUT)/, $(addsuffix .a, $(basename $(foreach l, $(LIBS), $(foreach m, $(MODULES), $(wildcard $(m)/lib/lib$(l).hexlib) ) ))))
+LIBSDEPS=$(addprefix $(OUT)/, $(addsuffix .a, $(basename $(foreach l, $(LIBS), $(foreach m, $(MODULES), $(wildcard $(m)/lib/lib$(l).hexlib) )))))
 
 COMMON_FLAGS=$(ARCH_FLAGS) $(DEFINES_FLAGS) $(INCLUDE_FLAGS) $(OPT_FLAGS) -DBOARD=$(BOARD)
 

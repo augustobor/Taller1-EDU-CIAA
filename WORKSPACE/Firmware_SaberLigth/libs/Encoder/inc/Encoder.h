@@ -4,19 +4,18 @@
 #include "Neopixel.h"
 #include "board.h"
 #include <stdint.h>
-#include "sapi.h"
 
 #define PIXELS_LENGTH 111
-#define ENC_A_CLK T_FIL3 // 35
-#define ENC_B_DT T_FIL2 // 37
-#define BOTON_SW T_FIL0 // 33
+#define ENC_A_CLK 35 // Update this line to define the correct pin number
+#define ENC_B_DT 37  // Update this line to define the correct pin number
+#define BOTON_SW 33 // Update this line to define the correct pin number
 
 typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
-/* Vector de colores para el sable l�ser
+/* Vector de colores para el sable láser
    - 0: Rojo intenso
    - 1: Naranja fuerte
    - 2: Amarillo brillante
-   - 3: Amarillo p�lido
+   - 3: Amarillo pálido
    - 4: Verde lima
    - 5: Verde brillante
    - 6: Turquesa
@@ -35,7 +34,7 @@ static struct color colorSableLazer[CANT_COLORES] = {
         (struct color){255, 0, 0},        // Rojo intenso
         (struct color){255, 165, 0},      // Naranja fuerte
         (struct color){255, 255, 0},      // Amarillo brillante
-        (struct color){255, 255, 153},    // Amarillo p�lido
+        (struct color){255, 255, 153},    // Amarillo pálido
         (struct color){204, 255, 102},    // Verde lima
         (struct color){0, 255, 0},        // Verde brillante
         (struct color){0, 206, 209},      // Turquesa
@@ -50,17 +49,13 @@ static struct color colorSableLazer[CANT_COLORES] = {
         (struct color){255, 255, 255}     // Blanco brillante
 };
 
-
-
-
 void Encoder_Init();
 void Button_init();
 void Encoder_MEF_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
 void Encoder_Efects_Step();
 float getProcentualState();
-bool_t Encoder_IS_Enable(); // retorna TRUE si el sable esta prendido, funcionamiento normal
-bool_t Encoder_IS_Disable();
-bool_t Encoder_IS_Transicion();
+uint8_t Encoder_IS_Enable(); // retorna TRUE si el sable está prendido, funcionamiento normal
+uint8_t Encoder_IS_Disable();
+uint8_t Encoder_IS_Transicion();
 
-
-#endif /* #ifndef _ENCODER_H_*/
+#endif /* #ifndef _ENCODER_H_ */
