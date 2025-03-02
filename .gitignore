@@ -65,3 +65,17 @@ _programs/
 scripts/user/user_preferences.cfg
 program.mk
 board.mk
+
+templates/
+test/
+.vscode/
+libs/arduino
+libs/cmsis*
+libs/FreeRTOS
+libs/editline
+libs/fatfs
+libs/lpc*
+libs/minut
+libs/plc
+libs/rkh
+libs/seos*
