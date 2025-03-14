@@ -1,4 +1,5 @@
 #include "sounds.h"
+#include "SoundExample.h
 #include <stdio.h>
 #include <unistd.h>
 #include <stdbool.h>
@@ -108,14 +109,4 @@ void run_tests(void) {
     testMelody();
     testFrequencySweep();
     testCustomPattern();
-}
-
-int main(void) {
-    // Initialize the sound system
-    Sounds_Init();
-
-    // Run tests
-    run_tests();
-
-    return 0;
 }

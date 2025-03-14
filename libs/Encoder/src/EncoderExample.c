@@ -1,4 +1,5 @@
 #include "Encoder.h"
+#include "EncoderExample.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -58,11 +59,4 @@ void run_tests(void) {
     testEncoderEffectsStepStopping();
     sleep(1);  // Wait for 1 second between tests
     testEncoderMEFKey();
-}
-
-int main(void) {
-    // Run tests
-    run_tests();
-
-    return 0;
 }

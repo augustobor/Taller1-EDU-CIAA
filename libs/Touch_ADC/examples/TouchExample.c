@@ -1,4 +1,5 @@
 #include "Touch_ADC.h"
+#include "TouchExample.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -38,14 +39,4 @@ void run_tests(void) {
     testReadTouchValue();
     sleep(1);  // Wait for 1 second between tests
     testApplyTouchEffects();
-}
-
-int main(void) {
-    // Initialize the touch ADC module
-    TouchADC_Init();
-
-    // Run tests
-    run_tests();
-
-    return 0;
 }

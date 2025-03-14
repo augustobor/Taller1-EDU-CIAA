@@ -54,6 +54,9 @@ void Button_init();
 void Encoder_MEF_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
 void Encoder_Efects_Step();
 float getProcentualState();
+eButton_State getButtonState();
+void setButtonState(eButton_State state);
+
 uint8_t Encoder_IS_Enable(); // retorna TRUE si el sable está prendido, funcionamiento normal
 uint8_t Encoder_IS_Disable();
 uint8_t Encoder_IS_Transicion();

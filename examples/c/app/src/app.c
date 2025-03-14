@@ -1,8 +1,8 @@
-// #include "neopixel_example.h"
+#include "TouchExample.h"
 
 int main(void) {
     // Run Neopixel tests
-    // runTests();
+    runTests();
 
     // Keep the program running
     while (1) {
