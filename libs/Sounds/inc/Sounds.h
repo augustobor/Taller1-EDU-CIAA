@@ -3,8 +3,11 @@
 
 #include "Neopixel_Efects.h"
 #include "board.h"
+#include <stdlib.h>
+
 #define TRUNC(n) ((uint16_t)(n))
 
+#define MPU60X0_ADDRESS_0 0x68
 #define GYRO_MAX_VALUE 5	//rad/s
 
 //Devuelven el valor absoluto de la entrada

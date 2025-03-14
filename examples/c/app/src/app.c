@@ -1,4 +1,4 @@
-#include "TouchExample.h"
+#include "SoundExample.h"
 
 int main(void) {
     // Run Neopixel tests
