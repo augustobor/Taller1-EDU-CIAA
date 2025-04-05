@@ -48,46 +48,62 @@ void testSetAllPixelsToRed() {
         setColor(i, red);
     }
     printf("Test 2: Set all pixels to red\n");
-    printf("Expected: All pixels are red (R: 0, G: 255, B: 0)\n");
+    printf("Expected: All pixels are red (G: 0, R: 255, B: 0)\n");
     for (uint8_t i = 0; i < NUM_PIXELS; i++) {
         struct color c = getColor(i);
-        if (c.r != 0 || c.g != 255 || c.b != 0) {
+        if (c.g != 0 || c.r != 255 || c.b != 0) {
             printf("Test 2 failed at pixel %d\n", i);
             return;
         }
     }
+    printf("Test 2 passed\n");
 }
 
 void testGetColorOfFirstPixel() {
+    struct color red = {0, 255, 0};
+    setColor(0, red);
     struct color firstPixelColor = getColor(0);
     printf("Test 3: Get the color of the first pixel - R: %d, G: %d, B: %d\n", firstPixelColor.r, firstPixelColor.g, firstPixelColor.b);
-    printf("Expected: First pixel color is red (R: 0, G: 255, B: 0)\n");
-    if (firstPixelColor.r != 0 || firstPixelColor.g != 255 || firstPixelColor.b != 0) {
+    if (firstPixelColor.g != 0 || firstPixelColor.r != 255 || firstPixelColor.b != 0) {
+        printf("Expected: First pixel color should be red (G: 0, R: 255, B: 0)\n");
         printf("Test 3 failed\n");
+        return;
+    } else {
+        printf("Test 3 passed\n");
         return;
     }
 }
 
 void testSetFirstPixelToFadedColor() {
-    struct color red = {0, 255, 0};
-    struct color green = {255, 0, 0};
+    struct color red = {0, 254, 0};
+    struct color green = {254, 0, 0};
     setColor_fade(0, red, green, 0.5);
     struct color fadedColor = getColor(0);
     printf("Test 4: Set the first pixel to a faded color between red and green\n");
     printf("Expected: First pixel color is a mix of red and green\n");
     if (fadedColor.r != 127 || fadedColor.g != 127 || fadedColor.b != 0) {
+        printf("Faded color - R: %d, G: %d, B: %d\n", fadedColor.r, fadedColor.g, fadedColor.b);
         printf("Test 4 failed\n");
+        return;
+    } else {
+        printf("Test 4 passed\n");
         return;
     }
 }
 
 void testSetSecondPixelToScaledColor() {
-    setColor_i(1, 128);
+    struct color red = {0, 200, 0};
+    setCurrentColor(red); // Set current color to green
+    setColor_i(1, 0.5); // 50% intensity
     struct color scaledColor = getColor(1);
     printf("Test 5: Set the second pixel to a scaled color of the current color\n");
-    printf("Expected: Second pixel color is a scaled version of the current color\n");
-    if (scaledColor.r != 0 || scaledColor.g != 128 || scaledColor.b != 0) {
+    if (scaledColor.g != 0 || scaledColor.r != 100 || scaledColor.b != 0) {
+        printf("Expected: Second pixel color is a scaled version of the current color: R: 100, G: 0, B: 0\n");
+        printf("Scaled color - R: %d, G: %d, B: %d\n", scaledColor.r, scaledColor.g, scaledColor.b);
         printf("Test 5 failed\n");
+        return;
+    } else {
+        printf("Test 5 passed\n");
         return;
     }
 }
@@ -105,6 +121,8 @@ void testTurnOffAllPixels() {
             return;
         }
     }
+    printf("Test 6 passed\n");
+    return;
 }
 
 void runTests() {

@@ -36,7 +36,19 @@ struct color getCurrentColor(){
 
 // ************** Atención a Interrupciones Neopixel ******
    // ISR (Systick TIMER)
+   // [USE-NEOPIXEL_UPDATE FUNCION HERE]
    // [MIGRATE-FUNCTION-TO-LOWER-MODULE]
+   /*
+   Systick_Handler logical strucure should be:
+   if (neopixel_update){
+	   send bytes to neopixel
+   } else {
+		timer_sound_counter++;
+		if (timer_sound_counter > sound_timeout){
+			send bytes to DAC
+		}	
+   }
+   */
 //    void SysTick_Handler(void){
 // 		 if(update){       //Actualizar NEOPIXEL
 // 			LPC_GPIO_PORT->B[3][12] = 1; //Pin(high) GPIO3[12]
@@ -82,10 +94,9 @@ void Neopixel_Init(){
 }
 
 
-// le asigna una proporción del color del sistema, al "number_pixel", escalado en "level" entre 0 a 255
+// le asigna una proporción del color del sistema, al "number_pixel", escalado en "level" entre 0 y 1
 // number_pixel entre "0" a "PIXEL_LENGTH-1"
 void setColor_i(uint8_t number_pixel, float level) {
-	level=level/255;
     datachain[number_pixel*3]  = level*currentColor.g;
     datachain[number_pixel*3+1]= level*currentColor.r;
     datachain[number_pixel*3+2]= level*currentColor.b;
@@ -130,6 +141,8 @@ void mirror_all(){
 
 // asigna un color mezclando c1 y c2 en la posición indicada
 // proporción va entre 0 y 1, indica que tanto de c1 será tomado en cuenta para el color final
+// Si proporción es 0, el color asignado es c2
+// Si proporción es 1, el color asignado es c1
 // el color asignado es proporción complementaria (porcentaje C1 + porcentaje C2 = 100% )
 void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float proportion) {
 	if(proportion>1){ // limito para más del 100%
