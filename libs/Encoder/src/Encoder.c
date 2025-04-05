@@ -1,6 +1,8 @@
 /*==================[inclusions]=============================================*/
 
 #include "Encoder.h"
+#include "sapi.h"
+#include "sapi_gpio.h"
 
 /*==================[variables]=================================*/
 
@@ -42,7 +44,7 @@ void Encoder_MEF_Key() {
     CLK_ANT = B_CLK; // guardo los valores anteriores de las señales de entrada
     DT_ANT = B_DT;
 
-    // leo los valores nuevos de las señales
+    //B_DT = (bool_t) Chip_GPIO_ReadPortBit( LPC_GPIO_PORT, gpioPort, gpioPin );
     B_DT = gpioRead(ENC_B_DT);
     B_CLK = gpioRead(ENC_A_CLK);
 

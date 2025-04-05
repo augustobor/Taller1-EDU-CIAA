@@ -3,7 +3,9 @@
 
 #include "Neopixel_Efects.h"
 #include "board.h"
+#include "sapi_dac.h"
 #include <stdlib.h>
+#include "sapi_imu_mpu60X0.h"
 
 #define TRUNC(n) ((uint16_t)(n))
 

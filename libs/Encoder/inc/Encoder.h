@@ -6,10 +6,9 @@
 #include <stdint.h>
 
 #define PIXELS_LENGTH 111
-#define ENC_A_CLK 35 // Update this line to define the correct pin number
-#define ENC_B_DT 37  // Update this line to define the correct pin number
-#define BOTON_SW 33 // Update this line to define the correct pin number
-#define GPIO_INPUT 0 
+#define ENC_A_CLK 35 
+#define ENC_B_DT 37  
+#define BOTON_SW 33 
 
 typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
 /* Vector de colores para el sable láser

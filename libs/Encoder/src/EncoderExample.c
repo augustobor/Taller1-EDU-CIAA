@@ -1,5 +1,4 @@
 #include "Encoder.h"
-#include "EncoderExample.h"
 #include <stdio.h>
 #include <unistd.h>
 

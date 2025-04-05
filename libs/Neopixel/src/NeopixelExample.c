@@ -29,12 +29,18 @@ void testSetCurrentColorToRed() {
     struct color red = {0, 255, 0};
     setCurrentColor(red); // Assign the color red to the current color
     printf("Test 1: Set the current color to red\n");
-    printf("Expected: Current color is red (R: 0, G: 255, B: 0)\n");
-    if (getCurrentColor().r != 0 || getCurrentColor().g != 255 || getCurrentColor().b != 0) {
+    printf("Expected: Current color is red (G: 0, R: 255, B: 0)\n");
+    getCurrentColor(); // Get the current color
+    if (getCurrentColor().r != 255 || getCurrentColor().g != 0 || getCurrentColor().b != 0) {
+        printf("Current color - R: %d, G: %d, B: %d\n", getCurrentColor().r, getCurrentColor().g, getCurrentColor().b);
         printf("Test 1 failed\n");
+        return;
+    } else {
+        printf("Test 1 passed\n");
         return;
     }
 }
+
 
 void testSetAllPixelsToRed() {
     struct color red = {0, 255, 0};
