@@ -91,20 +91,18 @@ Retorna valores de señal, onda cuadrada, sin valor medio
 Con amplitud @amp=350
 Con frecuencia normalizada = velocity_push/(2*100) = 0.5 ciclos/escritura
 */
-float generador_onda_cuadrada() {
-    float count_push = 0;
-    float velocity_push = 50;
-    float amp = 350;
-    uint8_t direction = 0;
-    if (enable_colision) {
-        count_push += velocity_push; // Incremento un paso de audio
-        if (count_push > 100) { // Si el contador rebalsa
-            count_push -= 100; // Reseteo
-            direction = !direction; // Cambio la dirección
-        }
-        return direction ? amp : -amp; // Le asigno la onda cuadrada, centrada en 0
+uint16_t generador_onda_cuadrada() {
+    static float count_push = 0;  // Cambiado a static para mantener el estado entre llamadas
+    static uint8_t direction = 1; // Dirección de la onda cuadrada
+    float velocity_push = 50;     // Velocidad de cambio
+    float amp = 350;              // Amplitud de la onda
+
+    count_push += velocity_push;  // Incremento un paso de audio
+    if (count_push >= 100) {      // Si el contador rebalsa
+        count_push -= 100;        // Reseteo
+        direction = !direction;   // Cambio la dirección
     }
-    return 0;
+    return amp * direction; // Retorna la onda cuadrada centrada en 0
 }
 
 /*

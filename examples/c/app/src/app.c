@@ -1,8 +1,9 @@
-#include "NeopixelExample.h"
+#include "TouchExample.h"
 #include "sapi.h"
 #include "sapi_stdio.h"
-#include "Board.h"
+#include "board.h"
 #include <stdio.h>
+
 
 int main(void) {
     // Run Neopixel tests
@@ -10,8 +11,8 @@ int main(void) {
 
     // Keep the program running
     while (1) {
-       printf("Running Neopixel tests...\n");
-       runTests();
+       printf("Running Encoder tests...\n");
+       runTestsADC();
        delay(3000);
     }
 

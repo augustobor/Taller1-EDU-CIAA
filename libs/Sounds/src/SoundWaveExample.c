@@ -1,13 +1,11 @@
-#include "sounds.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
+#include "Sounds.h"
+#include "SoundWaveExample.h"
 
 // Function prototypes
 void testAmplificarS(void);
 void testGeneradorOndaCuadrada(void);
 void testSonidoAuxiliar(void);
-bool validateResult(float expected, float actual, float tolerance);
+bool validateResultWave(float expected, float actual, float tolerance);
 void run_tests(void);
 
 /*
@@ -25,27 +23,25 @@ void testAmplificarS(void) {
 
     // Validate result
     uint16_t expected = 512;
-    if (!validateResult(expected, amplifiedVal, 10)) {
+    if (!validateResultWave(expected, amplifiedVal, 10)) {
         printf("Test 1 failed\n");
         exit(1);
     }
     printf("Test 1 passed\n");
-    sleep(1);  // Wait for 1 second
 }
 
 void testGeneradorOndaCuadrada(void) {
     printf("Test 2: Generador Onda Cuadrada\n");
-    float squareWave = generador_onda_cuadrada();
+    uint16_t squareWave = generador_onda_cuadrada();
     printf("Square Wave: %f\n", squareWave);
 
     // Validate result
-    float expected = 350.0;  // Example expected value
-    if (!validateResult(expected, squareWave, 10.0)) {
+    uint16_t expected = 350.0;  // Example expected value
+    if (!validateResultWave(expected, squareWave, 10.0)) {
         printf("Test 2 failed\n");
         exit(1);
     }
     printf("Test 2 passed\n");
-    sleep(1);  // Wait for 1 second
 }
 
 void testSonidoAuxiliar(void) {
@@ -55,30 +51,20 @@ void testSonidoAuxiliar(void) {
 
     // Validate result
     float expected = 3.5 * (128 - 128);  // Example expected value
-    if (!validateResult(expected, auxSound, 10.0)) {
+    if (!validateResultWave(expected, auxSound, 10.0)) {
         printf("Test 3 failed\n");
         exit(1);
     }
     printf("Test 3 passed\n");
-    sleep(1);  // Wait for 1 second
 }
 
-bool validateResult(float expected, float actual, float tolerance) {
+bool validateResultWave(float expected, float actual, float tolerance) {
     return (actual >= expected - tolerance) && (actual <= expected + tolerance);
 }
 
-void run_tests(void) {
+void runTestsSoundWave(void) {
     testAmplificarS();
     testGeneradorOndaCuadrada();
     testSonidoAuxiliar();
 }
 
-int main(void) {
-    // Initialize the sound system
-    Sounds_Init();
-
-    // Run tests
-    run_tests();
-
-    return 0;
-}

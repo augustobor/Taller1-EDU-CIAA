@@ -17,26 +17,31 @@ Used functions:
 - IS_TOUCH
 */
 
+
+/**
+ * @brief Tests the reading of touch values
+ *
+ * This function waits for a touch event and then reads the touch value using
+ * TouchADC_read().
+ */
 void testReadTouchValue(void) {
     // Test 1: Read touch value
     printf("Waiting for touch...\n");
     while (IS_TOUCH() == 0) {
         TouchADC_read();
-        usleep(100000);  // Wait for 100ms
     }
     printf("Touch value read\n");
-    sleep(1);  // Wait for 1 second
+
 }
 
 void testApplyTouchEffects(void) {
     // Test 2: Apply touch effects
     TouchADC_efects(5);
     printf("Touch effects applied\n");
-    sleep(1);  // Wait for 1 second
+
 }
 
-void run_tests(void) {
+void runTestsADC(void) {
     testReadTouchValue();
-    sleep(1);  // Wait for 1 second between tests
     testApplyTouchEffects();
 }

@@ -13,6 +13,7 @@ static eButton_State Button_state;
 
 /*==================[funciones]=================================*/
 
+
 void Button_init() {
     Button_state = APAGADO;
 }
@@ -38,7 +39,7 @@ void Encoder_Efects_Step() {
 
 // MEF verifica el estado del encoder, con el pulsador en flanco descendente enciende y apaga
 // con el giro del encoder cambia el color del sistema
-void Encoder_MEF_Key() {
+void Encoder_MEF_Key() { // Para el handler
     static uint8_t CLK_ANT, DT_ANT;
     static uint8_t B_CLK, B_DT;
     CLK_ANT = B_CLK; // guardo los valores anteriores de las señales de entrada
