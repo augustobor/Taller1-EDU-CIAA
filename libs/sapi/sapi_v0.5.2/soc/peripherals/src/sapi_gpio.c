@@ -381,9 +381,6 @@ bool_t gpioRead( gpioMap_t pin )
    gpioObtainPinInit( pin, &pinNamePort, &pinNamePin, &func,
                       &gpioPort, &gpioPin );
 
-   // Print temporal para conocer las varibales y reemplazarlas en GPIO_ReadPortBit en encoder.c y remover sapi
-   printf("pin: %d, gpioPort: %d, gpioPin: %d",pin, gpioPort, gpioPin);
-   
    ret_val = (bool_t) Chip_GPIO_ReadPortBit( LPC_GPIO_PORT, gpioPort, gpioPin );
 
    return ret_val;

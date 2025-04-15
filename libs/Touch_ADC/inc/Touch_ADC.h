@@ -2,7 +2,7 @@
 #define _TOUCH_ADC_H_
 
 #include "Neopixel_Efects.h"
-#include "chip.h" 
+//#include "chip.h" 
 #include <stdlib.h> 
 
 #define ON       1
