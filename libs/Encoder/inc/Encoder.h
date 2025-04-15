@@ -2,13 +2,16 @@
 #define _ENCODER_H_
 
 #include "Neopixel.h"
-#include "board.h"
-#include <stdint.h>
+#include "sapi_gpio.h"
 
 #define PIXELS_LENGTH 111
-#define ENC_A_CLK 35 
-#define ENC_B_DT 37  
-#define BOTON_SW 33 
+#define ENC_A_CLK_PIN 35 
+#define ENC_B_DT_PIN 37  
+#define BOTON_SW_PIN 33 
+#define ENC_A_CLK LPC_GPIO_PORT, 0, 2  // Puerto GPIO 0, pin 2
+#define ENC_B_DT  LPC_GPIO_PORT, 0, 8  // Puerto GPIO 0, pin 8
+#define BOTON_SW  LPC_GPIO_PORT, 5, 13 // Puerto GPIO 5, pin 13
+
 
 typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
 /* Vector de colores para el sable láser

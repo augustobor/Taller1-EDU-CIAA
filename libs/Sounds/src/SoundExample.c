@@ -26,9 +26,9 @@ void testSingleTone(void) {
     float actual = 1.0;  // Replace with actual value from the system
     if (!validateResult(expected, actual, 0.1)) {
         printf("Test 1 failed\n");
-        exit(1);
+    } else {
+        printf("Test 1 passed\n");
     }
-    printf("Test 1 passed\n");
 }
 
 void testMelody(void) {
@@ -44,9 +44,9 @@ void testMelody(void) {
     float actual = 1.2;  // Replace with actual value from the system
     if (!validateResult(expected, actual, 0.1)) {
         printf("Test 2 failed\n");
-        exit(1);
-    }
-    printf("Test 2 passed\n");
+    } else {
+        printf("Test 2 passed\n");
+    }	
 }
 
 void testFrequencySweep(void) {
@@ -61,9 +61,9 @@ void testFrequencySweep(void) {
     float actual = 1.5;  // Replace with actual value from the system
     if (!validateResult(expected, actual, 0.1)) {
         printf("Test 3 failed\n");
-        exit(1);
+    } else {
+        printf("Test 3 passed\n");
     }
-    printf("Test 3 passed\n");
 }
 
 void testCustomPattern(void) {
@@ -82,9 +82,9 @@ void testCustomPattern(void) {
     float actual = 2.5;  // Replace with actual value from the system
     if (!validateResult(expected, actual, 0.1)) {
         printf("Test 4 failed\n");
-        exit(1);
+    } else {	
+        printf("Test 4 passed\n");
     }
-    printf("Test 4 passed\n");
 }
 
 bool validateResult(float expected, float actual, float tolerance) {

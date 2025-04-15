@@ -1,6 +1,4 @@
 #include "Encoder.h"
-#include "Board.h"
-#include "sapi.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -28,7 +26,6 @@ void testEncoderInit(void) {
     } else {
         printf("Encoder initialization failed\n");
     }
-    delay(1000); 
 }
 
 void testEncoderEffectsStepStarting(void) {
@@ -42,7 +39,6 @@ void testEncoderEffectsStepStarting(void) {
         printf("Button state is not STARTING\n");
     }
     Encoder_Efects_Step();
-    delay(1000);  // Wait for 1 second
 }
 
 void testEncoderEffectsStepStopping(void) {
@@ -55,23 +51,18 @@ void testEncoderEffectsStepStopping(void) {
         printf("Test 3 failed: Button state is not STOPPING\n");
     }
     Encoder_Efects_Step();
-    delay(1000);  // Wait for 1 second
 }
 
 void testEncoderMEFKey(void) {
     // Test 4: Run encoder MEF key
     Encoder_MEF_Key();
     printf("Encoder MEF key processed\n");
-    delay(1000);  // Wait for 1 second
 }
 
 void runTestsEncoder(void) {
     testEncoderInit();
-    delay(1000);  // Wait for 1 second between tests
     testEncoderEffectsStepStarting();
-    delay(1000);  // Wait for 1 second between tests
     testEncoderEffectsStepStopping();
-    delay(1000);  // Wait for 1 second between tests
     testEncoderMEFKey();
 }
 

@@ -1,8 +1,5 @@
-#include "TouchExample.h"
-#include "sapi.h"
-#include "sapi_stdio.h"
-#include "board.h"
-#include <stdio.h>
+#include "SoundExample.h"
+#include "sapi_board.h"
 
 
 int main(void) {
@@ -12,8 +9,7 @@ int main(void) {
     // Keep the program running
     while (1) {
        printf("Running Encoder tests...\n");
-       runTestsADC();
-       delay(3000);
+       runTestsSoundWave();
     }
 
     return 0;

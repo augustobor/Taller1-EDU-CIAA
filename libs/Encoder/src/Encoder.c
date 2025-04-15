@@ -1,8 +1,6 @@
 /*==================[inclusions]=============================================*/
 
 #include "Encoder.h"
-#include "sapi.h"
-#include "sapi_gpio.h"
 
 /*==================[variables]=================================*/
 
@@ -45,12 +43,11 @@ void Encoder_MEF_Key() { // Para el handler
     CLK_ANT = B_CLK; // guardo los valores anteriores de las señales de entrada
     DT_ANT = B_DT;
 
-    //B_DT = (bool_t) Chip_GPIO_ReadPortBit( LPC_GPIO_PORT, gpioPort, gpioPin );
-    B_DT = gpioRead(ENC_B_DT);
-    B_CLK = gpioRead(ENC_A_CLK);
+    B_DT = (bool_t) Chip_GPIO_ReadPortBit(ENC_B_DT);
+    B_CLK = (bool_t) Chip_GPIO_ReadPortBit(ENC_A_CLK);
 
     static uint16_t timedelay = 0;
-    if (!gpioRead(BOTON_SW)) { // si se mantiene presionado el botón encendido, acumula
+    if (!Chip_GPIO_ReadPortBit(BOTON_SW)) { // si se mantiene presionado el botón encendido, acumula
         timedelay++;
     } else {
         timedelay = 0;
@@ -72,11 +69,11 @@ void Encoder_MEF_Key() { // Para el handler
 // inicializa las entradas digitales del encoder
 void Encoder_Init() {
     // Configuración para la rotación del encoder
-    gpioConfig(ENC_A_CLK, GPIO_INPUT);
-    gpioConfig(ENC_B_DT, GPIO_INPUT);
+    gpioConfig(ENC_A_CLK_PIN, GPIO_INPUT);
+    gpioConfig(ENC_B_DT_PIN, GPIO_INPUT);
 
     // Configuración para cuando el pulsador se presiona
-    gpioConfig(BOTON_SW, GPIO_INPUT);
+    gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
 }
 
 // retorna si el sable está totalmente encendido

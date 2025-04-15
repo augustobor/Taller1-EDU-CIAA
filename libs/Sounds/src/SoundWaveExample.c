@@ -25,9 +25,9 @@ void testAmplificarS(void) {
     uint16_t expected = 512;
     if (!validateResultWave(expected, amplifiedVal, 10)) {
         printf("Test 1 failed\n");
-        exit(1);
-    }
-    printf("Test 1 passed\n");
+    } else {
+        printf("Test 1 passed\n");
+    }	
 }
 
 void testGeneradorOndaCuadrada(void) {
@@ -39,9 +39,9 @@ void testGeneradorOndaCuadrada(void) {
     uint16_t expected = 350.0;  // Example expected value
     if (!validateResultWave(expected, squareWave, 10.0)) {
         printf("Test 2 failed\n");
-        exit(1);
+    } else {
+        printf("Test 2 passed\n");
     }
-    printf("Test 2 passed\n");
 }
 
 void testSonidoAuxiliar(void) {
@@ -53,9 +53,9 @@ void testSonidoAuxiliar(void) {
     float expected = 3.5 * (128 - 128);  // Example expected value
     if (!validateResultWave(expected, auxSound, 10.0)) {
         printf("Test 3 failed\n");
-        exit(1);
+    } else {
+        printf("Test 3 passed\n");
     }
-    printf("Test 3 passed\n");
 }
 
 bool validateResultWave(float expected, float actual, float tolerance) {

@@ -2,13 +2,9 @@
 #define _SOUNDS_H_
 
 #include "Neopixel_Efects.h"
-#include "board.h"
-#include "sapi_dac.h"
-#include <stdlib.h>
+#include "sapi_dac.h" // Se puede dejar
+#include <stdlib.h> // Se deja por el rand
 #include "sapi_imu_mpu60X0.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdint.h>
 
 
 #define TRUNC(n) ((uint16_t)(n))

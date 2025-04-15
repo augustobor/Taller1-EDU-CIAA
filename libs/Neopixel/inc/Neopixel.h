@@ -2,7 +2,6 @@
 #define _NEOPIXEL_H_
 
 #include <stdint.h> // Include for uint8_t type
-//#include "sapi.h" // Ensure the correct path to sapi.h
 
 // ************** Parametros de la tira led *****************
 #define PIXELS_LENGTH 111  // cantidad de leds
