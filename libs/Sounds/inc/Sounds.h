@@ -28,7 +28,6 @@ float interpol(uint16_t y1 ,uint16_t y2, float dx );
 void moduleSound(float velocidad_transduccion);
 void set_enable_colision_sound(uint8_t enable);
 void setGain(float g);
-uint16_t generador_onda_cuadrada();
 float sonido_auxiliar();
 
 #define raw_samples_length 5324
