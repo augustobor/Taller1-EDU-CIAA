@@ -3,21 +3,26 @@
 
 // Actualiza el volumen en función del estado del encoder
 // EncoderState: es un parametro que deberia recibir el value de los pines de lectura del encoder o de un potencionemtro?
-void VolumeHandler_Update(uint8_t encoderState, float *currentVolume) {
-    if (encoderState == 1) { // Incrementar volumen
-        *currentVolume += VOLUME_STEP;
-        if (*currentVolume > VOLUME_MAX) {
-            *currentVolume = VOLUME_MAX; // Límite superior
+void VolumeHandler_Update(float currentVolume) {
+    //Encoder_Efects_Step();
+    //float encoderState = getPorcentualState();
+    
+    if (currentVolume < VOLUME_MAX) { // Incrementar volumen
+        currentVolume += VOLUME_STEP;
+        if (currentVolume > VOLUME_MAX) {
+            currentVolume = VOLUME_MAX; // Límite superior
         }
-    } else if (encoderState == -1) { // Decrementar volumen
-        *currentVolume -= VOLUME_STEP;
-        if (*currentVolume < VOLUME_MIN) {
-            *currentVolume = VOLUME_MIN; // Límite inferior
+    } else {
+        currentVolume -= VOLUME_STEP;
+        if (currentVolume < VOLUME_MIN) {
+            currentVolume = VOLUME_MIN; // Límite inferior
         }
     }
 
+    
     // Aplica el nuevo volumen al sistema de sonido
-    setGain(*currentVolume);
+    setGain(currentVolume);
+    //Encoder_MEF_Key();
 }
 
 

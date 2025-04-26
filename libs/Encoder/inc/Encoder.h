@@ -56,7 +56,7 @@ void Encoder_Init();
 void Button_init();
 void Encoder_MEF_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
 void Encoder_Efects_Step();
-float getProcentualState();
+float getPorcentualState();
 eButton_State getButtonState();
 void setButtonState(eButton_State state);
 

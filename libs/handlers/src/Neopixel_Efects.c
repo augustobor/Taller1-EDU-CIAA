@@ -72,3 +72,8 @@ void Efects_colision(uint8_t pixel_center,struct color cl, uint8_t radius){
 		mirror(pixel_center+i);
 	}
 }
+
+
+void LightSabler_Update(void) {
+    Encoder_MEF_Key(); // Actualiza el estado del encoder
+}

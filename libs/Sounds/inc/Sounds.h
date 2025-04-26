@@ -33,5 +33,5 @@ float sonido_auxiliar();
 #define raw_samples_length 5324
 
 
-#endif /* #ifndef _NEOPIXEL_EFECTS_H_ */
+#endif /* #ifndef _SOUNDS_H_ */
 

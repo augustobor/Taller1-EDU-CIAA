@@ -10,7 +10,7 @@
 #define VOLUME_STEP 0.05f // Incremento o decremento del volumen
 
 // Prototipos de funciones
-void VolumeHandler_Update(uint8_t, float*);    // Actualiza el volumen en función del encoder
+void VolumeHandler_Update(float);    // Actualiza el volumen en función del encoder
 uint16_t generador_onda_cuadrada_handler(void);
 
 #endif // SOUNDS_HANDLER_H
