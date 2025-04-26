@@ -24,8 +24,14 @@ int main(void) {
 
     
     while (1) {
+        currentVolume += 0.5f;
+        if (currentVolume > 3.0f) {
+            currentVolume = 0.0f; // Reinicia el volumen al llegar al máximo
+        }
         VolumeHandler_Update(currentVolume);
-        dddd(2000); // Espera 2 segundos para simular el tiempo entre lecturas
+        uint16_t printCurrentVolume = 100*currentVolume;
+        printf("Volumen actual: %d\n", printCurrentVolume);
+        dddd(2000); // 2s de delay
     }
 
     return 0;

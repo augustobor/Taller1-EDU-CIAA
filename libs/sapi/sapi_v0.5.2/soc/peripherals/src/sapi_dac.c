@@ -64,7 +64,7 @@ void dacInit( dacInit_t config )
 
    case DAC_ENABLE:
       /* Initialize the DAC peripheral */
-      //Chip_DAC_Init(LPC_DAC);
+      Chip_DAC_Init(LPC_DAC);
       Chip_Clock_EnableOpts(CLK_APB3_DAC, true, true, 1);
       /* Set update rate to 400 KHz */
       Chip_DAC_SetBias(LPC_DAC, DAC_MAX_UPDATE_RATE_400kHz);

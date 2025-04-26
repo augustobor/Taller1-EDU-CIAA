@@ -22,7 +22,6 @@ float get_gyro_abs_val();// retorna valor absoluto de movimiento entre [0..1]
 void Sounds_Init();
 
 void Sound_Service_DAC();	// servicio de ejecucion continua para enviar muestras al DAC
-void setGanance(float g);
 uint16_t amplificarS(float);
 float interpol(uint16_t y1 ,uint16_t y2, float dx );
 void moduleSound(float velocidad_transduccion);

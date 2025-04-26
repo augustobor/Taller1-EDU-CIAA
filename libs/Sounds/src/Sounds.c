@@ -2,7 +2,7 @@
 
 float ganancia = 1;
 
-float vt = 0; // velocidad de transducción, es que tan rápido lee el sonido
+float vt = 0.97; // velocidad de transducción, es que tan rápido lee el sonido
 float state_read = 0; // es el instante actual de lectura de sonido
 
 uint8_t enable_colision = 0;
@@ -14,7 +14,7 @@ static uint16_t raw_samples[] = {0x7F, 0x8B, 0x9B, 0xA7, 0xB6, 0xC3, 0xCE, 0xD9,
 // Inicializa configuraciones del DAC y variables
 void Sounds_Init() {
     // Configuración del DAC
-    dacConfig(ENABLE);
+    dacConfig(DAC_ENABLE);
 }
 
 // [DEPRECATED?] Modifica la velocidad de escritura del DAC para generar una variación de frecuencia
@@ -44,7 +44,10 @@ void Sound_Service_DAC() {
 		guardada es de +128;
 		el valor medio de la señal amplificada es +500
 		*/
-		sound_point += amplificarS(interpol(raw_samples[index_read], raw_samples[index_read + 1], (state_read - index_read)));
+		sound_point += amplificarS(
+            interpol(raw_samples[index_read], raw_samples[index_read + 1], // Puntos a interpolar 
+            (state_read - index_read)) // Delta en decimales. Porcentaje de cercanía entre los 2 puntos (porcentaje de interpolación)
+        );
 
         // Etapa 3: Truncado de la señal
         if (sound_point > 1024) sound_point = 1024;
@@ -52,10 +55,9 @@ void Sound_Service_DAC() {
 
         // Etapa 4: Envío del valor al DAC
         Chip_DAC_UpdateValue(LPC_DAC, sound_point);
-
         // Etapa 5: Reinicio de la lectura si se sobrepasa la tabla de valores (control circular)
         if (state_read >= raw_samples_length) {
-            state_read -= raw_samples_length;
+            state_read -= raw_samples_length; // Esto porque es flotante
         }
     }
 }
@@ -124,14 +126,14 @@ uint16_t amplificarS(float raw) {
     raw = (raw - 128) * ganancia; // Saco el valor medio
     if (raw > 512) {
         ganancia = 1;
-        struct color cl = { (rand()) % 170, (rand()) % 170, (rand()) % 170 }; // Asigna nuevo color random
-        Efects_colision(25, cl, 22); // Efecto_BUGG();
+        // struct color cl = { (rand()) % 170, (rand()) % 170, (rand()) % 170 }; // Asigna nuevo color random
+        // Efects_colision(25, cl, 22); // Efecto_BUGG();
         return 1024; // Limito el valor máximo
     }
     if (raw < -512) { // Limito el valor mínimo
         ganancia = 1;
-        struct color cl = { (rand()) % 170, (rand()) % 170, (rand()) % 170 }; // Asigna nuevo color random
-        Efects_colision(25, cl, 22); // Efecto_BUGG();
+        // struct color cl = { (rand()) % 170, (rand()) % 170, (rand()) % 170 }; // Asigna nuevo color random
+        // Efects_colision(25, cl, 22); // Efecto_BUGG();
         return 0;
     }
     return (raw + 512); // Retorna el valor amplificado
