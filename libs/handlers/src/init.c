@@ -20,3 +20,14 @@ void Timer1_Init(void) {
     // Habilitación de la interrupción del Timer 1
     NVIC_EnableIRQ(TIMER1_IRQn);
 }
+
+
+// inicializa las entradas digitales del encoder
+void Encoder_Init(void) {
+    // Configuración para la rotación del encoder
+    gpioConfig(ENC_A_CLK_PIN, GPIO_INPUT);
+    gpioConfig(ENC_B_DT_PIN, GPIO_INPUT);
+
+    // Configuración para cuando el pulsador se presiona
+    gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
+}

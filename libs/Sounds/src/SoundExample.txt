@@ -68,23 +68,14 @@ void testFrequencySweep(void) {
 
 void testCustomPattern(void) {
     printf("Test 4: Play a custom sound pattern\n");
+    moduleSound(0.5);
+    setGain(1.0);
+    moduleSound(0.75);
+    setGain(0.95);
     moduleSound(1.0);
-    setGain(1.0);
+    setGain(0.9);
     moduleSound(1.5);
-    setGain(1.0);
-    moduleSound(2.0);
-    setGain(1.0);
-    moduleSound(2.5);
-    setGain(1.0);
-
-    // Validate result
-    float expected = 2.5;
-    float actual = 2.5;  // Replace with actual value from the system
-    if (!validateResult(expected, actual, 0.1)) {
-        printf("Test 4 failed\n");
-    } else {	
-        printf("Test 4 passed\n");
-    }
+    setGain(0.8);
 }
 
 bool validateResult(float expected, float actual, float tolerance) {

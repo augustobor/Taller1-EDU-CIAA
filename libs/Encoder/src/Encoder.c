@@ -16,24 +16,6 @@ void Button_init() {
     Button_state = APAGADO;
 }
 
-void Encoder_Efects_Step() {
-    if ((Button_state == STARTING) || (Button_state == STOPPING)) { // ESTO PUEDE SER UN SWITCH
-        if (Button_state == STARTING) { // incremento el porcentaje de inicio
-            porcentual_init = porcentual_init + porcentual_step;
-            if (porcentual_init >= 1) {
-                Button_state = PRENDIDO;
-                porcentual_init = 1;
-            }
-        }
-        if (Button_state == STOPPING) { // decremento el porcentaje de encendido
-            porcentual_init = porcentual_init - porcentual_step;
-            if (porcentual_init <= 0) {
-                Button_state = APAGADO;
-                porcentual_init = 0;
-            }
-        }
-    }
-}
 
 // MEF verifica el estado del encoder, con el pulsador en flanco descendente enciende y apaga
 // con el giro del encoder cambia el color del sistema
@@ -47,7 +29,7 @@ void Encoder_MEF_Key() { // Para el handler
     B_CLK = (bool_t) Chip_GPIO_ReadPortBit(ENC_A_CLK);
 
     static uint16_t timedelay = 0;
-    if (!Chip_GPIO_ReadPortBit(BOTON_SW)) { // si se mantiene presionado el botón encendido, acumula
+    if (!Chip_GPIO_ReadPortBit(BOTON_SW)) { // si se mantiene presionado el botón encendido, acumula. CLAVE ESTA LINEA
         timedelay++;
     } else {
         timedelay = 0;
@@ -64,16 +46,6 @@ void Encoder_MEF_Key() { // Para el handler
         }
         setCurrentColor(colorSableLazer[select_color]);
     }
-}
-
-// inicializa las entradas digitales del encoder
-void Encoder_Init() {
-    // Configuración para la rotación del encoder
-    gpioConfig(ENC_A_CLK_PIN, GPIO_INPUT);
-    gpioConfig(ENC_B_DT_PIN, GPIO_INPUT);
-
-    // Configuración para cuando el pulsador se presiona
-    gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
 }
 
 // retorna si el sable está totalmente encendido

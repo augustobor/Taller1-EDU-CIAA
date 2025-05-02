@@ -1,6 +1,5 @@
 #include "sapi_board.h"
-#include "sounds_handler.h"
-#include "timers_handler.h"
+#include "light_sabler_nightshutdown_handler.h"
 #include "init.h"
 
 #define INACCURATE_TO_MS       20400
@@ -16,16 +15,11 @@ void dddd(uint32_t delay_ms){
 int main(void) {
     // Inicialización del sistema
     boardInit();
-    Sounds_Init();
-    Timer1_Init();        // Inicializa el Timer 1 para interrupciones periódicas
-
-    // Variables para el control del volumen
-    float currentVolume = 0.1f; // Volumen inicial (50%)
+    Encoder_Init();       // Inicializa el encoder y el botón
 
     
     while (1) {
-        VolumeHandler_Update(currentVolume);
-        dddd(2000); // Espera 2 segundos para simular el tiempo entre lecturas
+        LightSabler_NightShutdown_Handler(); // Llama al handler para controlar el sable de luz
     }
 
     return 0;

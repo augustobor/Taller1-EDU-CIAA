@@ -11,7 +11,6 @@ void runTestsEncoder(void);
 /*
 Used functions:
 - Encoder_Init
-- Encoder_Efects_Step
 - Encoder_MEF_Key
 - getButtonState
 - setButtonState
@@ -38,7 +37,6 @@ void testEncoderEffectsStepStarting(void) {
     } else {
         printf("Button state is not STARTING\n");
     }
-    Encoder_Efects_Step();
 }
 
 void testEncoderEffectsStepStopping(void) {
@@ -50,7 +48,6 @@ void testEncoderEffectsStepStopping(void) {
     } else {
         printf("Test 3 failed: Button state is not STOPPING\n");
     }
-    Encoder_Efects_Step();
 }
 
 void testEncoderMEFKey(void) {
