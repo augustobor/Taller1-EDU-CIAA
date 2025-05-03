@@ -1,6 +1,5 @@
 #include "sapi_board.h"
 #include "color_handler.h"
-#include "light_sabler_nightshutdown_handler.h"
 #include "init.h"
 
 int main(void) {
@@ -13,7 +12,6 @@ int main(void) {
         CLK_ANT = B_CLK;
         B_CLK = (bool_t) gpioRead(ENC_A_CLK_PIN);
         B_DT = (bool_t) gpioRead(ENC_B_DT_PIN);
-        LightSabler_NightShutdown_Handler();
         if(CLK_ANT != B_CLK) { // Si el encoder ha girado
             Switch_Color_Handler(B_DT); // Llama al handler de color
         }

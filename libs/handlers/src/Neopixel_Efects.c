@@ -75,5 +75,5 @@ void Efects_colision(uint8_t pixel_center,struct color cl, uint8_t radius){
 
 
 void LightSabler_Update(void) {
-    Encoder_MEF_Key(); // Actualiza el estado del encoder
+    Encoder_SW_Key(); // Actualiza el estado del encoder
 }

@@ -3,11 +3,15 @@
 
 #include "Neopixel.h"
 #include "sapi_gpio.h"
+#include "utils.h"
 
 #define PIXELS_LENGTH 111
-#define ENC_A_CLK LPC_GPIO_PORT, 0, 35  // Puerto GPIO 0, pin 35
-#define ENC_B_DT  LPC_GPIO_PORT, 0, 37  // Puerto GPIO 0, pin 37
-#define BOTON_SW  LPC_GPIO_PORT, 5, 33 // Puerto GPIO 5, pin 33
+// #define ENC_A_CLK LPC_GPIO_PORT, 0, T_FIL3  // Puerto GPIO 0, pin 35
+// #define ENC_B_DT  LPC_GPIO_PORT, 0, T_FIL2  // Puerto GPIO 0, pin 37
+// #define BOTON_SW  LPC_GPIO_PORT, 5, T_FIL0 // Puerto GPIO 5, pin 33
+#define ENC_A_CLK_PIN T_FIL3
+#define ENC_B_DT_PIN  T_FIL2
+#define BOTON_SW_PIN  T_FIL0
 
 
 typedef enum {APAGADO, STARTING, PRENDIDO, STOPPING} eButton_State;
@@ -51,7 +55,7 @@ static struct color colorSableLazer[CANT_COLORES] = {
 
 void Encoder_Init();
 void Button_init();
-void Encoder_MEF_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
+void Encoder_SW_Key();	// verifica el estado de los botones, actualiza el estado y los colores de los efectos
 float getPorcentualState();
 eButton_State getButtonState();
 void setButtonState(eButton_State state);

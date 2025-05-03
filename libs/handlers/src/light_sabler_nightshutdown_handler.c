@@ -5,7 +5,7 @@ void LightSabler_NightShutdown_Handler() {
     // Verificar el estado del botón del encoder
     eButton_State currentState = getButtonState();
 
-    Encoder_MEF_Key();
+    Encoder_SW_Key();
     switch (currentState) {
         case STARTING:
             printf("Estado: ENCENDIENDO\n");

@@ -11,7 +11,7 @@ void runTestsEncoder(void);
 /*
 Used functions:
 - Encoder_Init
-- Encoder_MEF_Key
+- Encoder_SW_Key
 - getButtonState
 - setButtonState
 */
@@ -52,7 +52,7 @@ void testEncoderEffectsStepStopping(void) {
 
 void testEncoderMEFKey(void) {
     // Test 4: Run encoder MEF key
-    Encoder_MEF_Key();
+    Encoder_SW_Key();
     printf("Encoder MEF key processed\n");
 }
 

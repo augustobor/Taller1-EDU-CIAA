@@ -4,7 +4,6 @@
 
 /*==================[variables]=================================*/
 
-static uint8_t select_color = 12; // número de color seleccionado por defecto
 static float porcentual_init = 0; // estado de encendido (0 apagado; 1 encendido; ...)
 static float porcentual_step = 0.02; // velocidad de encendido
 static eButton_State Button_state;
@@ -19,32 +18,19 @@ void Button_init() {
 
 // MEF verifica el estado del encoder, con el pulsador en flanco descendente enciende y apaga
 // con el giro del encoder cambia el color del sistema
-void Encoder_MEF_Key() { // Para el handler
-    static uint8_t CLK_ANT, DT_ANT;
-    static uint8_t B_CLK, B_DT;
-    CLK_ANT = B_CLK; // guardo los valores anteriores de las señales de entrada
-    DT_ANT = B_DT;
-
-    B_DT = (bool_t) Chip_GPIO_ReadPortBit(ENC_B_DT);
-    B_CLK = (bool_t) Chip_GPIO_ReadPortBit(ENC_A_CLK);
-
+void Encoder_SW_Key() { // Para el handler
+    static uint8_t  B_SW;
     static uint16_t timedelay = 0;
-    if (!Chip_GPIO_ReadPortBit(BOTON_SW)) { // si se mantiene presionado el botón encendido, acumula. CLAVE ESTA LINEA
+    B_SW = (bool_t)gpioRead(BOTON_SW_PIN); // lee el estado del botón encendido
+    if (!B_SW) { // si se mantiene presionado el botón encendido, acumula. CLAVE ESTA LINEA
         timedelay++;
     } else {
         timedelay = 0;
     }
-    if (timedelay == 100) { // si acumula 100 veces con el botón presionado
+    if (timedelay == 10000) {
+        while (gpioRead(BOTON_SW_PIN) == 0); // REMOVER ESTO
         if (Button_state == APAGADO) Button_state = STARTING; // cambio de estado
         if (Button_state == PRENDIDO) Button_state = STOPPING;
-    }
-    if (!CLK_ANT && B_CLK) { // si hay un flanco ascendente del CLK, se verifica dirección con DT
-        if (B_DT) {
-            select_color = (++select_color) % CANT_COLORES;
-        } else {
-            select_color = (--select_color + CANT_COLORES) % CANT_COLORES;
-        }
-        setCurrentColor(colorSableLazer[select_color]);
     }
 }
 
