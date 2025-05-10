@@ -4,21 +4,15 @@
 #define ON       1
 #define OFF      0
 
-// ************** Parámetros de la tira LED *****************
-static uint32_t PIXEL_BITS_LENGTH = PIXELS_LENGTH*24; // cantidad de bits para administrar la tira LED
-//**********************************************************
-
-
-// ************** Variables de la librería Neopixel *********
-
-static volatile uint32_t bit_index=0; // variable global bit recorrido
-static volatile uint32_t ret;         // variable auxiliar para contabilizar los retardos
-static volatile uint8_t bit_mask[8];  // Máscaras precalculadas para extracción de los bits
-static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
-static volatile uint32_t update=0;    // habilita la actualización cuando es !=0
 
 struct color currentColor = {170, 0, 170}; // si el color es negro: el sistema deja de enviar colores
 
+/**
+ * @brief Setea el color actual que se muestra en la tira LED. El color se aplica
+ *        a todos los pixeles de la tira LED.
+ *
+ * @param[in] cl: Estructura que contiene el color RGB a setear.
+ */
 void setCurrentColor(struct color cl){
 	currentColor=cl;
 }
@@ -27,71 +21,6 @@ struct color getCurrentColor(){
 	return currentColor;
 }
 
-
-// *********** Parámetros internos para generar la onda de datos de la tira LED
-   static volatile uint8_t WAITSHORT = 2;  // 3 // parámetro para el retardo corto
-   static volatile uint8_t WAITLONG = 7;   //4 // parámetros para el retardo largo
-//***********************
-
-
-// ************** Atención a Interrupciones Neopixel ******
-   // ISR (Systick TIMER)
-   // [USE-NEOPIXEL_UPDATE FUNCION HERE]
-   // [MIGRATE-FUNCTION-TO-LOWER-MODULE]
-   /*
-   Systick_Handler logical strucure should be:
-   if (neopixel_update){
-	   send bytes to neopixel
-   } else {
-		timer_sound_counter++;
-		if (timer_sound_counter > sound_timeout){
-			send bytes to DAC
-		}	
-   }
-   */
-//    void SysTick_Handler(void){
-// 		 if(update){       //Actualizar NEOPIXEL
-// 			LPC_GPIO_PORT->B[3][12] = 1; //Pin(high) GPIO3[12]
-// 			for( ret=WAITSHORT; ret>0; ret-- ); // delay "300ns"
-
-// 			if( datachain[bit_index / 8] & bit_mask[bit_index % 8] ){ //si el bit analizado es 1
-// 			   for( ret=WAITLONG; ret>0; ret-- ); // delay "500ns"
-// 			}
-
-// 			LPC_GPIO_PORT->B[3][12] = 0;  // Pin(Low)
-
-// 			bit_index= (bit_index+1) % PIXEL_BITS_LENGTH; // analiza el siguiente bit
-// 			if(bit_index==0){    //si completó toda la tira terminar
-// 			   update=OFF;
-// 			   if(!Encoder_IS_Disable()){
-// 					// habilita lo que deshabilitó
-// 				   //dacConfig( DAC_ENABLE );
-// 				   Chip_TIMER_Enable(LPC_TIMER1);
-// 			   }
-// 			}
-// 		 }
-//    }
-//***************************************
-
-// ************ INIT máscaras Neopixel ********
-   // Pre-calcula las máscaras de bits para la extracción de todos los "bit" en tiempo constante
-   void init_mask_bit(){
-      for (int bit = 7; bit >=0 ; bit--) {
-         bit_mask[ 7-bit ] = 1 << bit; // ordena las máscaras de mayor a menor
-      }
-   }
-
-//***************************************
-
-// configura interrupción del timer0 cada 1.25uS, e inicializa las máscaras
-void Neopixel_Init(){
-	SystemCoreClockUpdate();
-	// SysTick_Config(SystemCoreClock / 1000);
-	SysTick_Config(255); //Generación de interrupciones periódicas cada 1250ns
-		// pre-calcula las máscaras de bit, para tardar siempre el mismo tiempo en alcanzar cualquier bit
-	init_mask_bit();
-
-}
 
 
 // le asigna una proporción del color del sistema, al "number_pixel", escalado en "level" entre 0 y 1
@@ -161,16 +90,3 @@ void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float
 		}
 	}
 }
-
-// [DEPRECATED-FUNCTION-CANDIDATE]
-// void Neopixel_Update() {
-//     update=ON;
-//     // deshabilita todo lo que genera interrupciones
-//     dacConfig( DAC_DISABLE );
-//     Chip_TIMER_Disable(LPC_TIMER1);
-// }
-
-// [DEPRECATED-FUNCTION-CANDIDATE]
-// void Neopixel_Wait() {
-//     while(update!=OFF); // espero que haya terminado de enviar los datos
-// }

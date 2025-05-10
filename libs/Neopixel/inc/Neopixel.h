@@ -2,6 +2,8 @@
 #define _NEOPIXEL_H_
 
 #include <stdint.h> // Include for uint8_t type
+#include <stdio.h>
+#include "Sounds.h" 
 
 // ************** Parametros de la tira led *****************
 #define PIXELS_LENGTH 111  // cantidad de leds
@@ -14,12 +16,16 @@
    };
 
 //********************
+static volatile uint32_t ret;
+static uint32_t PIXEL_BITS_LENGTH = PIXELS_LENGTH*24; // cantidad de bits para administrar la tira LED
+static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
+static volatile uint8_t bit_mask[8];  // Máscaras precalculadas para extracción de los bits
+static volatile uint32_t bit_index=0; // variable global bit recorrido
+static volatile uint8_t WAITSHORT = 2;  // 3 // parámetro para el retardo corto
+static volatile uint8_t WAITLONG = 7;   //4 // parámetros para el retardo largo
 
-void Neopixel_Init(); // inicializa libreria
-void Neopixel_Update();// actualiza el estado de la tira led
+
 void Neopixel_Wait(); // espera a que se termine de actualizar los colores de la tira
-
-void SysTick_Handler(void); // rutina de atencion de interrupciones
 
 struct color getColor(uint8_t number_pixel); // retorna el color del pixel
 void setColor(uint8_t number_pixel, struct color c); // asigna el color c al pixel

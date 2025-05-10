@@ -2,6 +2,8 @@
 #define _UTILS_H_
 
 #include <stdint.h>
+#include <stdio.h>
+#include "Sounds.h"
 
 #define INACCURATE_TO_MS       20400
 

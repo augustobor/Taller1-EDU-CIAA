@@ -31,3 +31,61 @@ void Encoder_Init(void) {
     // Configuración para cuando el pulsador se presiona
     gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
 }
+
+// Inicializa el Neopixel
+// configura interrupción del timer0 cada 1.25uS, e inicializa las máscaras
+void Neopixel_Init(){
+	SystemCoreClockUpdate();
+	// SysTick_Config(SystemCoreClock / 1000);
+	SysTick_Config(255); //Generación de interrupciones periódicas cada 1250ns
+		// pre-calcula las máscaras de bit, para tardar siempre el mismo tiempo en alcanzar cualquier bit
+	init_mask_bit();
+
+}
+
+//***************************************
+
+// ************ INIT máscaras Neopixel ********
+   // Pre-calcula las máscaras de bits para la extracción de todos los "bit" en tiempo constante
+   void init_mask_bit(){
+      for (int bit = 7; bit >=0 ; bit--) {
+         bit_mask[ 7-bit ] = 1 << bit; // ordena las máscaras de mayor a menor
+      }
+   }
+
+//***************************************
+
+
+void TouchADC_Init(){
+    /* Config ADC0 sample mode */
+    ADC_CLOCK_SETUP_T ADCSetup = {
+       ADC_MAX_SAMPLE_RATE,   // ADC Sample rate:ADC_MAX_SAMPLE_RATE = 400KHz
+       10,                    // ADC resolution: ADC_10BITS = 10
+       0                      // ADC Burst Mode: (true or false)
+    };
+
+
+	Chip_ADC_Init(LPC_ADC0, &ADCSetup);
+    /* Disable burst mode */
+    Chip_ADC_SetBurstCmd( LPC_ADC0, DISABLE );
+
+	Chip_ADC_SetSampleRate(LPC_ADC0, &ADCSetup, 88000);
+
+	Chip_ADC_EnableChannel(LPC_ADC0, ADC_CH3, ENABLE);
+
+	// deshabilita el resto de los canales
+    Chip_ADC_Int_SetChannelCmd( LPC_ADC0, ADC_CH3, DISABLE );
+    Chip_ADC_EnableChannel( LPC_ADC0, ADC_CH2, DISABLE );
+    Chip_ADC_Int_SetChannelCmd( LPC_ADC0, ADC_CH2, DISABLE );
+    Chip_ADC_EnableChannel( LPC_ADC0, ADC_CH1, DISABLE );
+    Chip_ADC_Int_SetChannelCmd( LPC_ADC0, ADC_CH1, DISABLE );
+    Chip_ADC_EnableChannel( LPC_ADC0, ADC_CH4, DISABLE );
+    Chip_ADC_Int_SetChannelCmd( LPC_ADC0, ADC_CH4, DISABLE );
+
+}
+
+// Inicializa configuraciones del DAC y variables
+void Sounds_Init() {
+    // Configuración del DAC
+    dacConfig(DAC_ENABLE);
+}

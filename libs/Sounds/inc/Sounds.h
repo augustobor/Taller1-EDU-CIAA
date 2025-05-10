@@ -1,7 +1,7 @@
 #ifndef _SOUNDS_H_
 #define _SOUNDS_H_
 
-#include "Neopixel_Efects.h"
+//#include "Neopixel_Efects.h"
 #include "sapi_dac.h" // Se puede dejar
 #include <stdlib.h> // Se deja por el rand
 #include "sapi_imu_mpu60X0.h"

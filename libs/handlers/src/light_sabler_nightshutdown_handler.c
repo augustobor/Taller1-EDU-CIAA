@@ -12,6 +12,7 @@ void LightSabler_NightShutdown_Handler() {
             for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
                 setColor_i(i, 0);
             }
+            Neopixel_Update();
             setButtonState(PRENDIDO);
             break;
             

@@ -6,7 +6,6 @@
 
 /*
 Used functions:
-- Neopixel_Init()
 - setCurrentColor()
 - setColor()
 - getColor()

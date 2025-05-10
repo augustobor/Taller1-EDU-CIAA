@@ -52,7 +52,7 @@
 /*==================[macros and definitions]=================================*/
 
 #ifndef TICK_OVER_RTOS
-   #define tickerCallback SysTick_Handler
+   // #define tickerCallback SysTick_Handler
 #endif
 
 /*==================[internal data declaration]==============================*/

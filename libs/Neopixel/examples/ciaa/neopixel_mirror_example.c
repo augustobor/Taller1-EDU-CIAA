@@ -1,4 +1,5 @@
 #include "Neopixel.h"
+#include "init.h"
 #include "sapi.h" // Include for delay function
 
 #define NUM_PIXELS 111

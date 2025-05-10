@@ -1,0 +1,18 @@
+#include "sapi_board.h"
+#include "collision_handler.h"
+#include "init.h"
+
+int main(void) {
+    // Inicialización del sistema
+    boardInit();
+    Neopixel_Init(); // Inicializa el Neopixel
+    Timer1_Init();   // Inicializa el timer 1
+    Encoder_Init();  // Inicializa el encoder y el botón
+    TouchADC_Init();
+
+    while (1) {
+        Collision_Handler(); 
+    }
+
+    return 0;
+}

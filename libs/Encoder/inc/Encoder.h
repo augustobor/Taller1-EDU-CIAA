@@ -3,7 +3,6 @@
 
 #include "Neopixel.h"
 #include "sapi_gpio.h"
-#include "utils.h"
 
 #define PIXELS_LENGTH 111
 // #define ENC_A_CLK LPC_GPIO_PORT, 0, T_FIL3  // Puerto GPIO 0, pin 35
