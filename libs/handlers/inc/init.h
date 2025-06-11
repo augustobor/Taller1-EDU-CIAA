@@ -1,6 +1,7 @@
 #include "chip.h"
 #include "Sounds.h"
 #include "Encoder.h"
+#include "Neopixel_Efects.h"
 #include "Neopixel.h"
 
 #ifndef INIT_H

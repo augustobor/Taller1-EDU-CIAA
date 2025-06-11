@@ -54,7 +54,6 @@ void SysTick_Handler(void){
 
 void Neopixel_Update() {
     update=ON;
-	printf("Update: %d\n", update);
     // deshabilita todo lo que genera interrupciones
     dacConfig( DAC_DISABLE );
     Chip_TIMER_Disable(LPC_TIMER1);
