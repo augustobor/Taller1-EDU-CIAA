@@ -3,6 +3,7 @@
 
 #include "Encoder.h"
 #include "Neopixel.h"
+#include "Sounds.h"
 #include <stdint.h>
 #include <stdio.h>
 

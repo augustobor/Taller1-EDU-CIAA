@@ -50,6 +50,10 @@ float getPorcentualState() {
     return porcentual_init;
 }
 
+void setPorcentualState(float state) {
+    porcentual_init = state;
+}
+
 // Getter y Setter de Button_state
 eButton_State getButtonState() {
     return Button_state;

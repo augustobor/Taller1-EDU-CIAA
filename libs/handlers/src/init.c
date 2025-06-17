@@ -35,6 +35,19 @@ void Encoder_Init(void) {
 // Inicializa el Neopixel
 // configura interrupción del timer0 cada 1.25uS, e inicializa las máscaras
 void Neopixel_Init(){
+    // Configuro LED1 = pin P2_10 = GPIO0[14]
+    Chip_SCU_PinMux( 2, 10, SCU_MODE_INACT, SCU_MODE_FUNC0 );
+    // Configuro COL1 = pin P0_0 = GPIO3[12]
+    Chip_SCU_PinMux( 7, 4, SCU_MODE_INACT, SCU_MODE_FUNC0 );
+
+    // Configuro GPIO0[14] como salida
+    Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, (1<<14), OUTPUT );
+    // Configuro GPIO0[0] como salida
+    Chip_GPIO_SetDir( LPC_GPIO_PORT, 3, (1<<12), OUTPUT );
+
+    // Pongo en estado bajo LED1 el GPIO0[14]
+    Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
+
 	SystemCoreClockUpdate();
 	// SysTick_Config(SystemCoreClock / 1000);
 	SysTick_Config(255); //Generación de interrupciones periódicas cada 1250ns

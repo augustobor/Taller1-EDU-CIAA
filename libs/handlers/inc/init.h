@@ -5,7 +5,13 @@
 #include "Neopixel.h"
 
 #ifndef INIT_H
-#define INIT_H 
+#define INIT_H
+
+#define OUTPUT   1
+#define INPUT    0
+
+#define ON       1
+#define OFF      0
 
 void Timer1_Init(void);
 void Encoder_Init(void);
