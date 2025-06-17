@@ -17,9 +17,9 @@ void LightSabler_NightShutdown_Handler() {
             if (getPorcentualState() >= 1.0) {
                 setPorcentualState(1.0);
             }
-            for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
-                setColor_i(i, 0);
-            }
+            // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
+            //     setColor_i(i, 0);
+            // }
             break;
             
         case STOPPING:   
@@ -29,9 +29,9 @@ void LightSabler_NightShutdown_Handler() {
             if (getPorcentualState() <= 0.0) {
                 setPorcentualState(0.0);
             }
-            for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
-                setColor_i(i, 1);
-            }
+            // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
+            //     setColor_i(i, 1);
+            // }
             break;
 
         default:
