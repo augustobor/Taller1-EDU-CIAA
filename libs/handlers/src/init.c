@@ -102,3 +102,8 @@ void Sounds_Init() {
     // Configuración del DAC
     dacConfig(DAC_ENABLE);
 }
+
+
+void Gyroscope_Init() {
+    // Inicialización del giroscopio
+}

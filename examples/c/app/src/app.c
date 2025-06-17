@@ -2,6 +2,7 @@
 #include "color_handler.h"
 #include "sounds_handler.h"
 #include "light_sabler_nightshutdown_handler.h"
+#include "speed_volume_handler.h"
 #include "collision_handler.h"
 #include "init.h"
 
@@ -16,6 +17,7 @@ int main(void) {
     Encoder_Init();  
     TouchADC_Init();
     Sounds_Init();
+    //Gyroscope_Init();
     //mpu60X0Init( MPU60X0_ADDRESS_0 );
 
 
@@ -34,6 +36,7 @@ int main(void) {
             Switch_Color_Handler(B_DT); 
         }
         //Collision_Handler(); // TouchADC handler
+        //SpeedVolume_Handler();
     }
 
     return 0;
