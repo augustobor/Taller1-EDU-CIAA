@@ -15,17 +15,18 @@ int main(void) {
     Timer1_Init();   
     Neopixel_Init(); 
     Encoder_Init();  
-    TouchADC_Init();
+    // TouchADC_Init();
     Sounds_Init();
+    //mpu60X0Init( MPU60X0_ADDRESS_0 ); // MPU init
     //Gyroscope_Init();
-    //mpu60X0Init( MPU60X0_ADDRESS_0 );
 
 
-    //VolumeHandler_Update(0.1f);
+    VolumeHandler_Update(0.2f);
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {
-        //VolumeHandler_Update(3.5-getPorcentualState()*2);
+        VolumeHandler_Update(3.5-getPorcentualState()*2);
+        moduleSound((getPorcentualState()+3)/10); // Actualiza el volumen en función del estado del encoder
         LightSabler_NightShutdown_Handler();
         Efects_porcentual(getPorcentualState()); // Actualiza los efectos de sonido según el estado del encoder
         //Encoder handler

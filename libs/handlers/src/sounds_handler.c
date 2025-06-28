@@ -5,7 +5,6 @@
 // EncoderState: es un parametro que deberia recibir el value de los pines de lectura del encoder o de un potencionemtro?
 void VolumeHandler_Update(float currentVolume) {
     setGain(currentVolume);
-    moduleSound( (getPorcentualState()+3)/10 );
 }
 
 uint16_t generador_onda_cuadrada() {

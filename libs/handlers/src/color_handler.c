@@ -2,9 +2,9 @@
 
 static uint8_t select_color = 12; // número de color seleccionado por defecto
 
-void Switch_Color_Handler(bool_t B_DT) {
+void Switch_Color_Handler(bool_t direction) {
     
-    if (B_DT) {
+    if (direction) {
         select_color = (++select_color) % CANT_COLORES;
         printf("Color B: %d\n", select_color);
     } else {
