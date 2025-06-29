@@ -266,7 +266,7 @@ typedef struct {
 int8_t mpu9250Init( MPU9250_address_t address );
 
 // Read sensor registers and store data at control structure
-bool_t mpu9250Read(void);
+MPU9250_control_t mpu9250Read(void);
 
 
 // Returns the accelerometer measurement in the x direction, m/s/s

@@ -2,7 +2,6 @@
 #define LIGHT_SABLER_NIGHTSHUTDOWN_HANDLER_H
 
 #include "Encoder.h"
-#include "Neopixel.h"
 #include "utils.h"
 #include <stdint.h>
 #include <stdio.h>

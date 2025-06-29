@@ -1,10 +1,31 @@
 #include "Gyroscope.h"
 
-float getGyroscopeValue() {
-    mpu60X0Read();
-    float gyroX = mpu60X0GetGyroX_rads();
-    float gyroY = mpu60X0GetGyroY_rads();
-    float gyroZ = mpu60X0GetGyroZ_rads();
+//MPU control structure
+static MPU9250_control_t control;
 
-    return (gyroX + gyroY + gyroZ) / 3.0;
+gyroscope_coordinates getGyroscopeValue() {
+    control = mpu9250Read(); // Lectura general de los datos del MPU9250
+    gyroscope_coordinates coord;
+    coord.gyroX = control._gx;
+    coord.gyroY = control._gy;
+    coord.gyroZ = control._gz;
+    return coord;
+}
+
+// Retorna la medición del giroscopio en la dirección x, rad/s
+float GYRO_mpu9250GetGyroX_rads( void )
+{
+	return control._gx;
+}
+
+// Retorna la medición del giroscopio en la dirección y, rad/s
+float GYRO_mpu9250GetGyroY_rads( void )
+{
+	return control._gy;
+}
+
+// Retorna la medición del giroscopio en la dirección z, rad/s
+float GYRO_mpu9250GetGyroZ_rads( void )
+{
+	return control._gz;
 }

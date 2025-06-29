@@ -520,12 +520,12 @@ int8_t mpu9250Init( MPU9250_address_t address )
 }
 
 //Read sensor registers and store data at control structure
-bool_t mpu9250Read(void)
+MPU9250_control_t mpu9250Read(void)
 {
 	// grab the data from the MPU9250
-	if( !mpu9250ReadRegisters(MPU9250_ACCEL_OUT, 21) ){
-		return 0;
-	}
+	// if( !mpu9250ReadRegisters(MPU9250_ACCEL_OUT, 21) ){
+	// 	return 0;
+	// }
 	// combine into 16 bit values
 	control._axcounts = (((int16_t)control._buffer[0]) << 8)  | control._buffer[1];
 	control._aycounts = (((int16_t)control._buffer[2]) << 8)  | control._buffer[3];
@@ -548,7 +548,7 @@ bool_t mpu9250Read(void)
 	control._hy = (((float)(control._hycounts) * control._magScaleY) - control._hyb)*control._hys;
 	control._hz = (((float)(control._hzcounts) * control._magScaleZ) - control._hzb)*control._hzs;
 	control._t = ((((float) control._tcounts)  - control._tempOffset)/ control._tempScale) + control._tempOffset;
-	return 1;
+	return control;
 }
 
 // Returns the accelerometer measurement in the x direction, m/s/s

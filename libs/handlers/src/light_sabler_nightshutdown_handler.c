@@ -6,8 +6,6 @@ void LightSabler_NightShutdown_Handler() {
     // Verificar el estado del botón del encoder
     eButton_State currentState = getButtonState();
 
-    Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es
-                     // necesario esperar.
     Encoder_SW_Key();
     switch (currentState) { // Para manejar los eventos del encoder
         case STARTING:
@@ -37,5 +35,4 @@ void LightSabler_NightShutdown_Handler() {
         default:
             break;
     }
-    Neopixel_Update();
 }

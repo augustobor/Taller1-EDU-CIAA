@@ -105,5 +105,5 @@ void Sounds_Init() {
 
 
 void Gyroscope_Init() {
-    // Inicialización del giroscopio
+    mpu9250Init(MPU9250_ADDRESS_0);
 }
