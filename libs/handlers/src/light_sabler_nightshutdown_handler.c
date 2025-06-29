@@ -11,10 +11,7 @@ void LightSabler_NightShutdown_Handler() {
         case STARTING:
             printf("Estado: ENCENDIENDO\n");
             setButtonState(PRENDIDO);
-            setPorcentualState(getPorcentualState() + porcentual_step);
-            if (getPorcentualState() >= 1.0) {
-                setPorcentualState(1.0);
-            }
+            setPorcentualState(1.0);
             // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
             //     setColor_i(i, 0);
             // }
@@ -23,10 +20,7 @@ void LightSabler_NightShutdown_Handler() {
         case STOPPING:   
             printf("Estado: APAGANDO\n");
             setButtonState(APAGADO);
-            setPorcentualState(getPorcentualState() - porcentual_step);
-            if (getPorcentualState() <= 0.0) {
-                setPorcentualState(0.0);
-            }
+            setPorcentualState(0.0);
             // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
             //     setColor_i(i, 1);
             // }

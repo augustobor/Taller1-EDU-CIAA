@@ -1,6 +1,7 @@
 #ifndef _GYROSCOPE_H_
-#define _GYROSCOPE_H_
+#define _GRYROSCOPE_H_
 
+#include "Neopixel.h"
 #include "sapi_imu_mpu9250.h"
 
 typedef struct {

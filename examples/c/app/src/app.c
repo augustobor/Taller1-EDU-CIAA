@@ -17,12 +17,11 @@ int main(void) {
     Encoder_Init();  
     // TouchADC_Init();
     Sounds_Init();
-    //mpu60X0Init( MPU60X0_ADDRESS_0 ); // MPU init
-    //Gyroscope_Init();
+    //mpu9250Init(MPU9250_ADDRESS_0); // MPU init
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {
-        VolumeHandler_Update(3.5-getPorcentualState()*2);
+        VolumeHandler_Update(3.5-(1 - getPorcentualState())*2);
         moduleSound((getPorcentualState()+3)/10); // Actualiza el volumen en función del estado del encoder
         // Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
         LightSabler_NightShutdown_Handler();

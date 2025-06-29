@@ -30,6 +30,7 @@ void Encoder_Init(void) {
 
     // Configuración para cuando el pulsador se presiona
     gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
+    setPorcentualState(0); // Inicializa el estado del encoder a 0
 }
 
 // Inicializa el Neopixel
@@ -101,9 +102,4 @@ void TouchADC_Init(){
 void Sounds_Init() {
     // Configuración del DAC
     dacConfig(DAC_ENABLE);
-}
-
-
-void Gyroscope_Init() {
-    mpu9250Init(MPU9250_ADDRESS_0);
 }
