@@ -49,6 +49,7 @@
 static int8_t mpu9250InitializeControlStructure( void );
 static int8_t mpu9250WriteRegister( uint8_t subAddress, uint8_t data );
 static int8_t mpu9250ReadRegisters( uint8_t subAddress, uint8_t count );
+static int8_t mpu9250ReadRegistersSPI( uint8_t subAddress, uint8_t count );
 static int8_t mpu9250WriteAK8963Register( uint8_t subAddress, uint8_t data );
 static int8_t mpu9250WhoAmI( void );
 static int8_t mpu9250WhoAmIAK8963( void );
@@ -119,6 +120,12 @@ static int8_t mpu9250ReadRegisters( uint8_t subAddress, uint8_t count )
 	} else {
 		return -1;
 	}
+}
+
+static int8_t mpu9250ReadRegistersSPI( uint8_t subAddress, uint8_t count )
+{
+	spiRead(SPI0, control._buffer, count);
+	return 1;
 }
 
 static int8_t mpu9250WriteAK8963Register( uint8_t subAddress, uint8_t data )
@@ -404,7 +411,8 @@ int8_t mpu9250Init( MPU9250_address_t address )
 	// using I2C for communication
 	// starting the I2C bus
 	i2cInit(I2C0, MPU9250_I2C_RATE);
-
+	// using SPI for communication
+	spiInit(SPI0); 
 	// select clock source to gyro
 	if (mpu9250WriteRegister(MPU9250_PWR_MGMNT_1, MPU9250_CLOCK_SEL_PLL) < 0) {
 		return -1;
@@ -523,9 +531,9 @@ int8_t mpu9250Init( MPU9250_address_t address )
 MPU9250_control_t mpu9250Read(void)
 {
 	// grab the data from the MPU9250
-	// if( !mpu9250ReadRegisters(MPU9250_ACCEL_OUT, 21) ){
-	// 	return 0;
-	// }
+	//mpu9250ReadRegisters(MPU9250_ACCEL_OUT, 21);
+	mpu9250ReadRegisters(MPU9250_ACCEL_OUT, 21); // Lectura de MPU por protocolo SPI
+
 	// combine into 16 bit values
 	control._axcounts = (((int16_t)control._buffer[0]) << 8)  | control._buffer[1];
 	control._aycounts = (((int16_t)control._buffer[2]) << 8)  | control._buffer[3];
