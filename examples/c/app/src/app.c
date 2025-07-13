@@ -10,23 +10,23 @@
 int main(void) {
 
     // Inicialización del sistema
-    boardInit();
-    //Board_Init(); Reemplazara al boardInit()??
+    //boardInit();
+    Board_Init();
     Timer1_Init();   
-    // Neopixel_Init();
+    Neopixel_Init();
     Encoder_Init();  
     // TouchADC_Init();
-    Sounds_Init();
+    // Sounds_Init();
     //mpu9250Init(MPU9250_ADDRESS_0); // MPU init
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {
-        VolumeHandler_Update(3.5-(1 - getPorcentualState())*2);
-        moduleSound((getPorcentualState()+3)/10); // Actualiza el volumen en función del estado del encoder
-        // Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
+        // VolumeHandler_Update(3.5-(1 - getPorcentualState())*2);
+        // moduleSound((getPorcentualState()+3)/10); // Actualiza el volumen en función del estado del encoder
+        Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
         LightSabler_NightShutdown_Handler();
-        // Neopixel_Update();
-        // Efects_porcentual(getPorcentualState()); // Actualiza los efectos de sonido según el estado del encoder
+        Efects_porcentual(getPorcentualState()); // Actualiza los efectos de sonido según el estado del encoder
+        Neopixel_Update();
         //Encoder handler
         CLK_ANT = B_CLK;
         B_DT = (bool_t) gpioRead(ENC_B_DT_PIN);

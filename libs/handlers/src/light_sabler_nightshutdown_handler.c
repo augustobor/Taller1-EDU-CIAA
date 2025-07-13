@@ -5,25 +5,19 @@ void LightSabler_NightShutdown_Handler() {
 
     // Verificar el estado del botón del encoder
     eButton_State currentState = getButtonState();
-
+    
     Encoder_SW_Key();
     switch (currentState) { // Para manejar los eventos del encoder
         case STARTING:
-            printf("Estado: ENCENDIENDO\n");
+            //printf("Estado: ENCENDIENDO\n");
             setButtonState(PRENDIDO);
-            setPorcentualState(1.0);
-            // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
-            //     setColor_i(i, 0);
-            // }
+            setPorcentualState(0.9);
             break;
             
         case STOPPING:   
-            printf("Estado: APAGANDO\n");
+            //printf("Estado: APAGANDO\n");
             setButtonState(APAGADO);
             setPorcentualState(0.0);
-            // for (uint8_t i = 0; i < PIXELS_LENGTH; i++) {
-            //     setColor_i(i, 1);
-            // }
             break;
 
         default:

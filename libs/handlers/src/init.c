@@ -31,6 +31,7 @@ void Encoder_Init(void) {
     // Configuración para cuando el pulsador se presiona
     gpioConfig(BOTON_SW_PIN, GPIO_INPUT);
     setPorcentualState(0); // Inicializa el estado del encoder a 0
+    setButtonState(APAGADO);
 }
 
 // Inicializa el Neopixel
