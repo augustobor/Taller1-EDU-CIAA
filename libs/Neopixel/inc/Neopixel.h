@@ -18,8 +18,8 @@
 //********************
 static volatile uint32_t ret;
 static uint32_t PIXEL_BITS_LENGTH = PIXELS_LENGTH*24; // cantidad de bits para administrar la tira LED
-static volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
-static volatile uint8_t bit_mask[8];  // Máscaras precalculadas para extracción de los bits
+volatile uint8_t datachain[PIXELS_LENGTH*3]; // [ G R B ]
+volatile uint8_t bit_mask[8];  // Máscaras precalculadas para extracción de los bits
 static volatile uint32_t bit_index=0; // variable global bit recorrido
 static volatile uint8_t WAITSHORT = 2;  // 3 // parámetro para el retardo corto
 static volatile uint8_t WAITLONG = 7;   //4 // parámetros para el retardo largo

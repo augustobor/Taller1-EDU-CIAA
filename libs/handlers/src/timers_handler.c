@@ -38,6 +38,7 @@ void SysTick_Handler(void){
         if( datachain[bit_index / 8] & bit_mask[bit_index % 8] ){ //si el bit analizado es 1
             for( ret=WAITLONG; ret>0; ret-- ); // delay "500ns"
         }
+
         LPC_GPIO_PORT->B[3][12] = 0;  // Pin(Low)
         
         bit_index= (bit_index+1) % PIXEL_BITS_LENGTH; // analiza el sigueinte bit

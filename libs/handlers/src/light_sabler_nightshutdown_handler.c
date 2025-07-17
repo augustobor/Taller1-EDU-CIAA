@@ -11,7 +11,7 @@ void LightSabler_NightShutdown_Handler() {
         case STARTING:
             //printf("Estado: ENCENDIENDO\n");
             setButtonState(PRENDIDO);
-            setPorcentualState(0.9);
+            setPorcentualState(1.0);
             break;
             
         case STOPPING:   

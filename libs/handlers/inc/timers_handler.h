@@ -6,6 +6,7 @@
 #include "Neopixel.h"
 #include "Encoder.h"
 #include "Utils.h"
+#include "init.h"
 
 // Definiciones de configuración
 #define TIMER1_MATCH_CHANNEL 0 // Canal de coincidencia del Timer 1
