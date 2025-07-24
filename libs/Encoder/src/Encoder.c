@@ -27,8 +27,7 @@ void Encoder_SW_Key() { // Para el handler
     } else {
         timedelay = 0;
     }
-    if (timedelay == 10) {
-        while (gpioRead(BOTON_SW_PIN) == 0); // REMOVER ESTO
+    if (timedelay == 100) {
         if (Button_state == APAGADO) Button_state = STARTING; // cambio de estado
         if (Button_state == PRENDIDO) Button_state = STOPPING;
     }

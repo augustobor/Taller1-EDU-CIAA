@@ -51,10 +51,10 @@ void Neopixel_Init(){
     Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
     struct color currentColor = {0, 255, 0}; // Inicializa el color actual
-    for (int i = 0; i < 111; i++) {
-        setColor(i, currentColor); // Setea el color actual en todos los pixeles
-    }
+    setCurrentColor(currentColor); // Setea el color actual
 
+
+    setPorcentualState(1.0);
     SystemCoreClockUpdate();
 	// SysTick_Config(SystemCoreClock / 1000);
 	SysTick_Config(255); //Generación de interrupciones periódicas cada 1250ns

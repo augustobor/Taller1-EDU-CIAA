@@ -14,7 +14,7 @@ int main(void) {
     Neopixel_Init();
     Encoder_Init();  
     TouchADC_Init();
-    // Sounds_Init();
+    Sounds_Init();
     //mpu9250Init(MPU9250_ADDRESS_0); // MPU init
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
@@ -25,7 +25,7 @@ int main(void) {
         LightSabler_NightShutdown_Handler();
         Efects_porcentual(getPorcentualState()); // Actualiza los efectos de la tira LED según el estado del encoder
         //Efects_sinoidal_breath_c_mirror(); // Efecto de onda senoidal en los LEDs
-        Neopixel_Update();
+        
         //Encoder handler
         CLK_ANT = B_CLK;
         B_DT = (bool_t) gpioRead(ENC_B_DT_PIN);
@@ -35,6 +35,7 @@ int main(void) {
         }
         Collision_Handler(); // TouchADC handler
         //SpeedVolume_Handler();
+        Neopixel_Update();
     }
 
     return 0;
