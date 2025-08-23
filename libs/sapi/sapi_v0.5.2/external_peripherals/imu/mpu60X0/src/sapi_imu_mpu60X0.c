@@ -289,6 +289,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	i2cInit(I2C0, MPU60X0_I2C_RATE);
 
 	// select clock source to X-gyro
+	printf("PASEE\n");
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -1;
 	}
