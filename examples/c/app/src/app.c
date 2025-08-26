@@ -15,10 +15,7 @@ int main(void) {
     Encoder_Init();  
     TouchADC_Init();
     Sounds_Init();
-    printf("Sable-EDU-CIAA Firmware v3-r1.3.0\n");
     mpu60X0Init( MPU60X0_ADDRESS_0 );
-    printf("MPU60X0 Init: %d\n", mpu60X0Init( MPU60X0_ADDRESS_0 )); // MPU init
-    //mpu9250Init(MPU9250_ADDRESS_0); // MPU init
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {

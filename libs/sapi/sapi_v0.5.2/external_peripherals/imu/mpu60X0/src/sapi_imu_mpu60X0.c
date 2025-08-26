@@ -91,16 +91,16 @@ static int8_t mpu60X0WriteRegister( uint8_t subAddress, uint8_t data )
 	transmitDataBuffer[1] = data;
 	i2cWrite(I2C0, control.address, transmitDataBuffer, 2, TRUE);
 
-	delay(10);
-
+	dddd(14);
+	
 	/* read back the register */
 	mpu60X0ReadRegisters(subAddress,1);
 	/* check the read back register against the written register */
 	if(control._buffer[0] == data) {
-      return 1;
+		return 1;
 	}
 	else{
-      return -1;
+		return -1;
 	}
 }
 
@@ -145,7 +145,7 @@ static int8_t mpu60X0CalibrateGyro( void )
 		control._gxbD += ((mpu60X0GetGyroX_rads() + control._gxb)/control._numSamples);
 		control._gybD += ((mpu60X0GetGyroY_rads() + control._gyb)/control._numSamples);
 		control._gzbD += ((mpu60X0GetGyroZ_rads() + control._gzb)/control._numSamples);
-		delay(20);
+		dddd(20);
 	}
 	control._gxb = (float)control._gxbD;
 	control._gyb = (float)control._gybD;
@@ -289,10 +289,10 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	i2cInit(I2C0, MPU60X0_I2C_RATE);
 
 	// select clock source to X-gyro
-	printf("PASEE\n");
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -1;
 	}
+
 	// enable I2C master mode
 	if (mpu60X0WriteRegister(MPU60X0_USER_CTRL, MPU60X0_I2C_MST_EN) < 0) {
 		return -2;
@@ -304,7 +304,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	// reset the MPU60X0
 	mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_PWR_RESET);
 	// wait for MPU60X0 to come back up
-	delay(1);
+	dddd(1);
 	// select clock source to X-gyro
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -4;
@@ -327,7 +327,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	if (mpu60X0WriteRegister(MPU60X0_GYRO_CONFIG, MPU60X0_GYRO_FS_SEL_2000DPS) < 0) {
 		return -8;
 	}
-   // setting the gyro scale to 2000DPS
+	// setting the gyro scale to 2000DPS
 	control._gyroScale = 2000.0f / 32767.5f * MPU60X0_D2R;
 	control._gyroRange = MPU60X0_GYRO_RANGE_2000DPS;
 	// setting accel bandwidth to 184Hz and gyro bandwidth to 188Hz as default
@@ -341,14 +341,14 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	}
 	control._srd = 0;
 	// enable I2C master mode
-  if (mpu60X0WriteRegister(MPU60X0_USER_CTRL, MPU60X0_I2C_MST_EN) < 0) {
+	if (mpu60X0WriteRegister(MPU60X0_USER_CTRL, MPU60X0_I2C_MST_EN) < 0) {
 		return -11;
 	}
 	// set the I2C bus speed to 400 kHz
 	if (mpu60X0WriteRegister(MPU60X0_I2C_MST_CTRL, MPU60X0_I2C_MST_CLK) < 0) {
 		return -12;
 	}
-  // select clock source to X-gyro
+	// select clock source to X-gyro
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -13;
 	}
