@@ -6,6 +6,7 @@
 
 
 struct color currentColor = {170, 0, 170}; // si el color es negro: el sistema deja de enviar colores
+static volatile uint8_t currentIntensity = 0;
 
 /**
  * @brief Setea el color actual que se muestra en la tira LED. El color se aplica
@@ -89,4 +90,12 @@ void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float
 			  datachain[number_pixel*3+2]= (proportion*c1.b)+((float)c2.b*(1-proportion));
 		}
 	}
+}
+
+void setIntensity(uint8_t intensity) {
+    currentIntensity = intensity;
+}
+
+uint8_t getIntensity(void) {
+    return currentIntensity;
 }

@@ -386,6 +386,33 @@ bool_t mpu60X0Read(void)
 	return 1;
 }
 
+
+MPU60X0_control_t mpu60X0Read_returned(void)
+{
+	// grab the data from the MPU60X0
+	if( !mpu60X0ReadRegisters(MPU60X0_ACCEL_OUT, 21) ){
+		return (MPU60X0_control_t){0};
+	}
+	// combine into 16 bit values
+	control._axcounts = (((int16_t)control._buffer[0]) << 8)  | control._buffer[1];
+	control._aycounts = (((int16_t)control._buffer[2]) << 8)  | control._buffer[3];
+	control._azcounts = (((int16_t)control._buffer[4]) << 8)  | control._buffer[5];
+	control._tcounts  = (((int16_t)control._buffer[6]) << 8)  | control._buffer[7];
+	control._gxcounts = (((int16_t)control._buffer[8]) << 8)  | control._buffer[9];
+	control._gycounts = (((int16_t)control._buffer[10]) << 8) | control._buffer[11];
+	control._gzcounts = (((int16_t)control._buffer[12]) << 8) | control._buffer[13];
+	// transform and convert to float values
+	control._ax = (((float)(control.tX[0]*control._axcounts + control.tX[1]*control._aycounts + control.tX[2]*control._azcounts) * control._accelScale) - control._axb)*control._axs;
+	control._ay = (((float)(control.tY[0]*control._axcounts + control.tY[1]*control._aycounts + control.tY[2]*control._azcounts) * control._accelScale) - control._ayb)*control._ays;
+	control._az = (((float)(control.tZ[0]*control._axcounts + control.tZ[1]*control._aycounts + control.tZ[2]*control._azcounts) * control._accelScale) - control._azb)*control._azs;
+	control._gx = ((float) (control.tX[0]*control._gxcounts + control.tX[1]*control._gycounts + control.tX[2]*control._gzcounts) * control._gyroScale) -  control._gxb;
+	control._gy = ((float) (control.tY[0]*control._gxcounts + control.tY[1]*control._gycounts + control.tY[2]*control._gzcounts) * control._gyroScale) -  control._gyb;
+	control._gz = ((float) (control.tZ[0]*control._gxcounts + control.tZ[1]*control._gycounts + control.tZ[2]*control._gzcounts) * control._gyroScale) -  control._gzb;
+	control._t = ((((float) control._tcounts)  - control._tempOffset)/ control._tempScale) + control._tempOffset;
+	return control;
+}
+
+
 // Returns the accelerometer measurement in the x direction, m/s/s
 float mpu60X0GetAccelX_mss( void )
 {

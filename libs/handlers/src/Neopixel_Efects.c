@@ -20,7 +20,7 @@ uint8_t desfazaje_by_pixel=9; // recorre 360� en cada 40pixel[longitud de onda
 uint16_t corrimiento_angular=0;
 
 // efecto de onda senoidal de color c, con 15%offset siempre prendido, espejado respecto del centro 
-void Efects_sinoidal_breath_c_mirror(){
+void Efects_sinoidal_breath_c_mirror(uint8_t initial_intensity){
    angulo_temporal+=velocity; // angulo temporal de ese frame, se suma la velocidad deseada en grados por frame
    if(angulo_temporal>360){
     angulo_temporal-=360;
@@ -28,12 +28,12 @@ void Efects_sinoidal_breath_c_mirror(){
   corrimiento_angular=0; // por pixel
    for(int pix_i=0; pix_i< (PIXELS_LENGTH-1/2) ;pix_i++){ // recorro la mitad de los pixeles
       corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un peque�o corrimiento para hacer el efecto desplazamiento-barrido de la onda
-      setColor_i(pix_i,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
+      setColor_i(pix_i,brain_cicle_intensity(angulo_temporal +corrimiento_angular - initial_intensity)); // le asigno al pixel i el color seteado escalado en seno
       mirror(pix_i); // espejado
 	}
 }
 
-void Efects_porcentual(float porcentual_state){
+void Efects_porcentual(float porcentual_state, uint8_t initial_intensity){
 
 	uint8_t pixels_on= porcentual_state*(PIXELS_LENGTH+1)/2;
 	angulo_temporal+=velocity; // angulo temporal de ese frame, se suma la velocidad deseada en grados por frame
@@ -43,7 +43,7 @@ void Efects_porcentual(float porcentual_state){
 	uint8_t pix_i;
 	for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
 	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un peque�o corrimiento para hacer el efecto desplazamiento-barrido de la onda
-	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
+	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular) - initial_intensity); // le asigno al pixel i el color seteado escalado en seno
       mirror(pix_i); // espejado
 	}
 	while( pix_i<((PIXELS_LENGTH+1)/2)){ // recorro el resto de los pixeles y los apago

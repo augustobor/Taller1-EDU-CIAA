@@ -11,8 +11,8 @@
 // ***** Efectos disponibles ******
 
 // efecto de onda senoidal de color c, con 15%offset siempre prendido, espejado respecto del centro 
-void Efects_sinoidal_breath_c_mirror ();
-void Efects_porcentual(float porcentual_state);
+void Efects_sinoidal_breath_c_mirror (uint8_t initial_intensity);
+void Efects_porcentual(float porcentual_state, uint8_t initial_intensity);
 // efecto para colision
 void Efects_colision(uint8_t pixel_center,struct color cl, uint8_t radius);
 void LightSabler_Update(void);

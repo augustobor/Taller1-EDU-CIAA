@@ -12,7 +12,7 @@ static float last_value_z = 0;
 static float GyroX = 0;
 static float GyroZ = 0;
 
-float get_gyro_abs_val();// retorna valor absoluto de movimiento entre [0..1]
+MPU60X0_control_t GYRO_mpuRead( void );
 float GYRO_mpu6050GetGyroX_rads( void );
 float GYRO_mpu6050GetGyroZ_rads( void );
 float filter_gyro(float, float);

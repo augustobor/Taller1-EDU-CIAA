@@ -275,6 +275,8 @@ int8_t mpu60X0Init( MPU60X0_address_t address );
 // Read sensor registers and store data at control structure
 bool_t mpu60X0Read(void);
 
+MPU60X0_control_t mpu60X0Read_returned(void);
+
 // Returns the accelerometer measurement in the x direction, m/s/s
 float mpu60X0GetAccelX_mss( void );
 
