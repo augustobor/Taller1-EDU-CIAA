@@ -12,6 +12,6 @@ void SpeedVolume_Handler() {
     } else if (Gyro < -2) {
         Gyro = -2;
     }
+    setIntensity((Gyro/2)*50.0f);
     VolumeHandler_Update(Gyro*0.05f);
-    setIntensity(Gyro*150.0f);
 }

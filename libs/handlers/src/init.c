@@ -55,6 +55,7 @@ void Neopixel_Init(){
 
 
     setPorcentualState(1.0);
+    setIntensity(0.0);
     SystemCoreClockUpdate();
 	// SysTick_Config(SystemCoreClock / 1000);
 	SysTick_Config(255); //Generación de interrupciones periódicas cada 1250ns

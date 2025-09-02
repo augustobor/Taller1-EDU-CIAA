@@ -23,7 +23,7 @@ int main(void) {
         moduleSound((getPorcentualState()+3)/10); // Actualiza el volumen en función del estado del encoder
         Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
         LightSabler_NightShutdown_Handler();
-        Efects_porcentual(getPorcentualState(), getIntensity()); // Actualiza los efectos de la tira LED según el estado del encoder
+        Efects_porcentual(getPorcentualState()); // Actualiza los efectos de la tira LED según el estado del encoder
 
         //Encoder handler
         CLK_ANT = B_CLK;
@@ -33,7 +33,7 @@ int main(void) {
             Switch_Color_Handler(B_DT); 
         }
         if(getButtonState() == PRENDIDO) {
-            Collision_Handler(); // TouchADC handler
+            //Collision_Handler(); // TouchADC handler
             SpeedVolume_Handler();
         }
         Neopixel_Update();
