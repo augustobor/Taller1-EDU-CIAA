@@ -19,7 +19,7 @@ void LightSabler_NightShutdown_Handler() {
             }
             break;
         case STOPPING:
-            if (brightnessLevel > 0.0) {
+            if (brightnessLevel > 0) {
                 brightnessLevel -= porcentual_step;
                 setPorcentualState(brightnessLevel);
                 dddd(10);
