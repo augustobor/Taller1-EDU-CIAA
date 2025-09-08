@@ -16,7 +16,6 @@ void SpeedVolume_Handler() {
     } else if (Gyro < -2) {
         Gyro = -2;
     }
-    printf("Gyro: %d\n", (int)(Gyro*10000));
-    setIntensity(Gyro);
-    //VolumeHandler_Update(Gyro*0.05f);
+    //printf("Gyro: %d\n", (int)(Gyro*10000));
+    setIntensity((int)Gyro*40000);
 }

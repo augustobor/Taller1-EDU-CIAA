@@ -50,7 +50,7 @@ void Neopixel_Init(){
     // Pongo en estado bajo LED1 el GPIO0[14]
     Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, OFF );
 
-    struct color currentColor = {0, 255, 0}; // Inicializa el color actual
+    struct color currentColor = {0, 100, 0}; // Inicializa el color actual
     setCurrentColor(currentColor); // Setea el color actual
 
 

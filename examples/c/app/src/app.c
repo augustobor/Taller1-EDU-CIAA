@@ -14,15 +14,16 @@ int main(void) {
     Neopixel_Init();
     Encoder_Init();  
     TouchADC_Init();
-    Sounds_Init();
-    //mpu60X0Init( MPU60X0_ADDRESS_0 );
+    //Sounds_Init();
+    mpu60X0Init( MPU60X0_ADDRESS_0 );
     
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {
         //VolumeHandler_Update(3.5-(1 - getPorcentualState())*2);
-        moduleSound((getPorcentualState()+3)/5); // Actualiza el volumen en función del estado del encoder
-        Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
+        //moduleSound((getPorcentualState()+3)/5); // Actualiza el volumen en función del estado del encoder
+        Neopixel_Update();
         LightSabler_NightShutdown_Handler();
+        Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.
         Efects_porcentual(getPorcentualState()); // Actualiza los efectos de la tira LED según el estado del encoder
         
         //Encoder handler
@@ -33,10 +34,9 @@ int main(void) {
             Switch_Color_Handler(B_DT); 
         }
         if(getButtonState() == PRENDIDO) {
-            //Collision_Handler(); // TouchADC handler
-            //SpeedVolume_Handler();
+            Collision_Handler(); // TouchADC handler
+            SpeedVolume_Handler();
         }
-        Neopixel_Update();
     }
 
     return 0;
