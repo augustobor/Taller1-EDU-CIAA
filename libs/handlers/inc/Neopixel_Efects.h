@@ -1,0 +1,20 @@
+#ifndef _NEOPIXEL_EFECTS_H_
+#define _NEOPIXEL_EFECTS_H_
+
+#include "Neopixel.h"
+#include "Encoder.h"
+
+//****** valores configurables ******
+#define MAX_VALUE 160      // valor maximo que puede tener un color, sin sobrecargar la bateria
+
+
+// ***** Efectos disponibles ******
+
+// efecto de onda senoidal de color c, con 15%offset siempre prendido, espejado respecto del centro 
+void Efects_sinoidal_breath_c_mirror();
+void Efects_porcentual(float porcentual_state);
+// efecto para colision
+void Efects_colision(uint8_t pixel_center,struct color cl, uint8_t radius);
+void LightSabler_Update(void);
+
+#endif /* #ifndef _NEOPIXEL_EFECTS_H_*/
