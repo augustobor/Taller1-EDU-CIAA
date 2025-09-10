@@ -9,10 +9,10 @@
 #define OFF      0
 
 // ******* valores empiricos calibrados para diferenciar cada aporte de potencial de cada touch
-static uint16_t triger_value_t1 = 489*2; // cada triger es ligeramente inferior al valor nominal de activacion de cada touch
-static uint16_t triger_value_t2 = 230*1; // supone que los sensores tactiles estan conectados en un DAC R2R
-static uint16_t triger_value_t3 = 109*1;
-static uint16_t triger_value_t4 = 40*1; // ?
+static uint16_t triger_value_t1 = 489*1; // cada triger es ligeramente inferior al valor nominal de activacion de cada touch
+static uint16_t triger_value_t2 = 230*2; // supone que los sensores tactiles estan conectados en un DAC R2R
+static uint16_t triger_value_t3 = 109*3.5;
+static uint16_t triger_value_t4 = 40*7;
 
 
 // ******* Funciones

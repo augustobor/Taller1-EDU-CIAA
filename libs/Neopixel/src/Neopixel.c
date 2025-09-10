@@ -6,7 +6,7 @@
 
 
 struct color currentColor = {170, 0, 170}; // si el color es negro: el sistema deja de enviar colores
-static volatile uint8_t currentIntensity = 0;
+static uint8_t currentIntensity = 0;
 
 /**
  * @brief Setea el color actual que se muestra en la tira LED. El color se aplica

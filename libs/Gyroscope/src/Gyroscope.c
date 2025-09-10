@@ -6,7 +6,6 @@ static MPU60X0_control_t current_control;
 MPU60X0_control_t GYRO_mpuRead( void )
 {
     current_control = mpu60X0Read_returned();
-    printf("Status: %d\n", current_control._status);
 	return current_control;
 }
 

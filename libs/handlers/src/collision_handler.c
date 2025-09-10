@@ -1,6 +1,6 @@
 #include "collision_handler.h"
 
-uint8_t radious = 5;
+uint8_t radious = 7;
 
 void Collision_Handler(void) {
     TouchADC_read();
