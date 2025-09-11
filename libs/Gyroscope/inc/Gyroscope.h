@@ -12,9 +12,9 @@ static float last_value_z = 0;
 static float GyroX = 0;
 static float GyroZ = 0;
 
-MPU60X0_control_t GYRO_mpuRead( void );
-float GYRO_mpu6050GetGyroX_rads( void );
-float GYRO_mpu6050GetGyroZ_rads( void );
-float filter_gyro(float, float);
+void GYRO_mpuRead( void );
+uint8_t GYRO_mpu6050GetGyroX_rads( void );
+uint8_t GYRO_mpu6050GetGyroZ_rads( void );
+uint8_t filter_gyro(uint8_t, uint8_t);
 
 #endif

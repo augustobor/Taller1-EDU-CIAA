@@ -58,6 +58,7 @@ extern "C" {
 #define MPU60X0_SELF_TEST_Y           0x0E
 #define MPU60X0_SELF_TEST_Z           0x0F
 #define MPU60X0_SELF_TEST_A           0x10                //These registers are used for gyroscope and accelerometer self-tests
+#define MPU60X0_SMPRT_DIV_BACKUP             0x19                //Sample Rate Divider
 #define MPU60X0_SMPRT_DIV             0x19                //Sample Rate Divider
 #define MPU60X0_CONFIG                0x1A
 #define MPU60X0_GYRO_CONFIG           0x1B                // Gyroscope Configuration

@@ -3,26 +3,25 @@
 //MPU control structure
 static MPU60X0_control_t current_control;
 
-MPU60X0_control_t GYRO_mpuRead( void )
+void GYRO_mpuRead( void )
 {
     current_control = mpu60X0Read_returned();
-	return current_control;
 }
 
 // Retorna la medición del giroscopio en la dirección x, rad/s
-float GYRO_mpu6050GetGyroX_rads( void )
+uint8_t GYRO_mpu6050GetGyroX_rads( void )
 {
-    return current_control._gx;
+    return (uint8_t)(current_control._gx);
 }
 // Retorna la medición del giroscopio en la dirección z, rad/s
-float GYRO_mpu6050GetGyroZ_rads( void )
+uint8_t GYRO_mpu6050GetGyroZ_rads( void )
 {
-	return current_control._gz;
+	return (uint8_t)(current_control._gz);
 }
 
-float filter_gyro(float GyX, float GyZ) {
-    float filtered_value_x = alpha * GyX + (1 - alpha) * last_value_x;
-    float filtered_value_z = alpha * GyZ + (1 - alpha) * last_value_z;
+uint8_t filter_gyro(uint8_t GyX, uint8_t GyZ) {
+    uint8_t filtered_value_x = alpha * GyX + (1 - alpha) * last_value_x;
+    uint8_t filtered_value_z = alpha * GyZ + (1 - alpha) * last_value_z;
     last_value_x = filtered_value_x;
     last_value_z = filtered_value_z;
     return filtered_value_x + filtered_value_z;

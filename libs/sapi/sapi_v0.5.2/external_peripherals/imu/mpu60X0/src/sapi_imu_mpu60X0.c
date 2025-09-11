@@ -90,27 +90,30 @@ static int8_t mpu60X0WriteRegister( uint8_t subAddress, uint8_t data )
 	transmitDataBuffer[0] = subAddress;
 	transmitDataBuffer[1] = data;
 	i2cWrite(I2C0, control.address, transmitDataBuffer, 2, TRUE);
-
-	dddd(14);
 	
+	for (volatile uint32_t i = 0; i < 10000; i++); // small delay
 	/* read back the register */
 	mpu60X0ReadRegisters(subAddress,1);
 	/* check the read back register against the written register */
+	//return 1;
 	if(control._buffer[0] == data) {
 		return 1;
 	}
 	else{
+		printf("Error escribiendo registro %d, data leida: %d, data escrita: %d\n", subAddress, control._buffer[0], data);
 		return -1;
 	}
 }
 
 static int8_t mpu60X0ReadRegisters( uint8_t subAddress, uint8_t count )
 {
-	if( i2cRead( I2C0,control.address,&subAddress,1,TRUE,control._buffer,count,TRUE) ){
-		return 1;
-	} else {
-		return -1;
-	}
+	i2cRead( I2C0,control.address,&subAddress,1,TRUE,control._buffer,count,TRUE);
+	return 1;
+	// if( i2cRead( I2C0,control.address,&subAddress,1,TRUE,control._buffer,count,TRUE) ){
+	// 	return 1;
+	// } else {
+	// 	return -1;
+	// }
 }
 
 static int8_t mpu60X0WhoAmI( void )
@@ -145,7 +148,7 @@ static int8_t mpu60X0CalibrateGyro( void )
 		control._gxbD += ((mpu60X0GetGyroX_rads() + control._gxb)/control._numSamples);
 		control._gybD += ((mpu60X0GetGyroY_rads() + control._gyb)/control._numSamples);
 		control._gzbD += ((mpu60X0GetGyroZ_rads() + control._gzb)/control._numSamples);
-		dddd(20);
+		for (volatile uint32_t i = 0; i < 100; i++);
 	}
 	control._gxb = (float)control._gxbD;
 	control._gyb = (float)control._gybD;
@@ -283,7 +286,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	mpu60X0InitializeControlStructure();
 
 	control.address = address;
-
+	
 	// using I2C for communication
 	// starting the I2C bus
 	i2cInit(I2C0, MPU60X0_I2C_RATE);
@@ -292,7 +295,6 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -1;
 	}
-
 	// enable I2C master mode
 	if (mpu60X0WriteRegister(MPU60X0_USER_CTRL, MPU60X0_I2C_MST_EN) < 0) {
 		return -2;
@@ -304,13 +306,13 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	// reset the MPU60X0
 	mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_PWR_RESET);
 	// wait for MPU60X0 to come back up
-	dddd(1);
 	// select clock source to X-gyro
 	if (mpu60X0WriteRegister(MPU60X0_PWR_MGMT_1, MPU60X0_CLOCK_SEL_PLL_X_GYRO) < 0) {
 		return -4;
 	}
 	// check the WHO AM I byte, expected value is 0x68 (decimal 104)
 	if (mpu60X0WhoAmI() != 104) {
+		printf("WHO AM I: %d \n", mpu60X0WhoAmI());
 		return -5;
 	}
 	// enable accelerometer and gyro
@@ -327,7 +329,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	if (mpu60X0WriteRegister(MPU60X0_GYRO_CONFIG, MPU60X0_GYRO_FS_SEL_2000DPS) < 0) {
 		return -8;
 	}
-	// setting the gyro scale to 2000DPS
+   // setting the gyro scale to 2000DPS
 	control._gyroScale = 2000.0f / 32767.5f * MPU60X0_D2R;
 	control._gyroRange = MPU60X0_GYRO_RANGE_2000DPS;
 	// setting accel bandwidth to 184Hz and gyro bandwidth to 188Hz as default
@@ -359,6 +361,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	// successful init, return 1
 	return 1;
 }
+
 
 //Read sensor registers and store data at control structure
 bool_t mpu60X0Read(void)
@@ -392,24 +395,28 @@ MPU60X0_control_t mpu60X0Read_returned(void)
 	// grab the data from the MPU60X0
 	if( !mpu60X0ReadRegisters(MPU60X0_ACCEL_OUT, 21) ){
 		return (MPU60X0_control_t){0};
+	} else {
+
+		// combine into 16 bit values
+		control._axcounts = (((int16_t)control._buffer[0]) << 8)  | control._buffer[1];
+		control._aycounts = (((int16_t)control._buffer[2]) << 8)  | control._buffer[3];
+		control._azcounts = (((int16_t)control._buffer[4]) << 8)  | control._buffer[5];
+		control._tcounts  = (((int16_t)control._buffer[6]) << 8)  | control._buffer[7];
+		control._gxcounts = (((int16_t)control._buffer[8]) << 8)  | control._buffer[9];
+		control._gycounts = (((int16_t)control._buffer[10]) << 8) | control._buffer[11];
+		control._gzcounts = (((int16_t)control._buffer[12]) << 8) | control._buffer[13];
+		// transform and convert to float values
+		control._ax = (((float)(control.tX[0]*control._axcounts + control.tX[1]*control._aycounts + control.tX[2]*control._azcounts) * control._accelScale) - control._axb)*control._axs;
+		control._ay = (((float)(control.tY[0]*control._axcounts + control.tY[1]*control._aycounts + control.tY[2]*control._azcounts) * control._accelScale) - control._ayb)*control._ays;
+		control._az = (((float)(control.tZ[0]*control._axcounts + control.tZ[1]*control._aycounts + control.tZ[2]*control._azcounts) * control._accelScale) - control._azb)*control._azs;
+		control._gx = ((float) (control.tX[0]*control._gxcounts + control.tX[1]*control._gycounts + control.tX[2]*control._gzcounts) * control._gyroScale) -  control._gxb;
+		control._gy = ((float) (control.tY[0]*control._gxcounts + control.tY[1]*control._gycounts + control.tY[2]*control._gzcounts) * control._gyroScale) -  control._gyb;
+		control._gz = ((float) (control.tZ[0]*control._gxcounts + control.tZ[1]*control._gycounts + control.tZ[2]*control._gzcounts) * control._gyroScale) -  control._gzb;
+		control._t = ((((float) control._tcounts)  - control._tempOffset)/ control._tempScale) + control._tempOffset;
+		
+		printf("gx: %u\n", (uint8_t)(control._gx*1000000));
+		return control;
 	}
-	// combine into 16 bit values
-	control._axcounts = (((int16_t)control._buffer[0]) << 8)  | control._buffer[1];
-	control._aycounts = (((int16_t)control._buffer[2]) << 8)  | control._buffer[3];
-	control._azcounts = (((int16_t)control._buffer[4]) << 8)  | control._buffer[5];
-	control._tcounts  = (((int16_t)control._buffer[6]) << 8)  | control._buffer[7];
-	control._gxcounts = (((int16_t)control._buffer[8]) << 8)  | control._buffer[9];
-	control._gycounts = (((int16_t)control._buffer[10]) << 8) | control._buffer[11];
-	control._gzcounts = (((int16_t)control._buffer[12]) << 8) | control._buffer[13];
-	// transform and convert to float values
-	control._ax = (((float)(control.tX[0]*control._axcounts + control.tX[1]*control._aycounts + control.tX[2]*control._azcounts) * control._accelScale) - control._axb)*control._axs;
-	control._ay = (((float)(control.tY[0]*control._axcounts + control.tY[1]*control._aycounts + control.tY[2]*control._azcounts) * control._accelScale) - control._ayb)*control._ays;
-	control._az = (((float)(control.tZ[0]*control._axcounts + control.tZ[1]*control._aycounts + control.tZ[2]*control._azcounts) * control._accelScale) - control._azb)*control._azs;
-	control._gx = ((float) (control.tX[0]*control._gxcounts + control.tX[1]*control._gycounts + control.tX[2]*control._gzcounts) * control._gyroScale) -  control._gxb;
-	control._gy = ((float) (control.tY[0]*control._gxcounts + control.tY[1]*control._gycounts + control.tY[2]*control._gzcounts) * control._gyroScale) -  control._gyb;
-	control._gz = ((float) (control.tZ[0]*control._gxcounts + control.tZ[1]*control._gycounts + control.tZ[2]*control._gzcounts) * control._gyroScale) -  control._gzb;
-	control._t = ((((float) control._tcounts)  - control._tempOffset)/ control._tempScale) + control._tempOffset;
-	return control;
 }
 
 
