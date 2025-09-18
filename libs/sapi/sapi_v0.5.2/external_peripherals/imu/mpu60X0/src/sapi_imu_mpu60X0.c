@@ -100,7 +100,7 @@ static int8_t mpu60X0WriteRegister( uint8_t subAddress, uint8_t data )
 		return 1;
 	}
 	else{
-		printf("Error escribiendo registro %d, data leida: %d, data escrita: %d\n", subAddress, control._buffer[0], data);
+//		printf("Error escribiendo registro %d, data leida: %d, data escrita: %d\n", subAddress, control._buffer[0], data);
 		return -1;
 	}
 }
@@ -312,7 +312,7 @@ int8_t mpu60X0Init( MPU60X0_address_t address )
 	}
 	// check the WHO AM I byte, expected value is 0x68 (decimal 104)
 	if (mpu60X0WhoAmI() != 104) {
-		printf("WHO AM I: %d \n", mpu60X0WhoAmI());
+		//printf("WHO AM I: %d \n", mpu60X0WhoAmI());
 		return -5;
 	}
 	// enable accelerometer and gyro
@@ -414,7 +414,7 @@ MPU60X0_control_t mpu60X0Read_returned(void)
 		control._gz = ((float) (control.tZ[0]*control._gxcounts + control.tZ[1]*control._gycounts + control.tZ[2]*control._gzcounts) * control._gyroScale) -  control._gzb;
 		control._t = ((((float) control._tcounts)  - control._tempOffset)/ control._tempScale) + control._tempOffset;
 		
-		printf("gx: %u\n", (uint8_t)(control._gx*1000000));
+		//printf("gx: %u\n", (uint8_t)(control._gx*1000000));
 		return control;
 	}
 }

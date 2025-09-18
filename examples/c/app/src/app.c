@@ -11,7 +11,7 @@ int main(void) {
     //boardInit();
     Board_Init();
     boardConfig();
-    printf(" mpu60x0 %d \n", mpu60X0Init( MPU60X0_ADDRESS_0 ));
+    mpu60X0Init( MPU60X0_ADDRESS_0 );
     Timer1_Init();
     Neopixel_Init();
     Encoder_Init();  
@@ -21,7 +21,7 @@ int main(void) {
     static uint8_t B_CLK, B_DT, CLK_ANT;
     while (1) {
         moduleSound((getPorcentualState()+3)/5); // Actualiza el volumen en función del estado del encoder
-        VolumeHandler_Update(5.5-(1 - getPorcentualState())*2);
+        VolumeHandler_Update(5.5*getIntensity()-(1 - getPorcentualState()));
         Neopixel_Update();
         LightSabler_NightShutdown_Handler();
         Neopixel_Wait(); // Para evitar que ocurran eventos durante la actualizacion de los LEDs es necesario esperar.

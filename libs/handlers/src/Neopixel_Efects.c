@@ -45,10 +45,12 @@ void Efects_porcentual(float porcentual_state){
 	uint8_t pix_i;
 	for(pix_i=0; pix_i< pixels_on ;pix_i++){ // recorro la mitad de los pixeles
 	  corrimiento_angular+=desfazaje_by_pixel; // a cada pixel se le asigna un peque�o corrimiento para hacer el efecto desplazamiento-barrido de la onda
-	  setColor_i(pix_i ,0.05 + getIntensity()); // le asigno al pixel i el color seteado escalado en seno
+
+	  setIntensity(getPorcentualState()*(float)(1 - (angulo_temporal/420.0)));
+	  setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
 	  
-	  //setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular) + getIntensity()); // le asigno al pixel i el color seteado escalado en seno
-      mirror(pix_i); // espejado
+	  //setColor_i(pix_i ,brain_cicle_intensity(angulo_temporal +corrimiento_angular)); // le asigno al pixel i el color seteado escalado en seno
+	  mirror(pix_i); // espejado
 	}
 	while( pix_i<((PIXELS_LENGTH+1)/2)){ // recorro el resto de los pixeles y los apago
 		pixel_off(pix_i);

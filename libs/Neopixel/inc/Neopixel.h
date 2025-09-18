@@ -30,8 +30,8 @@ struct color getColor(uint8_t number_pixel); // retorna el color del pixel
 void setColor(uint8_t number_pixel, struct color c); // asigna el color c al pixel
 void setColor_i(uint8_t number_pixel ,float intensity); // asigna una el color "c" al pixel "n" con la "intencidad" espesificada (entre 0 y 1)
 void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float proportion); //asigna una mescla lineal de los colores "c1" y "c2" al pixel "n", con una "proporcion" espesificada (entre 0 a 1)
-void setIntensity(uint8_t intensity);
-uint8_t getIntensity(void);
+void setIntensity(float intensity);
+float getIntensity(void);
 void mirror(uint8_t number_pixel); //copia el color del pixel "n" al pixel "PIXELS_LENGTH-n"
 void mirror_all(); // copia espejada de todos los pixeles de la tira led
 void pixel_off(uint8_t number_pixel);// apaga el pixel con numero @number_pixel

@@ -6,7 +6,7 @@
 
 
 struct color currentColor = {170, 0, 170}; // si el color es negro: el sistema deja de enviar colores
-static uint8_t currentIntensity = 0;
+static float currentIntensity = 0.5;
 
 /**
  * @brief Setea el color actual que se muestra en la tira LED. El color se aplica
@@ -27,9 +27,9 @@ struct color getCurrentColor(){
 // le asigna una proporción del color del sistema, al "number_pixel", escalado en "level" entre 0 y 1
 // number_pixel entre "0" a "PIXEL_LENGTH-1"
 void setColor_i(uint8_t number_pixel, float level) {
-    datachain[number_pixel*3]  = level*currentColor.g;
-    datachain[number_pixel*3+1]= level*currentColor.r;
-    datachain[number_pixel*3+2]= level*currentColor.b;
+    datachain[number_pixel*3]  = getIntensity()*currentColor.g;
+    datachain[number_pixel*3+1]= getIntensity()*currentColor.r;
+    datachain[number_pixel*3+2]= getIntensity()*currentColor.b;
 }
 
 // apaga el pixel con número @number_pixel
@@ -92,10 +92,10 @@ void setColor_fade(uint8_t number_pixel, struct color c1, struct color c2, float
 	}
 }
 
-void setIntensity(uint8_t intensity) {
+void setIntensity(float intensity) {
     currentIntensity = intensity;
 }
 
-uint8_t getIntensity(void) {
+float getIntensity(void) {
     return currentIntensity;
 }

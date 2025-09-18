@@ -32,4 +32,5 @@ void LightSabler_NightShutdown_Handler() {
         default:
             break;
     }
+    setIntensity((float)getPorcentualState()/2);
 }
